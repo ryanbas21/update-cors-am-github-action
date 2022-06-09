@@ -6,7 +6,8 @@ const mock = new MockAdapter(axios as any);
 
 describe('libUpdateCorsCloud', () => {
   beforeEach(() => {
-    mock.onPut('/global-config/services/CorsService').reply(201, { _id: '123' });
+    mock.reset();
+    mock.onPut('/global-config/services/CorsService/alpha').reply(201, { _id: '123' });
     mock.onGet('/json/global-config/services/CorsService/?_action=nextdescendents').reply(200, {
       data: {
         results: [
@@ -30,7 +31,9 @@ describe('libUpdateCorsCloud', () => {
       AM_URL: 'am-cloud.com/am',
       originsToAdd: ['preview-url'],
       ssoToken: '123abc',
+      cookieName: 'cookieName',
       remove: false,
+      realm: 'alpha'
     };
     const result = (await updateCorsConfig(data)) as { id: string }; // tests successful branch
     expect(result).toEqual({ id: result.id });
@@ -40,21 +43,26 @@ describe('libUpdateCorsCloud', () => {
       AM_URL: '',
       originsToAdd: ['preview-url'],
       ssoToken: '123abc',
+      cookieName: 'cookieName',
       remove: false,
+      realm: 'alpha'
     };
+
     expect(updateCorsConfig(data)).rejects.toEqual('You must provide an AM_URL');
   });
-  it('should return success false when request fails with 404', async () => {
+  it('should throw when request fails with 404', async () => {
     const data = {
       AM_URL: 'am-cloud.com/am',
       originsToAdd: ['preview-url'],
       ssoToken: '123abc',
+      cookieName: 'cookieName',
+      realm: 'alpha',
       remove: false,
     };
     mock.reset();
-    mock.onPut('/global-config/services/CorsService').replyOnce(404, {});
-    const result = await updateCorsConfig(data);
-    console.log(result);
-    expect((result as Error).message).toEqual('Request failed with status code 404');
+    mock.onPut('global-config/services/CorsService/alpha').replyOnce(404);
+    const result = await updateCorsConfig(data).catch(e => e);
+
+    expect(result).toEqual('Request failed with status code 404');
   });
 });

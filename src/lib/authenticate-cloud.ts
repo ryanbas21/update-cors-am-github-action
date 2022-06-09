@@ -1,4 +1,5 @@
-import axios, { AxiosPromise, AxiosRequestConfig, AxiosResponse } from 'axios';
+import { CallbackType, FRStep } from "@forgerock/javascript-sdk";
+import axios, { AxiosResponse } from "axios";
 
 interface AuthenticateCloudParams {
   AM_URL: string;
@@ -6,33 +7,45 @@ interface AuthenticateCloudParams {
   username: string;
   password: string;
 }
-interface CloudAuth {
+interface SSOToken {
   tokenId: string;
   successUrl: string;
   realm: string;
 }
 async function authenticateCloud({
-  realm,
+  // realm,
   AM_URL,
   username,
   password,
-}: AuthenticateCloudParams): Promise<AxiosResponse<CloudAuth>> {
+}: AuthenticateCloudParams): Promise<string> {
   try {
-    const config: AxiosRequestConfig = {
-      baseURL: AM_URL.slice(-2),
-      method: 'POST',
-      url: `/openam/json/realms/root/realms/${realm}/authenticate`,
-      data: {},
+    const request = axios.create({
+      baseURL: AM_URL,
       headers: {
-        'X-OpenAM-Username': username,
-        'X-OpenAM-Password': password,
+        "Content-Type": "application/json; charset=utf-8",
+        "Accept-API-Version": "resource=2.1, protocol=1.0",
+        "X-OpenAM-Username": username,
+        "X-OpenAM-Password": password,
       },
-    };
-    const response = await axios.request<CloudAuth, AxiosPromise<CloudAuth>>(config);
+    });
+    const { data: nextData } = await request.post("/json/authenticate");
 
-    return response;
+    const lastStep = new FRStep(nextData);
+    lastStep
+      .getCallbackOfType(CallbackType.HiddenValueCallback)
+      .setInputValue("Skip");
+    const {
+      data: { tokenId: ssoToken },
+    } = await request.post<FRStep, AxiosResponse<SSOToken>>(
+      "/json/authenticate",
+      lastStep.payload
+    );
+
+    return ssoToken;
   } catch (error) {
-    return Promise.reject(`We encountered an error authorizing your request`);
+    return Promise.reject(
+      `We encountered an error authorizing your request: ${error}`
+    );
   }
 }
 

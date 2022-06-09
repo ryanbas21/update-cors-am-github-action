@@ -1,29 +1,35 @@
-name: '@forgerock/update-cors'
-description: 'Update an AM Tenants Cors Configuration'
+name: "@ryanbas21/update-am"
+description: "Update an AM Tenants Cors Configuration and Signin URLs"
 inputs:
-  AM_URL: # id of input
-    description: 'url to your AM cloud tenant'
+  AM_URL:
+    description: "url to your AM cloud tenant"
     required: true
-  username:
-    description: 'username for cloud tenant'
+  USERNAME:
+    description: "username for cloud tenant"
     required: true
-  password:
-    description: 'password for cloud tenant'
+  PASSWORD:
+    description: "password for cloud tenant"
     required: true
-  realm:
-    description: 'realm on cloud tenant'
+  REALM:
+    description: "realm on cloud tenant"
     required: true
-  origins:
-    description: 'origins to add'
+  ORIGINS:
+    description: "origins to add"
     required: true
-  remove:
-    description: 'remove origins if needed'
-    default: 'false'
+  COOKIE_NAME:
+    description: "cookie name to set on requests"
+    required: true
+  REMOVE:
+    description: "remove origins if needed"
+    default: "false"
+    required: false
+  REDIRECTION_URIS:
+    description: "JSON representation of a list of objects that have the shape { urls: string[], name: string}. A name represents the oauthClient Name that the associated url list are associated with."
     required: false
 
 outputs:
-  accepted-origins: # id of output
-    description: 'The accepted origins on the cloud tenant and the id'
+  accepted-origins:
+    description: "The accepted origins on the cloud tenant and the id returned from AM"
 runs:
-  using: 'node16'
-  main: 'dist/lib/index.js'
+  using: "node16"
+  main: "dist/index.js"

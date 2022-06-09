@@ -1667,6 +1667,6932 @@ exports.checkBypass = checkBypass;
 
 /***/ }),
 
+/***/ 3265:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * enums.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ErrorCode = exports.CallbackType = void 0;
+/**
+ * Known errors that can occur during authentication.
+ */
+var ErrorCode;
+(function (ErrorCode) {
+    ErrorCode["BadRequest"] = "BAD_REQUEST";
+    ErrorCode["Timeout"] = "TIMEOUT";
+    ErrorCode["Unauthorized"] = "UNAUTHORIZED";
+    ErrorCode["Unknown"] = "UNKNOWN";
+})(ErrorCode || (ErrorCode = {}));
+exports.ErrorCode = ErrorCode;
+/**
+ * Types of callbacks directly supported by the SDK.
+ */
+var CallbackType;
+(function (CallbackType) {
+    CallbackType["BooleanAttributeInputCallback"] = "BooleanAttributeInputCallback";
+    CallbackType["ChoiceCallback"] = "ChoiceCallback";
+    CallbackType["ConfirmationCallback"] = "ConfirmationCallback";
+    CallbackType["DeviceProfileCallback"] = "DeviceProfileCallback";
+    CallbackType["HiddenValueCallback"] = "HiddenValueCallback";
+    CallbackType["KbaCreateCallback"] = "KbaCreateCallback";
+    CallbackType["MetadataCallback"] = "MetadataCallback";
+    CallbackType["NameCallback"] = "NameCallback";
+    CallbackType["NumberAttributeInputCallback"] = "NumberAttributeInputCallback";
+    CallbackType["PasswordCallback"] = "PasswordCallback";
+    CallbackType["PollingWaitCallback"] = "PollingWaitCallback";
+    CallbackType["ReCaptchaCallback"] = "ReCaptchaCallback";
+    CallbackType["RedirectCallback"] = "RedirectCallback";
+    CallbackType["SelectIdPCallback"] = "SelectIdPCallback";
+    CallbackType["StringAttributeInputCallback"] = "StringAttributeInputCallback";
+    CallbackType["SuspendedTextOutputCallback"] = "SuspendedTextOutputCallback";
+    CallbackType["TermsAndConditionsCallback"] = "TermsAndConditionsCallback";
+    CallbackType["TextOutputCallback"] = "TextOutputCallback";
+    CallbackType["ValidatedCreatePasswordCallback"] = "ValidatedCreatePasswordCallback";
+    CallbackType["ValidatedCreateUsernameCallback"] = "ValidatedCreateUsernameCallback";
+})(CallbackType || (CallbackType = {}));
+exports.CallbackType = CallbackType;
+//# sourceMappingURL=enums.js.map
+
+/***/ }),
+
+/***/ 8284:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * index.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var config_1 = __nccwpck_require__(4445);
+var enums_1 = __nccwpck_require__(7031);
+var constants_1 = __nccwpck_require__(3305);
+var timeout_1 = __nccwpck_require__(7564);
+var url_1 = __nccwpck_require__(9627);
+var middleware_1 = __nccwpck_require__(2423);
+/**
+ * Provides direct access to the OpenAM authentication tree API.
+ */
+var Auth = /** @class */ (function () {
+    function Auth() {
+    }
+    /**
+     * Gets the next step in the authentication tree.
+     *
+     * @param {Step} previousStep The previous step, including any required input.
+     * @param {StepOptions} options Configuration default overrides.
+     * @return {Step} The next step in the authentication tree.
+     */
+    Auth.next = function (previousStep, options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, middleware, realmPath, serverConfig, tree, type, query, url, runMiddleware, req, res, json;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = config_1.default.get(options), middleware = _a.middleware, realmPath = _a.realmPath, serverConfig = _a.serverConfig, tree = _a.tree, type = _a.type;
+                        query = options ? options.query : {};
+                        url = this.constructUrl(serverConfig, realmPath, tree, query);
+                        runMiddleware = (0, middleware_1.default)({
+                            url: new URL(url),
+                            init: this.configureRequest(previousStep),
+                        }, {
+                            type: previousStep ? enums_1.ActionTypes.Authenticate : enums_1.ActionTypes.StartAuthenticate,
+                            payload: {
+                                tree: tree,
+                                type: type ? type : 'service',
+                            },
+                        });
+                        req = runMiddleware(middleware);
+                        return [4 /*yield*/, (0, timeout_1.withTimeout)(fetch(req.url.toString(), req.init), serverConfig.timeout)];
+                    case 1:
+                        res = _b.sent();
+                        return [4 /*yield*/, this.getResponseJson(res)];
+                    case 2:
+                        json = _b.sent();
+                        return [2 /*return*/, json];
+                }
+            });
+        });
+    };
+    Auth.constructUrl = function (serverConfig, realmPath, tree, query) {
+        var treeParams = tree ? { authIndexType: 'service', authIndexValue: tree } : undefined;
+        var params = __assign(__assign({}, query), treeParams);
+        var queryString = Object.keys(params).length > 0 ? "?".concat((0, url_1.stringify)(params)) : '';
+        var path = (0, url_1.getEndpointPath)('authenticate', realmPath, serverConfig.paths);
+        var url = (0, url_1.resolve)(serverConfig.baseUrl, "".concat(path).concat(queryString));
+        return url;
+    };
+    Auth.configureRequest = function (step) {
+        var init = {
+            body: step ? JSON.stringify(step) : undefined,
+            credentials: 'include',
+            headers: new Headers({
+                accept: 'application/json',
+                'accept-api-version': 'protocol=1.0,resource=2.1',
+                'content-type': 'application/json',
+                'x-requested-with': constants_1.REQUESTED_WITH,
+            }),
+            method: 'POST',
+        };
+        return init;
+    };
+    Auth.getResponseJson = function (res) {
+        return __awaiter(this, void 0, void 0, function () {
+            var contentType, isJson, json, _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        contentType = res.headers.get('content-type');
+                        isJson = contentType && contentType.indexOf('application/json') > -1;
+                        if (!isJson) return [3 /*break*/, 2];
+                        return [4 /*yield*/, res.json()];
+                    case 1:
+                        _a = _b.sent();
+                        return [3 /*break*/, 3];
+                    case 2:
+                        _a = {};
+                        _b.label = 3;
+                    case 3:
+                        json = _a;
+                        json.status = res.status;
+                        json.ok = res.ok;
+                        return [2 /*return*/, json];
+                }
+            });
+        });
+    };
+    return Auth;
+}());
+exports["default"] = Auth;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 636:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * constants.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.DEFAULT_OAUTH_THRESHOLD = exports.DEFAULT_TIMEOUT = void 0;
+/** @hidden */
+var DEFAULT_TIMEOUT = 60 * 1000;
+exports.DEFAULT_TIMEOUT = DEFAULT_TIMEOUT;
+var DEFAULT_OAUTH_THRESHOLD = 30 * 1000;
+exports.DEFAULT_OAUTH_THRESHOLD = DEFAULT_OAUTH_THRESHOLD;
+//# sourceMappingURL=constants.js.map
+
+/***/ }),
+
+/***/ 7031:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * enums.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ActionTypes = void 0;
+var ActionTypes;
+(function (ActionTypes) {
+    ActionTypes["Authenticate"] = "AUTHENTICATE";
+    ActionTypes["Authorize"] = "AUTHORIZE";
+    ActionTypes["EndSession"] = "END_SESSION";
+    ActionTypes["Logout"] = "LOGOUT";
+    ActionTypes["ExchangeToken"] = "EXCHANGE_TOKEN";
+    ActionTypes["RefreshToken"] = "REFRESH_TOKEN";
+    ActionTypes["ResumeAuthenticate"] = "RESUME_AUTHENTICATE";
+    ActionTypes["RevokeToken"] = "REVOKE_TOKEN";
+    ActionTypes["StartAuthenticate"] = "START_AUTHENTICATE";
+    ActionTypes["UserInfo"] = "USER_INFO";
+})(ActionTypes = exports.ActionTypes || (exports.ActionTypes = {}));
+//# sourceMappingURL=enums.js.map
+
+/***/ }),
+
+/***/ 4445:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * index.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.DEFAULT_TIMEOUT = void 0;
+var constants_1 = __nccwpck_require__(636);
+Object.defineProperty(exports, "DEFAULT_TIMEOUT", ({ enumerable: true, get: function () { return constants_1.DEFAULT_TIMEOUT; } }));
+/**
+ * Sets defaults for options that are required but have no supplied value
+ * @param options The options to set defaults for
+ * @returns options The options with defaults
+ */
+function setDefaults(options) {
+    return __assign(__assign({}, options), { oauthThreshold: options.oauthThreshold || constants_1.DEFAULT_OAUTH_THRESHOLD });
+}
+/**
+ * Utility for merging configuration defaults with one-off options.
+ *
+ * Example:
+ *
+ * ```js
+ * // Establish configuration defaults
+ * Config.set({
+ *   clientId: 'myApp',
+ *   serverConfig: { baseUrl: 'https://openam-domain.com/am' },
+ *   tree: 'UsernamePassword'
+ * });
+ *
+ * // Specify overrides as needed
+ * const configOverrides = { tree: 'PasswordlessWebAuthn' };
+ * const step = await FRAuth.next(undefined, configOverrides);
+ */
+var Config = /** @class */ (function () {
+    function Config() {
+    }
+    /**
+     * Sets the default options.
+     *
+     * @param options The options to use as defaults
+     */
+    Config.set = function (options) {
+        if (!this.isValid(options)) {
+            throw new Error('Configuration is invalid');
+        }
+        if (options.serverConfig) {
+            this.validateServerConfig(options.serverConfig);
+        }
+        this.options = __assign({}, setDefaults(options));
+    };
+    /**
+     * Merges the provided options with the default options.  Ensures a server configuration exists.
+     *
+     * @param options The options to merge with defaults
+     */
+    Config.get = function (options) {
+        if (!this.options && !options) {
+            throw new Error('Configuration has not been set');
+        }
+        var merged = __assign(__assign({}, this.options), options);
+        if (!merged.serverConfig || !merged.serverConfig.baseUrl) {
+            throw new Error('Server configuration has not been set');
+        }
+        return merged;
+    };
+    Config.isValid = function (options) {
+        return !!(options && options.serverConfig);
+    };
+    Config.validateServerConfig = function (serverConfig) {
+        if (!serverConfig.timeout) {
+            serverConfig.timeout = constants_1.DEFAULT_TIMEOUT;
+        }
+        var url = serverConfig.baseUrl;
+        if (url && url.charAt(url.length - 1) !== '/') {
+            serverConfig.baseUrl = url + '/';
+        }
+    };
+    return Config;
+}());
+exports["default"] = Config;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 5892:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * helpers.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.remove = exports.clear = exports.add = void 0;
+/** @hidden */
+function add(container, type, listener) {
+    container[type] = container[type] || [];
+    if (container[type].indexOf(listener) < 0) {
+        container[type].push(listener);
+    }
+}
+exports.add = add;
+/** @hidden */
+function remove(container, type, listener) {
+    if (!container[type]) {
+        return;
+    }
+    var index = container[type].indexOf(listener);
+    if (index >= 0) {
+        container[type].splice(index, 1);
+    }
+}
+exports.remove = remove;
+/** @hidden */
+function clear(container, type) {
+    Object.keys(container).forEach(function (k) {
+        if (!type || k === type) {
+            delete container[k];
+        }
+    });
+}
+exports.clear = clear;
+//# sourceMappingURL=helpers.js.map
+
+/***/ }),
+
+/***/ 2262:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * index.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var helpers_1 = __nccwpck_require__(5892);
+/**
+ * Event dispatcher for subscribing and publishing categorized events.
+ */
+var Dispatcher = /** @class */ (function () {
+    function Dispatcher() {
+        this.callbacks = {};
+    }
+    /**
+     * Subscribes to an event type.
+     *
+     * @param type The event type
+     * @param listener The function to subscribe to events of this type
+     */
+    Dispatcher.prototype.addEventListener = function (type, listener) {
+        (0, helpers_1.add)(this.callbacks, type, listener);
+    };
+    /**
+     * Unsubscribes from an event type.
+     *
+     * @param type The event type
+     * @param listener The function to unsubscribe from events of this type
+     */
+    Dispatcher.prototype.removeEventListener = function (type, listener) {
+        (0, helpers_1.remove)(this.callbacks, type, listener);
+    };
+    /**
+     * Unsubscribes all listener functions to a single event type or all event types.
+     *
+     * @param type The event type, or all event types if not specified
+     */
+    Dispatcher.prototype.clearEventListeners = function (type) {
+        (0, helpers_1.clear)(this.callbacks, type);
+    };
+    /**
+     * Publishes an event.
+     *
+     * @param event The event object to publish
+     */
+    Dispatcher.prototype.dispatchEvent = function (event) {
+        if (!this.callbacks[event.type]) {
+            return;
+        }
+        for (var _i = 0, _a = this.callbacks[event.type]; _i < _a.length; _i++) {
+            var listener = _a[_i];
+            listener(event);
+        }
+    };
+    return Dispatcher;
+}());
+exports["default"] = Dispatcher;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 6466:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * attribute-input-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+/**
+ * Represents a callback used to collect attributes.
+ *
+ * @typeparam T Maps to StringAttributeInputCallback, NumberAttributeInputCallback and
+ *     BooleanAttributeInputCallback, respectively
+ */
+var AttributeInputCallback = /** @class */ (function (_super) {
+    __extends(AttributeInputCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function AttributeInputCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    /**
+     * Gets the attribute name.
+     */
+    AttributeInputCallback.prototype.getName = function () {
+        return this.getOutputByName('name', '');
+    };
+    /**
+     * Gets the attribute prompt.
+     */
+    AttributeInputCallback.prototype.getPrompt = function () {
+        return this.getOutputByName('prompt', '');
+    };
+    /**
+     * Gets whether the attribute is required.
+     */
+    AttributeInputCallback.prototype.isRequired = function () {
+        return this.getOutputByName('required', false);
+    };
+    /**
+     * Gets the callback's failed policies.
+     */
+    AttributeInputCallback.prototype.getFailedPolicies = function () {
+        return this.getOutputByName('failedPolicies', []);
+    };
+    /**
+     * Gets the callback's applicable policies.
+     */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    AttributeInputCallback.prototype.getPolicies = function () {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        return this.getOutputByName('policies', {});
+    };
+    /**
+     * Set if validating value only.
+     */
+    AttributeInputCallback.prototype.setValidateOnly = function (value) {
+        this.setInputValue(value, /validateOnly/);
+    };
+    /**
+     * Sets the attribute's value.
+     */
+    AttributeInputCallback.prototype.setValue = function (value) {
+        this.setInputValue(value);
+    };
+    return AttributeInputCallback;
+}(_1.default));
+exports["default"] = AttributeInputCallback;
+//# sourceMappingURL=attribute-input-callback.js.map
+
+/***/ }),
+
+/***/ 3680:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * choice-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+/**
+ * Represents a callback used to collect an answer to a choice.
+ */
+var ChoiceCallback = /** @class */ (function (_super) {
+    __extends(ChoiceCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function ChoiceCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    /**
+     * Gets the choice's prompt.
+     */
+    ChoiceCallback.prototype.getPrompt = function () {
+        return this.getOutputByName('prompt', '');
+    };
+    /**
+     * Gets the choice's default answer.
+     */
+    ChoiceCallback.prototype.getDefaultChoice = function () {
+        return this.getOutputByName('defaultChoice', 0);
+    };
+    /**
+     * Gets the choice's possible answers.
+     */
+    ChoiceCallback.prototype.getChoices = function () {
+        return this.getOutputByName('choices', []);
+    };
+    /**
+     * Sets the choice's answer by index position.
+     */
+    ChoiceCallback.prototype.setChoiceIndex = function (index) {
+        var length = this.getChoices().length;
+        if (index < 0 || index > length - 1) {
+            throw new Error("".concat(index, " is out of bounds"));
+        }
+        this.setInputValue(index);
+    };
+    /**
+     * Sets the choice's answer by value.
+     */
+    ChoiceCallback.prototype.setChoiceValue = function (value) {
+        var index = this.getChoices().indexOf(value);
+        if (index === -1) {
+            throw new Error("\"".concat(value, "\" is not a valid choice"));
+        }
+        this.setInputValue(index);
+    };
+    return ChoiceCallback;
+}(_1.default));
+exports["default"] = ChoiceCallback;
+//# sourceMappingURL=choice-callback.js.map
+
+/***/ }),
+
+/***/ 8671:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * confirmation-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+/**
+ * Represents a callback used to collect a confirmation to a message.
+ */
+var ConfirmationCallback = /** @class */ (function (_super) {
+    __extends(ConfirmationCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function ConfirmationCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    /**
+     * Gets the index position of the confirmation's default answer.
+     */
+    ConfirmationCallback.prototype.getDefaultOption = function () {
+        return Number(this.getOutputByName('defaultOption', 0));
+    };
+    /**
+     * Gets the confirmation's message type.
+     */
+    ConfirmationCallback.prototype.getMessageType = function () {
+        return Number(this.getOutputByName('messageType', 0));
+    };
+    /**
+     * Gets the confirmation's possible answers.
+     */
+    ConfirmationCallback.prototype.getOptions = function () {
+        return this.getOutputByName('options', []);
+    };
+    /**
+     * Gets the confirmation's option type.
+     */
+    ConfirmationCallback.prototype.getOptionType = function () {
+        return Number(this.getOutputByName('optionType', 0));
+    };
+    /**
+     * Gets the confirmation's prompt.
+     */
+    ConfirmationCallback.prototype.getPrompt = function () {
+        return this.getOutputByName('prompt', '');
+    };
+    /**
+     * Set option index.
+     */
+    ConfirmationCallback.prototype.setOptionIndex = function (index) {
+        if (index !== 0 && index !== 1) {
+            throw new Error("\"".concat(index, "\" is not a valid choice"));
+        }
+        this.setInputValue(index);
+    };
+    /**
+     * Set option value.
+     */
+    ConfirmationCallback.prototype.setOptionValue = function (value) {
+        var index = this.getOptions().indexOf(value);
+        if (index === -1) {
+            throw new Error("\"".concat(value, "\" is not a valid choice"));
+        }
+        this.setInputValue(index);
+    };
+    return ConfirmationCallback;
+}(_1.default));
+exports["default"] = ConfirmationCallback;
+//# sourceMappingURL=confirmation-callback.js.map
+
+/***/ }),
+
+/***/ 1674:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * device-profile-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+/**
+ * Represents a callback used to collect device profile data.
+ */
+var DeviceProfileCallback = /** @class */ (function (_super) {
+    __extends(DeviceProfileCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function DeviceProfileCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    /**
+     * Gets the callback's data.
+     */
+    DeviceProfileCallback.prototype.getMessage = function () {
+        return this.getOutputByName('message', '');
+    };
+    /**
+     * Does callback require metadata?
+     */
+    DeviceProfileCallback.prototype.isMetadataRequired = function () {
+        return this.getOutputByName('metadata', false);
+    };
+    /**
+     * Does callback require location data?
+     */
+    DeviceProfileCallback.prototype.isLocationRequired = function () {
+        return this.getOutputByName('location', false);
+    };
+    /**
+     * Sets the profile.
+     */
+    DeviceProfileCallback.prototype.setProfile = function (profile) {
+        this.setInputValue(JSON.stringify(profile));
+    };
+    return DeviceProfileCallback;
+}(_1.default));
+exports["default"] = DeviceProfileCallback;
+//# sourceMappingURL=device-profile-callback.js.map
+
+/***/ }),
+
+/***/ 2657:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * factory.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+var enums_1 = __nccwpck_require__(3265);
+var attribute_input_callback_1 = __nccwpck_require__(6466);
+var choice_callback_1 = __nccwpck_require__(3680);
+var confirmation_callback_1 = __nccwpck_require__(8671);
+var device_profile_callback_1 = __nccwpck_require__(1674);
+var hidden_value_callback_1 = __nccwpck_require__(9607);
+var kba_create_callback_1 = __nccwpck_require__(3422);
+var metadata_callback_1 = __nccwpck_require__(630);
+var name_callback_1 = __nccwpck_require__(4825);
+var password_callback_1 = __nccwpck_require__(1759);
+var polling_wait_callback_1 = __nccwpck_require__(2902);
+var recaptcha_callback_1 = __nccwpck_require__(8547);
+var redirect_callback_1 = __nccwpck_require__(3505);
+var select_idp_callback_1 = __nccwpck_require__(5044);
+var suspended_text_output_callback_1 = __nccwpck_require__(6826);
+var terms_and_conditions_callback_1 = __nccwpck_require__(6683);
+var text_output_callback_1 = __nccwpck_require__(7435);
+var validated_create_password_callback_1 = __nccwpck_require__(3221);
+var validated_create_username_callback_1 = __nccwpck_require__(3254);
+/**
+ * @hidden
+ */
+function createCallback(callback) {
+    switch (callback.type) {
+        case enums_1.CallbackType.BooleanAttributeInputCallback:
+            return new attribute_input_callback_1.default(callback);
+        case enums_1.CallbackType.ChoiceCallback:
+            return new choice_callback_1.default(callback);
+        case enums_1.CallbackType.ConfirmationCallback:
+            return new confirmation_callback_1.default(callback);
+        case enums_1.CallbackType.DeviceProfileCallback:
+            return new device_profile_callback_1.default(callback);
+        case enums_1.CallbackType.HiddenValueCallback:
+            return new hidden_value_callback_1.default(callback);
+        case enums_1.CallbackType.KbaCreateCallback:
+            return new kba_create_callback_1.default(callback);
+        case enums_1.CallbackType.MetadataCallback:
+            return new metadata_callback_1.default(callback);
+        case enums_1.CallbackType.NameCallback:
+            return new name_callback_1.default(callback);
+        case enums_1.CallbackType.NumberAttributeInputCallback:
+            return new attribute_input_callback_1.default(callback);
+        case enums_1.CallbackType.PasswordCallback:
+            return new password_callback_1.default(callback);
+        case enums_1.CallbackType.PollingWaitCallback:
+            return new polling_wait_callback_1.default(callback);
+        case enums_1.CallbackType.ReCaptchaCallback:
+            return new recaptcha_callback_1.default(callback);
+        case enums_1.CallbackType.RedirectCallback:
+            return new redirect_callback_1.default(callback);
+        case enums_1.CallbackType.SelectIdPCallback:
+            return new select_idp_callback_1.default(callback);
+        case enums_1.CallbackType.StringAttributeInputCallback:
+            return new attribute_input_callback_1.default(callback);
+        case enums_1.CallbackType.SuspendedTextOutputCallback:
+            return new suspended_text_output_callback_1.default(callback);
+        case enums_1.CallbackType.TermsAndConditionsCallback:
+            return new terms_and_conditions_callback_1.default(callback);
+        case enums_1.CallbackType.TextOutputCallback:
+            return new text_output_callback_1.default(callback);
+        case enums_1.CallbackType.ValidatedCreatePasswordCallback:
+            return new validated_create_password_callback_1.default(callback);
+        case enums_1.CallbackType.ValidatedCreateUsernameCallback:
+            return new validated_create_username_callback_1.default(callback);
+        default:
+            return new _1.default(callback);
+    }
+}
+exports["default"] = createCallback;
+//# sourceMappingURL=factory.js.map
+
+/***/ }),
+
+/***/ 9607:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * hidden-value-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+/**
+ * Represents a callback used to collect information indirectly from the user.
+ */
+var HiddenValueCallback = /** @class */ (function (_super) {
+    __extends(HiddenValueCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function HiddenValueCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    return HiddenValueCallback;
+}(_1.default));
+exports["default"] = HiddenValueCallback;
+//# sourceMappingURL=hidden-value-callback.js.map
+
+/***/ }),
+
+/***/ 7939:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * index.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+/**
+ * Base class for authentication tree callback wrappers.
+ */
+var FRCallback = /** @class */ (function () {
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function FRCallback(payload) {
+        this.payload = payload;
+    }
+    /**
+     * Gets the name of this callback type.
+     */
+    FRCallback.prototype.getType = function () {
+        return this.payload.type;
+    };
+    /**
+     * Gets the value of the specified input element, or the first element if `selector` is not
+     * provided.
+     *
+     * @param selector The index position or name of the desired element
+     */
+    FRCallback.prototype.getInputValue = function (selector) {
+        if (selector === void 0) { selector = 0; }
+        return this.getArrayElement(this.payload.input, selector).value;
+    };
+    /**
+     * Sets the value of the specified input element, or the first element if `selector` is not
+     * provided.
+     *
+     * @param selector The index position or name of the desired element
+     */
+    FRCallback.prototype.setInputValue = function (value, selector) {
+        if (selector === void 0) { selector = 0; }
+        this.getArrayElement(this.payload.input, selector).value = value;
+    };
+    /**
+     * Gets the value of the specified output element, or the first element if `selector`
+     * is not provided.
+     *
+     * @param selector The index position or name of the desired element
+     */
+    FRCallback.prototype.getOutputValue = function (selector) {
+        if (selector === void 0) { selector = 0; }
+        return this.getArrayElement(this.payload.output, selector).value;
+    };
+    /**
+     * Gets the value of the first output element with the specified name or the
+     * specified default value.
+     *
+     * @param name The name of the desired element
+     */
+    FRCallback.prototype.getOutputByName = function (name, defaultValue) {
+        var output = this.payload.output.find(function (x) { return x.name === name; });
+        return output ? output.value : defaultValue;
+    };
+    FRCallback.prototype.getArrayElement = function (array, selector) {
+        if (selector === void 0) { selector = 0; }
+        if (array === undefined) {
+            throw new Error("No NameValue array was provided to search (selector ".concat(selector, ")"));
+        }
+        if (typeof selector === 'number') {
+            if (selector < 0 || selector > array.length - 1) {
+                throw new Error("Selector index ".concat(selector, " is out of range"));
+            }
+            return array[selector];
+        }
+        if (typeof selector === 'string') {
+            var input = array.find(function (x) { return x.name === selector; });
+            if (!input) {
+                throw new Error("Missing callback input entry \"".concat(selector, "\""));
+            }
+            return input;
+        }
+        // Duck typing for RegEx
+        if (typeof selector === 'object' && selector.test && selector.exec) {
+            var input = array.find(function (x) { return selector.test(x.name); });
+            if (!input) {
+                throw new Error("Missing callback input entry \"".concat(selector, "\""));
+            }
+            return input;
+        }
+        throw new Error('Invalid selector value type');
+    };
+    return FRCallback;
+}());
+exports["default"] = FRCallback;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 3422:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * kba-create-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+/**
+ * Represents a callback used to collect KBA-style security questions and answers.
+ */
+var KbaCreateCallback = /** @class */ (function (_super) {
+    __extends(KbaCreateCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function KbaCreateCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    /**
+     * Gets the callback prompt.
+     */
+    KbaCreateCallback.prototype.getPrompt = function () {
+        return this.getOutputByName('prompt', '');
+    };
+    /**
+     * Gets the callback's list of pre-defined security questions.
+     */
+    KbaCreateCallback.prototype.getPredefinedQuestions = function () {
+        return this.getOutputByName('predefinedQuestions', []);
+    };
+    /**
+     * Sets the callback's security question.
+     */
+    KbaCreateCallback.prototype.setQuestion = function (question) {
+        this.setValue('question', question);
+    };
+    /**
+     * Sets the callback's security question answer.
+     */
+    KbaCreateCallback.prototype.setAnswer = function (answer) {
+        this.setValue('answer', answer);
+    };
+    KbaCreateCallback.prototype.setValue = function (type, value) {
+        if (!this.payload.input) {
+            throw new Error('KBA payload is missing input');
+        }
+        var input = this.payload.input.find(function (x) { return x.name.endsWith(type); });
+        if (!input) {
+            throw new Error("No input has name ending in \"".concat(type, "\""));
+        }
+        input.value = value;
+    };
+    return KbaCreateCallback;
+}(_1.default));
+exports["default"] = KbaCreateCallback;
+//# sourceMappingURL=kba-create-callback.js.map
+
+/***/ }),
+
+/***/ 630:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * metadata-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+/**
+ * Represents a callback used to deliver and collect miscellaneous data.
+ */
+var MetadataCallback = /** @class */ (function (_super) {
+    __extends(MetadataCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function MetadataCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    /**
+     * Gets the callback's data.
+     */
+    MetadataCallback.prototype.getData = function () {
+        return this.getOutputByName('data', {});
+    };
+    return MetadataCallback;
+}(_1.default));
+exports["default"] = MetadataCallback;
+//# sourceMappingURL=metadata-callback.js.map
+
+/***/ }),
+
+/***/ 4825:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * name-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+/**
+ * Represents a callback used to collect a username.
+ */
+var NameCallback = /** @class */ (function (_super) {
+    __extends(NameCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function NameCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    /**
+     * Gets the callback's prompt.
+     */
+    NameCallback.prototype.getPrompt = function () {
+        return this.getOutputByName('prompt', '');
+    };
+    /**
+     * Sets the username.
+     */
+    NameCallback.prototype.setName = function (name) {
+        this.setInputValue(name);
+    };
+    return NameCallback;
+}(_1.default));
+exports["default"] = NameCallback;
+//# sourceMappingURL=name-callback.js.map
+
+/***/ }),
+
+/***/ 1759:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * password-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+/**
+ * Represents a callback used to collect a password.
+ */
+var PasswordCallback = /** @class */ (function (_super) {
+    __extends(PasswordCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function PasswordCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    /**
+     * Gets the callback's failed policies.
+     */
+    PasswordCallback.prototype.getFailedPolicies = function () {
+        return this.getOutputByName('failedPolicies', []);
+    };
+    /**
+     * Gets the callback's applicable policies.
+     */
+    PasswordCallback.prototype.getPolicies = function () {
+        return this.getOutputByName('policies', []);
+    };
+    /**
+     * Gets the callback's prompt.
+     */
+    PasswordCallback.prototype.getPrompt = function () {
+        return this.getOutputByName('prompt', '');
+    };
+    /**
+     * Sets the password.
+     */
+    PasswordCallback.prototype.setPassword = function (password) {
+        this.setInputValue(password);
+    };
+    return PasswordCallback;
+}(_1.default));
+exports["default"] = PasswordCallback;
+//# sourceMappingURL=password-callback.js.map
+
+/***/ }),
+
+/***/ 2902:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * polling-wait-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+/**
+ * Represents a callback used to instruct the system to poll while a backend process completes.
+ */
+var PollingWaitCallback = /** @class */ (function (_super) {
+    __extends(PollingWaitCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function PollingWaitCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    /**
+     * Gets the message to display while polling.
+     */
+    PollingWaitCallback.prototype.getMessage = function () {
+        return this.getOutputByName('message', '');
+    };
+    /**
+     * Gets the polling interval in seconds.
+     */
+    PollingWaitCallback.prototype.getWaitTime = function () {
+        return Number(this.getOutputByName('waitTime', 0));
+    };
+    return PollingWaitCallback;
+}(_1.default));
+exports["default"] = PollingWaitCallback;
+//# sourceMappingURL=polling-wait-callback.js.map
+
+/***/ }),
+
+/***/ 8547:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * recaptcha-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+/**
+ * Represents a callback used to integrate reCAPTCHA.
+ */
+var ReCaptchaCallback = /** @class */ (function (_super) {
+    __extends(ReCaptchaCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function ReCaptchaCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    /**
+     * Gets the reCAPTCHA site key.
+     */
+    ReCaptchaCallback.prototype.getSiteKey = function () {
+        return this.getOutputByName('recaptchaSiteKey', '');
+    };
+    /**
+     * Sets the reCAPTCHA result.
+     */
+    ReCaptchaCallback.prototype.setResult = function (result) {
+        this.setInputValue(result);
+    };
+    return ReCaptchaCallback;
+}(_1.default));
+exports["default"] = ReCaptchaCallback;
+//# sourceMappingURL=recaptcha-callback.js.map
+
+/***/ }),
+
+/***/ 3505:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * redirect-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+/**
+ * Represents a callback used to collect an answer to a choice.
+ */
+var RedirectCallback = /** @class */ (function (_super) {
+    __extends(RedirectCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function RedirectCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    /**
+     * Gets the redirect URL.
+     */
+    RedirectCallback.prototype.getRedirectUrl = function () {
+        return this.getOutputByName('redirectUrl', '');
+    };
+    return RedirectCallback;
+}(_1.default));
+exports["default"] = RedirectCallback;
+//# sourceMappingURL=redirect-callback.js.map
+
+/***/ }),
+
+/***/ 5044:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * select-idp-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+/**
+ * Represents a callback used to collect an answer to a choice.
+ */
+var SelectIdPCallback = /** @class */ (function (_super) {
+    __extends(SelectIdPCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function SelectIdPCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    /**
+     * Gets the available providers.
+     */
+    SelectIdPCallback.prototype.getProviders = function () {
+        return this.getOutputByName('providers', []);
+    };
+    /**
+     * Sets the provider by name.
+     */
+    SelectIdPCallback.prototype.setProvider = function (value) {
+        var item = this.getProviders().find(function (item) { return item.provider === value; });
+        if (!item) {
+            throw new Error("\"".concat(value, "\" is not a valid choice"));
+        }
+        this.setInputValue(item.provider);
+    };
+    return SelectIdPCallback;
+}(_1.default));
+exports["default"] = SelectIdPCallback;
+//# sourceMappingURL=select-idp-callback.js.map
+
+/***/ }),
+
+/***/ 6826:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * suspended-text-output-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var text_output_callback_1 = __nccwpck_require__(7435);
+/**
+ * Represents a callback used to display a message.
+ */
+var SuspendedTextOutputCallback = /** @class */ (function (_super) {
+    __extends(SuspendedTextOutputCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function SuspendedTextOutputCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    return SuspendedTextOutputCallback;
+}(text_output_callback_1.default));
+exports["default"] = SuspendedTextOutputCallback;
+//# sourceMappingURL=suspended-text-output-callback.js.map
+
+/***/ }),
+
+/***/ 6683:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * terms-and-conditions-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+/**
+ * Represents a callback used to collect acceptance of terms and conditions.
+ */
+var TermsAndConditionsCallback = /** @class */ (function (_super) {
+    __extends(TermsAndConditionsCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function TermsAndConditionsCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    /**
+     * Gets the terms and conditions content.
+     */
+    TermsAndConditionsCallback.prototype.getTerms = function () {
+        return this.getOutputByName('terms', '');
+    };
+    /**
+     * Gets the version of the terms and conditions.
+     */
+    TermsAndConditionsCallback.prototype.getVersion = function () {
+        return this.getOutputByName('version', '');
+    };
+    /**
+     * Gets the date of the terms and conditions.
+     */
+    TermsAndConditionsCallback.prototype.getCreateDate = function () {
+        var date = this.getOutputByName('createDate', '');
+        return new Date(date);
+    };
+    /**
+     * Sets the callback's acceptance.
+     */
+    TermsAndConditionsCallback.prototype.setAccepted = function (accepted) {
+        if (accepted === void 0) { accepted = true; }
+        this.setInputValue(accepted);
+    };
+    return TermsAndConditionsCallback;
+}(_1.default));
+exports["default"] = TermsAndConditionsCallback;
+//# sourceMappingURL=terms-and-conditions-callback.js.map
+
+/***/ }),
+
+/***/ 7435:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * text-output-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+/**
+ * Represents a callback used to display a message.
+ */
+var TextOutputCallback = /** @class */ (function (_super) {
+    __extends(TextOutputCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function TextOutputCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    /**
+     * Gets the message content.
+     */
+    TextOutputCallback.prototype.getMessage = function () {
+        return this.getOutputByName('message', '');
+    };
+    /**
+     * Gets the message type.
+     */
+    TextOutputCallback.prototype.getMessageType = function () {
+        return this.getOutputByName('messageType', '');
+    };
+    return TextOutputCallback;
+}(_1.default));
+exports["default"] = TextOutputCallback;
+//# sourceMappingURL=text-output-callback.js.map
+
+/***/ }),
+
+/***/ 3221:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * validated-create-password-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+/**
+ * Represents a callback used to collect a valid platform password.
+ */
+var ValidatedCreatePasswordCallback = /** @class */ (function (_super) {
+    __extends(ValidatedCreatePasswordCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function ValidatedCreatePasswordCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    /**
+     * Gets the callback's failed policies.
+     */
+    ValidatedCreatePasswordCallback.prototype.getFailedPolicies = function () {
+        return this.getOutputByName('failedPolicies', []);
+    };
+    /**
+     * Gets the callback's applicable policies.
+     */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ValidatedCreatePasswordCallback.prototype.getPolicies = function () {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        return this.getOutputByName('policies', {});
+    };
+    /**
+     * Gets the callback's prompt.
+     */
+    ValidatedCreatePasswordCallback.prototype.getPrompt = function () {
+        return this.getOutputByName('prompt', '');
+    };
+    /**
+     * Gets whether the password is required.
+     */
+    ValidatedCreatePasswordCallback.prototype.isRequired = function () {
+        return this.getOutputByName('required', false);
+    };
+    /**
+     * Sets the callback's password.
+     */
+    ValidatedCreatePasswordCallback.prototype.setPassword = function (password) {
+        this.setInputValue(password);
+    };
+    /**
+     * Set if validating value only.
+     */
+    ValidatedCreatePasswordCallback.prototype.setValidateOnly = function (value) {
+        this.setInputValue(value, /validateOnly/);
+    };
+    return ValidatedCreatePasswordCallback;
+}(_1.default));
+exports["default"] = ValidatedCreatePasswordCallback;
+//# sourceMappingURL=validated-create-password-callback.js.map
+
+/***/ }),
+
+/***/ 3254:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * validated-create-username-callback.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var _1 = __nccwpck_require__(7939);
+/**
+ * Represents a callback used to collect a valid platform username.
+ */
+var ValidatedCreateUsernameCallback = /** @class */ (function (_super) {
+    __extends(ValidatedCreateUsernameCallback, _super);
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function ValidatedCreateUsernameCallback(payload) {
+        var _this = _super.call(this, payload) || this;
+        _this.payload = payload;
+        return _this;
+    }
+    /**
+     * Gets the callback's prompt.
+     */
+    ValidatedCreateUsernameCallback.prototype.getPrompt = function () {
+        return this.getOutputByName('prompt', '');
+    };
+    /**
+     * Gets the callback's failed policies.
+     */
+    ValidatedCreateUsernameCallback.prototype.getFailedPolicies = function () {
+        return this.getOutputByName('failedPolicies', []);
+    };
+    /**
+     * Gets the callback's applicable policies.
+     */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    ValidatedCreateUsernameCallback.prototype.getPolicies = function () {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        return this.getOutputByName('policies', {});
+    };
+    /**
+     * Gets whether the username is required.
+     */
+    ValidatedCreateUsernameCallback.prototype.isRequired = function () {
+        return this.getOutputByName('required', false);
+    };
+    /**
+     * Sets the callback's username.
+     */
+    ValidatedCreateUsernameCallback.prototype.setName = function (name) {
+        this.setInputValue(name);
+    };
+    /**
+     * Set if validating value only.
+     */
+    ValidatedCreateUsernameCallback.prototype.setValidateOnly = function (value) {
+        this.setInputValue(value, /validateOnly/);
+    };
+    return ValidatedCreateUsernameCallback;
+}(_1.default));
+exports["default"] = ValidatedCreateUsernameCallback;
+//# sourceMappingURL=validated-create-username-callback.js.map
+
+/***/ }),
+
+/***/ 3320:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * enums.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.StepType = void 0;
+/**
+ * Types of steps returned by the authentication tree.
+ */
+var StepType;
+(function (StepType) {
+    StepType["LoginFailure"] = "LoginFailure";
+    StepType["LoginSuccess"] = "LoginSuccess";
+    StepType["Step"] = "Step";
+})(StepType || (StepType = {}));
+exports.StepType = StepType;
+//# sourceMappingURL=enums.js.map
+
+/***/ }),
+
+/***/ 2004:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * fr-login-failure.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var fr_policy_1 = __nccwpck_require__(1425);
+var enums_1 = __nccwpck_require__(3320);
+var FRLoginFailure = /** @class */ (function () {
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function FRLoginFailure(payload) {
+        this.payload = payload;
+        /**
+         * The type of step.
+         */
+        this.type = enums_1.StepType.LoginFailure;
+    }
+    /**
+     * Gets the error code.
+     */
+    FRLoginFailure.prototype.getCode = function () {
+        return Number(this.payload.code);
+    };
+    /**
+     * Gets the failure details.
+     */
+    FRLoginFailure.prototype.getDetail = function () {
+        return this.payload.detail;
+    };
+    /**
+     * Gets the failure message.
+     */
+    FRLoginFailure.prototype.getMessage = function () {
+        return this.payload.message;
+    };
+    /**
+     * Gets processed failure message.
+     */
+    FRLoginFailure.prototype.getProcessedMessage = function (messageCreator) {
+        return fr_policy_1.default.parseErrors(this.payload, messageCreator);
+    };
+    /**
+     * Gets the failure reason.
+     */
+    FRLoginFailure.prototype.getReason = function () {
+        return this.payload.reason;
+    };
+    return FRLoginFailure;
+}());
+exports["default"] = FRLoginFailure;
+//# sourceMappingURL=fr-login-failure.js.map
+
+/***/ }),
+
+/***/ 6423:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * fr-login-success.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var enums_1 = __nccwpck_require__(3320);
+var FRLoginSuccess = /** @class */ (function () {
+    /**
+     * @param payload The raw payload returned by OpenAM
+     */
+    function FRLoginSuccess(payload) {
+        this.payload = payload;
+        /**
+         * The type of step.
+         */
+        this.type = enums_1.StepType.LoginSuccess;
+    }
+    /**
+     * Gets the step's realm.
+     */
+    FRLoginSuccess.prototype.getRealm = function () {
+        return this.payload.realm;
+    };
+    /**
+     * Gets the step's session token.
+     */
+    FRLoginSuccess.prototype.getSessionToken = function () {
+        return this.payload.tokenId;
+    };
+    /**
+     * Gets the step's success URL.
+     */
+    FRLoginSuccess.prototype.getSuccessUrl = function () {
+        return this.payload.successUrl;
+    };
+    return FRLoginSuccess;
+}());
+exports["default"] = FRLoginSuccess;
+//# sourceMappingURL=fr-login-success.js.map
+
+/***/ }),
+
+/***/ 6082:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * fr-step.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var factory_1 = __nccwpck_require__(2657);
+var enums_1 = __nccwpck_require__(3320);
+/**
+ * Represents a single step of an authentication tree.
+ */
+var FRStep = /** @class */ (function () {
+    /**
+     * @param payload The raw payload returned by OpenAM
+     * @param callbackFactory A function that returns am implementation of FRCallback
+     */
+    function FRStep(payload, callbackFactory) {
+        this.payload = payload;
+        /**
+         * The type of step.
+         */
+        this.type = enums_1.StepType.Step;
+        /**
+         * The callbacks contained in this step.
+         */
+        this.callbacks = [];
+        if (payload.callbacks) {
+            this.callbacks = this.convertCallbacks(payload.callbacks, callbackFactory);
+        }
+    }
+    /**
+     * Gets the first callback of the specified type in this step.
+     *
+     * @param type The type of callback to find.
+     */
+    FRStep.prototype.getCallbackOfType = function (type) {
+        var callbacks = this.getCallbacksOfType(type);
+        if (callbacks.length !== 1) {
+            throw new Error("Expected 1 callback of type \"".concat(type, "\", but found ").concat(callbacks.length));
+        }
+        return callbacks[0];
+    };
+    /**
+     * Gets all callbacks of the specified type in this step.
+     *
+     * @param type The type of callback to find.
+     */
+    FRStep.prototype.getCallbacksOfType = function (type) {
+        return this.callbacks.filter(function (x) { return x.getType() === type; });
+    };
+    /**
+     * Sets the value of the first callback of the specified type in this step.
+     *
+     * @param type The type of callback to find.
+     * @param value The value to set for the callback.
+     */
+    FRStep.prototype.setCallbackValue = function (type, value) {
+        var callbacks = this.getCallbacksOfType(type);
+        if (callbacks.length !== 1) {
+            throw new Error("Expected 1 callback of type \"".concat(type, "\", but found ").concat(callbacks.length));
+        }
+        callbacks[0].setInputValue(value);
+    };
+    /**
+     * Gets the step's description.
+     */
+    FRStep.prototype.getDescription = function () {
+        return this.payload.description;
+    };
+    /**
+     * Gets the step's header.
+     */
+    FRStep.prototype.getHeader = function () {
+        return this.payload.header;
+    };
+    /**
+     * Gets the step's stage.
+     */
+    FRStep.prototype.getStage = function () {
+        return this.payload.stage;
+    };
+    FRStep.prototype.convertCallbacks = function (callbacks, callbackFactory) {
+        var converted = callbacks.map(function (x) {
+            // This gives preference to the provided factory and falls back to our default implementation
+            return (callbackFactory || factory_1.default)(x) || (0, factory_1.default)(x);
+        });
+        return converted;
+    };
+    return FRStep;
+}());
+exports["default"] = FRStep;
+//# sourceMappingURL=fr-step.js.map
+
+/***/ }),
+
+/***/ 5210:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * index.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var index_1 = __nccwpck_require__(8284);
+var enums_1 = __nccwpck_require__(3265);
+var fr_login_failure_1 = __nccwpck_require__(2004);
+var fr_login_success_1 = __nccwpck_require__(6423);
+var fr_step_1 = __nccwpck_require__(6082);
+/**
+ * Provides access to the OpenAM authentication tree API.
+ */
+var FRAuth = /** @class */ (function () {
+    function FRAuth() {
+    }
+    /**
+     * Requests the next step in the authentication tree.
+     *
+     * Call `FRAuth.next()` recursively.  At each step, check for session token or error, otherwise
+     * populate the step's callbacks and call `next()` again.
+     *
+     * Example:
+     *
+     * ```js
+     * async function nextStep(previousStep) {
+     *   const thisStep = await FRAuth.next(previousStep);
+     *
+     *   switch (thisStep.type) {
+     *     case StepType.LoginSuccess:
+     *       const token = thisStep.getSessionToken();
+     *       break;
+     *     case StepType.LoginFailure:
+     *       const detail = thisStep.getDetail();
+     *       break;
+     *     case StepType.Step:
+     *       // Populate `thisStep` callbacks here, and then continue
+     *       thisStep.setInputValue('foo');
+     *       nextStep(thisStep);
+     *       break;
+     *   }
+     * }
+     * ```
+     *
+     * @param previousStep The previous step with its callback values populated
+     * @param options Configuration overrides
+     * @return The next step in the authentication tree
+     */
+    FRAuth.next = function (previousStep, options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var nextPayload, callbackFactory;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, index_1.default.next(previousStep ? previousStep.payload : undefined, options)];
+                    case 1:
+                        nextPayload = _a.sent();
+                        if (nextPayload.authId) {
+                            callbackFactory = options ? options.callbackFactory : undefined;
+                            return [2 /*return*/, new fr_step_1.default(nextPayload, callbackFactory)];
+                        }
+                        if (!nextPayload.authId && nextPayload.ok) {
+                            // If there's no authId, and the response is OK, tree is complete
+                            return [2 /*return*/, new fr_login_success_1.default(nextPayload)];
+                        }
+                        // If there's no authId, and the response is not OK, tree has failure
+                        return [2 /*return*/, new fr_login_failure_1.default(nextPayload)];
+                }
+            });
+        });
+    };
+    /**
+     * Redirects to the URL identified in the RedirectCallback and saves the full
+     * step information to localStorage for retrieval when user returns from login.
+     *
+     * Example:
+     * ```js
+     * forgerock.FRAuth.redirect(step);
+     * ```
+     */
+    FRAuth.redirect = function (step) {
+        var cb = step.getCallbackOfType(enums_1.CallbackType.RedirectCallback);
+        var redirectUrl = cb.getRedirectUrl();
+        window.localStorage.setItem(this.previousStepKey, JSON.stringify(step));
+        window.location.assign(redirectUrl);
+    };
+    /**
+     * Resumes a tree after returning from an external client or provider.
+     * Requires the full URL of the current window. It will parse URL for
+     * key-value pairs as well as, if required, retrieves previous step.
+     *
+     * Example;
+     * ```js
+     * forgerock.FRAuth.resume(window.location.href)
+     * ```
+     */
+    FRAuth.resume = function (url, options) {
+        var _a, _b, _c;
+        return __awaiter(this, void 0, void 0, function () {
+            function requiresPreviousStep() {
+                return (code && state) || form_post_entry || responsekey;
+            }
+            var parsedUrl, code, error, errorCode, errorMessage, form_post_entry, nonce, RelayState, responsekey, scope, state, suspendedId, authIndexValue, previousStep, redirectStepString, nextOptions;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0:
+                        parsedUrl = new URL(url);
+                        code = parsedUrl.searchParams.get('code');
+                        error = parsedUrl.searchParams.get('error');
+                        errorCode = parsedUrl.searchParams.get('errorCode');
+                        errorMessage = parsedUrl.searchParams.get('errorMessage');
+                        form_post_entry = parsedUrl.searchParams.get('form_post_entry');
+                        nonce = parsedUrl.searchParams.get('nonce');
+                        RelayState = parsedUrl.searchParams.get('RelayState');
+                        responsekey = parsedUrl.searchParams.get('responsekey');
+                        scope = parsedUrl.searchParams.get('scope');
+                        state = parsedUrl.searchParams.get('state');
+                        suspendedId = parsedUrl.searchParams.get('suspendedId');
+                        authIndexValue = (_a = parsedUrl.searchParams.get('authIndexValue')) !== null && _a !== void 0 ? _a : undefined;
+                        /**
+                         * If we are returning back from a provider, the previous redirect step data is required.
+                         * Retrieve the previous step from localStorage, and then delete it to remove stale data.
+                         * If suspendedId is present, no previous step data is needed, so skip below conditional.
+                         */
+                        if (requiresPreviousStep()) {
+                            redirectStepString = window.localStorage.getItem(this.previousStepKey);
+                            if (!redirectStepString) {
+                                throw new Error('Error: could not retrieve original redirect information.');
+                            }
+                            try {
+                                previousStep = JSON.parse(redirectStepString);
+                            }
+                            catch (err) {
+                                throw new Error('Error: could not parse redirect params or step information');
+                            }
+                            window.localStorage.removeItem(this.previousStepKey);
+                        }
+                        nextOptions = __assign(__assign(__assign({}, options), { query: __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, (code && { code: code })), (error && { error: error })), (errorCode && { errorCode: errorCode })), (errorMessage && { errorMessage: errorMessage })), (form_post_entry && { form_post_entry: form_post_entry })), (nonce && { nonce: nonce })), (RelayState && { RelayState: RelayState })), (responsekey && { responsekey: responsekey })), (scope && { scope: scope })), (state && { state: state })), (suspendedId && { suspendedId: suspendedId })), (options && options.query)) }), (((_b = options === null || options === void 0 ? void 0 : options.tree) !== null && _b !== void 0 ? _b : authIndexValue) && { tree: (_c = options === null || options === void 0 ? void 0 : options.tree) !== null && _c !== void 0 ? _c : authIndexValue }));
+                        return [4 /*yield*/, this.next(previousStep, nextOptions)];
+                    case 1: return [2 /*return*/, _d.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Requests the first step in the authentication tree.
+     * This is essentially an alias to calling FRAuth.next without a previous step.
+     *
+     * @param options Configuration overrides
+     * @return The next step in the authentication tree
+     */
+    FRAuth.start = function (options) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, FRAuth.next(undefined, options)];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    FRAuth.previousStepKey = 'FRAuth_PreviousStep';
+    return FRAuth;
+}());
+exports["default"] = FRAuth;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 9158:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * collector.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+/**
+ * @class Collector - base class for FRDevice
+ * Generic collector functions for collecting a device profile attributes
+ */
+var Collector = /** @class */ (function () {
+    function Collector() {
+    }
+    /**
+     * @method reduceToObject - goes one to two levels into source to collect attribute
+     * @param props - array of strings; can use dot notation for two level lookup
+     * @param src - source of attributes to check
+     */
+    // eslint-disable-next-line
+    Collector.prototype.reduceToObject = function (props, src) {
+        return props.reduce(function (prev, curr) {
+            if (curr.includes('.')) {
+                var propArr = curr.split('.');
+                var prop1 = propArr[0];
+                var prop2 = propArr[1];
+                var prop = src[prop1] && src[prop1][prop2];
+                prev[prop2] = prop != undefined ? prop : '';
+            }
+            else {
+                prev[curr] = src[curr] != undefined ? src[curr] : null;
+            }
+            return prev;
+        }, {});
+    };
+    /**
+     * @method reduceToString - goes one level into source to collect attribute
+     * @param props - array of strings
+     * @param src - source of attributes to check
+     */
+    // eslint-disable-next-line
+    Collector.prototype.reduceToString = function (props, src) {
+        return props.reduce(function (prev, curr) {
+            prev = "".concat(prev).concat(src[curr].filename, ";");
+            return prev;
+        }, '');
+    };
+    return Collector;
+}());
+exports["default"] = Collector;
+//# sourceMappingURL=collector.js.map
+
+/***/ }),
+
+/***/ 4918:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * defaults.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.platformProps = exports.hardwareProps = exports.fontNames = exports.displayProps = exports.devicePlatforms = exports.delay = exports.configurableCategories = exports.browserProps = void 0;
+var browserProps = [
+    'userAgent',
+    'appName',
+    'appCodeName',
+    'appVersion',
+    'appMinorVersion',
+    'buildID',
+    'product',
+    'productSub',
+    'vendor',
+    'vendorSub',
+    'browserLanguage',
+];
+exports.browserProps = browserProps;
+var configurableCategories = [
+    'fontNames',
+    'displayProps',
+    'browserProps',
+    'hardwareProps',
+    'platformProps',
+];
+exports.configurableCategories = configurableCategories;
+var delay = 30 * 1000;
+exports.delay = delay;
+var devicePlatforms = {
+    mac: ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+    windows: ['Win32', 'Win64', 'Windows', 'WinCE'],
+    ios: ['iPhone', 'iPad', 'iPod'],
+};
+exports.devicePlatforms = devicePlatforms;
+var displayProps = ['width', 'height', 'pixelDepth', 'orientation.angle'];
+exports.displayProps = displayProps;
+var fontNames = [
+    'cursive',
+    'monospace',
+    'serif',
+    'sans-serif',
+    'fantasy',
+    'Arial',
+    'Arial Black',
+    'Arial Narrow',
+    'Arial Rounded MT Bold',
+    'Bookman Old Style',
+    'Bradley Hand ITC',
+    'Century',
+    'Century Gothic',
+    'Comic Sans MS',
+    'Courier',
+    'Courier New',
+    'Georgia',
+    'Gentium',
+    'Impact',
+    'King',
+    'Lucida Console',
+    'Lalit',
+    'Modena',
+    'Monotype Corsiva',
+    'Papyrus',
+    'Tahoma',
+    'TeX',
+    'Times',
+    'Times New Roman',
+    'Trebuchet MS',
+    'Verdana',
+    'Verona',
+];
+exports.fontNames = fontNames;
+var hardwareProps = [
+    'cpuClass',
+    'deviceMemory',
+    'hardwareConcurrency',
+    'maxTouchPoints',
+    'oscpu',
+];
+exports.hardwareProps = hardwareProps;
+var platformProps = ['language', 'platform', 'userLanguage', 'systemLanguage'];
+exports.platformProps = platformProps;
+//# sourceMappingURL=defaults.js.map
+
+/***/ }),
+
+/***/ 5579:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * index.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var defaults_1 = __nccwpck_require__(4918);
+var collector_1 = __nccwpck_require__(9158);
+/**
+ * @class FRDevice - Collects user device metadata
+ *
+ * Example:
+ *
+ * ```js
+ * // Instantiate new device object (w/optional config, if needed)
+ * const device = new forgerock.FRDevice(
+ *   // optional configuration
+ * );
+ * // override any instance methods, if needed
+ * // e.g.: device.getDisplayMeta = () => {};
+ *
+ * // Call getProfile with required argument obj of boolean properties
+ * // of location and metadata
+ * const profile = await device.getProfile({
+ *   location: isLocationRequired,
+ *   metadata: isMetadataRequired,
+ * });
+ * ```
+ */
+var FRDevice = /** @class */ (function (_super) {
+    __extends(FRDevice, _super);
+    function FRDevice(config) {
+        var _this = _super.call(this) || this;
+        _this.config = {
+            fontNames: defaults_1.fontNames,
+            devicePlatforms: defaults_1.devicePlatforms,
+            displayProps: defaults_1.displayProps,
+            browserProps: defaults_1.browserProps,
+            hardwareProps: defaults_1.hardwareProps,
+            platformProps: defaults_1.platformProps,
+        };
+        if (config) {
+            Object.keys(config).forEach(function (key) {
+                if (!defaults_1.configurableCategories.includes(key)) {
+                    throw new Error('Device profile configuration category does not exist.');
+                }
+                _this.config[key] = config[key];
+            });
+        }
+        return _this;
+    }
+    FRDevice.prototype.getBrowserMeta = function () {
+        if (!navigator) {
+            console.warn('Cannot collect browser metadata. navigator is not defined.');
+            return {};
+        }
+        return this.reduceToObject(this.config.browserProps, navigator);
+    };
+    FRDevice.prototype.getBrowserPluginsNames = function () {
+        if (!(navigator && navigator.plugins)) {
+            console.warn('Cannot collect browser plugin information. navigator.plugins is not defined.');
+            return '';
+        }
+        return this.reduceToString(Object.keys(navigator.plugins), navigator.plugins);
+    };
+    FRDevice.prototype.getDeviceName = function () {
+        if (!navigator) {
+            console.warn('Cannot collect device name. navigator is not defined.');
+            return '';
+        }
+        var userAgent = navigator.userAgent;
+        var platform = navigator.platform;
+        switch (true) {
+            case this.config.devicePlatforms.mac.includes(platform):
+                return 'Mac (Browser)';
+            case this.config.devicePlatforms.ios.includes(platform):
+                return "".concat(platform, " (Browser)");
+            case this.config.devicePlatforms.windows.includes(platform):
+                return 'Windows (Browser)';
+            case /Android/.test(platform) || /Android/.test(userAgent):
+                return 'Android (Browser)';
+            case /CrOS/.test(userAgent) || /Chromebook/.test(userAgent):
+                return 'Chrome OS (Browser)';
+            case /Linux/.test(platform):
+                return 'Linux (Browser)';
+            default:
+                return "".concat(platform || 'Unknown', " (Browser)");
+        }
+    };
+    FRDevice.prototype.getDisplayMeta = function () {
+        if (!screen) {
+            console.warn('Cannot collect screen information. screen is not defined.');
+        }
+        return this.reduceToObject(this.config.displayProps, screen);
+    };
+    FRDevice.prototype.getHardwareMeta = function () {
+        if (!navigator) {
+            console.warn('Cannot collect OS metadata. Navigator is not defined.');
+            return {};
+        }
+        return this.reduceToObject(this.config.hardwareProps, navigator);
+    };
+    FRDevice.prototype.getIdentifier = function () {
+        if (!(window.crypto && window.crypto.getRandomValues)) {
+            console.warn('Cannot generate profile ID. Crypto and/or getRandomValues is not supported.');
+            return '';
+        }
+        if (!localStorage) {
+            console.warn('Cannot store profile ID. localStorage is not supported.');
+            return '';
+        }
+        var id = localStorage.getItem('profile-id');
+        if (!id) {
+            // generate ID, 3 sections of random numbers: "714524572-2799534390-3707617532"
+            id = window.crypto.getRandomValues(new Uint32Array(3)).join('-');
+            localStorage.setItem('profile-id', id);
+        }
+        return id;
+    };
+    FRDevice.prototype.getInstalledFonts = function () {
+        var canvas = document.createElement('canvas');
+        if (!canvas) {
+            console.warn('Cannot collect font data. Browser does not support canvas element');
+            return '';
+        }
+        var context = canvas.getContext && canvas.getContext('2d');
+        if (!context) {
+            console.warn('Cannot collect font data. Browser does not support 2d canvas context');
+            return '';
+        }
+        var text = 'abcdefghi0123456789';
+        context.font = '72px Comic Sans';
+        var baseWidth = context.measureText(text).width;
+        var installedFonts = this.config.fontNames.reduce(function (prev, curr) {
+            context.font = "72px ".concat(curr, ", Comic Sans");
+            var newWidth = context.measureText(text).width;
+            if (newWidth !== baseWidth) {
+                prev = "".concat(prev).concat(curr, ";");
+            }
+            return prev;
+        }, '');
+        return installedFonts;
+    };
+    FRDevice.prototype.getLocationCoordinates = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                if (!(navigator && navigator.geolocation)) {
+                    console.warn('Cannot collect geolocation information. navigator.geolocation is not defined.');
+                    return [2 /*return*/, Promise.resolve({})];
+                }
+                // eslint-disable-next-line no-async-promise-executor
+                return [2 /*return*/, new Promise(function (resolve) { return __awaiter(_this, void 0, void 0, function () {
+                        return __generator(this, function (_a) {
+                            navigator.geolocation.getCurrentPosition(function (position) {
+                                return resolve({
+                                    latitude: position.coords.latitude,
+                                    longitude: position.coords.longitude,
+                                });
+                            }, function (error) {
+                                console.warn('Cannot collect geolocation information. ' + error.code + ': ' + error.message);
+                                resolve({});
+                            }, {
+                                enableHighAccuracy: true,
+                                timeout: defaults_1.delay,
+                                maximumAge: 0,
+                            });
+                            return [2 /*return*/];
+                        });
+                    }); })];
+            });
+        });
+    };
+    FRDevice.prototype.getOSMeta = function () {
+        if (!navigator) {
+            console.warn('Cannot collect OS metadata. navigator is not defined.');
+            return {};
+        }
+        return this.reduceToObject(this.config.platformProps, navigator);
+    };
+    FRDevice.prototype.getProfile = function (_a) {
+        var location = _a.location, metadata = _a.metadata;
+        return __awaiter(this, void 0, void 0, function () {
+            var profile, _b;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0:
+                        profile = {
+                            identifier: this.getIdentifier(),
+                        };
+                        if (metadata) {
+                            profile.metadata = {
+                                hardware: __assign(__assign({}, this.getHardwareMeta()), { display: this.getDisplayMeta() }),
+                                browser: __assign(__assign({}, this.getBrowserMeta()), { plugins: this.getBrowserPluginsNames() }),
+                                platform: __assign(__assign({}, this.getOSMeta()), { deviceName: this.getDeviceName(), fonts: this.getInstalledFonts(), timezone: this.getTimezoneOffset() }),
+                            };
+                        }
+                        if (!location) return [3 /*break*/, 2];
+                        _b = profile;
+                        return [4 /*yield*/, this.getLocationCoordinates()];
+                    case 1:
+                        _b.location = _c.sent();
+                        _c.label = 2;
+                    case 2: return [2 /*return*/, profile];
+                }
+            });
+        });
+    };
+    FRDevice.prototype.getTimezoneOffset = function () {
+        try {
+            return new Date().getTimezoneOffset();
+        }
+        catch (err) {
+            console.warn('Cannot collect timezone information. getTimezoneOffset is not defined.');
+            return null;
+        }
+    };
+    return FRDevice;
+}(collector_1.default));
+exports["default"] = FRDevice;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 2459:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * enums.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PolicyKey = void 0;
+var PolicyKey;
+(function (PolicyKey) {
+    PolicyKey["CannotContainCharacters"] = "CANNOT_CONTAIN_CHARACTERS";
+    PolicyKey["CannotContainDuplicates"] = "CANNOT_CONTAIN_DUPLICATES";
+    PolicyKey["CannotContainOthers"] = "CANNOT_CONTAIN_OTHERS";
+    PolicyKey["LeastCapitalLetters"] = "AT_LEAST_X_CAPITAL_LETTERS";
+    PolicyKey["LeastNumbers"] = "AT_LEAST_X_NUMBERS";
+    PolicyKey["MatchRegexp"] = "MATCH_REGEXP";
+    PolicyKey["MaximumLength"] = "MAX_LENGTH";
+    PolicyKey["MaximumNumber"] = "MAXIMUM_NUMBER_VALUE";
+    PolicyKey["MinimumLength"] = "MIN_LENGTH";
+    PolicyKey["MinimumNumber"] = "MINIMUM_NUMBER_VALUE";
+    PolicyKey["Required"] = "REQUIRED";
+    PolicyKey["Unique"] = "UNIQUE";
+    PolicyKey["UnknownPolicy"] = "UNKNOWN_POLICY";
+    PolicyKey["ValidArrayItems"] = "VALID_ARRAY_ITEMS";
+    PolicyKey["ValidDate"] = "VALID_DATE";
+    PolicyKey["ValidEmailAddress"] = "VALID_EMAIL_ADDRESS_FORMAT";
+    PolicyKey["ValidNameFormat"] = "VALID_NAME_FORMAT";
+    PolicyKey["ValidNumber"] = "VALID_NUMBER";
+    PolicyKey["ValidPhoneFormat"] = "VALID_PHONE_FORMAT";
+    PolicyKey["ValidQueryFilter"] = "VALID_QUERY_FILTER";
+    PolicyKey["ValidType"] = "VALID_TYPE";
+})(PolicyKey || (PolicyKey = {}));
+exports.PolicyKey = PolicyKey;
+//# sourceMappingURL=enums.js.map
+
+/***/ }),
+
+/***/ 9712:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * helpers.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getProp = void 0;
+function getProp(obj, prop, defaultValue) {
+    if (!obj || obj[prop] === undefined) {
+        return defaultValue;
+    }
+    return obj[prop];
+}
+exports.getProp = getProp;
+//# sourceMappingURL=helpers.js.map
+
+/***/ }),
+
+/***/ 1425:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * index.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PolicyKey = void 0;
+var enums_1 = __nccwpck_require__(2459);
+Object.defineProperty(exports, "PolicyKey", ({ enumerable: true, get: function () { return enums_1.PolicyKey; } }));
+var message_creator_1 = __nccwpck_require__(683);
+/**
+ * Utility for processing policy failures into human readable messages.
+ *
+ * Example:
+ *
+ * ```js
+ * // Create message overrides and extensions as needed
+ * const messageCreator = {
+ *   [PolicyKey.unique]: (property: string) => (
+ *     `this is a custom message for "UNIQUE" policy of ${property}`
+ *   ),
+ *   CUSTOM_POLICY: (property: string, params: any) => (
+ *     `this is a custom message for "${params.policyRequirement}" policy of ${property}`
+ *   ),
+ * };
+ *
+ * const thisStep = await FRAuth.next(previousStep);
+ *
+ * if (thisStep.type === StepType.LoginFailure) {
+ *   const messagesStepMethod = thisStep.getProcessedMessage(messageCreator);
+ *   const messagesClassMethod = FRPolicy.parseErrors(thisStep, messageCreator)
+ * }
+ */
+var FRPolicy = /** @class */ (function () {
+    function FRPolicy() {
+    }
+    /**
+     * Parses policy errors and generates human readable error messages.
+     *
+     * @param {Step} err The step containing the error.
+     * @param {MessageCreator} messageCreator
+     * Extensible and overridable custom error messages for policy failures.
+     * @return {ProcessedPropertyError[]} Array of objects containing all processed policy errors.
+     */
+    FRPolicy.parseErrors = function (err, messageCreator) {
+        var _this = this;
+        var errors = [];
+        if (err.detail && err.detail.failedPolicyRequirements) {
+            err.detail.failedPolicyRequirements.map(function (x) {
+                errors.push.apply(errors, [
+                    {
+                        detail: x,
+                        messages: _this.parseFailedPolicyRequirement(x, messageCreator),
+                    },
+                ]);
+            });
+        }
+        return errors;
+    };
+    /**
+     * Parses a failed policy and returns a string array of error messages.
+     *
+     * @param {FailedPolicyRequirement} failedPolicy The detail data of the failed policy.
+     * @param {MessageCreator} customMessage
+     * Extensible and overridable custom error messages for policy failures.
+     * @return {string[]} Array of strings with all processed policy errors.
+     */
+    FRPolicy.parseFailedPolicyRequirement = function (failedPolicy, messageCreator) {
+        var _this = this;
+        var errors = [];
+        failedPolicy.policyRequirements.map(function (policyRequirement) {
+            errors.push(_this.parsePolicyRequirement(failedPolicy.property, policyRequirement, messageCreator));
+        });
+        return errors;
+    };
+    /**
+     * Parses a policy error into a human readable error message.
+     *
+     * @param {string} property The property with the policy failure.
+     * @param {PolicyRequirement} policy The policy failure data.
+     * @param {MessageCreator} customMessage
+     * Extensible and overridable custom error messages for policy failures.
+     * @return {string} Human readable error message.
+     */
+    FRPolicy.parsePolicyRequirement = function (property, policy, messageCreator) {
+        if (messageCreator === void 0) { messageCreator = {}; }
+        // AM is returning policy requirement failures as JSON strings
+        var policyObject = typeof policy === 'string' ? JSON.parse(policy) : __assign({}, policy);
+        var policyRequirement = policyObject.policyRequirement;
+        // Determine which message creator function to use
+        var effectiveMessageCreator = messageCreator[policyRequirement] ||
+            message_creator_1.default[policyRequirement] ||
+            message_creator_1.default[enums_1.PolicyKey.UnknownPolicy];
+        // Flatten the parameters and create the message
+        var params = policyObject.params
+            ? __assign(__assign({}, policyObject.params), { policyRequirement: policyRequirement }) : { policyRequirement: policyRequirement };
+        var message = effectiveMessageCreator(property, params);
+        return message;
+    };
+    return FRPolicy;
+}());
+exports["default"] = FRPolicy;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 683:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * message-creator.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var strings_1 = __nccwpck_require__(7915);
+var enums_1 = __nccwpck_require__(2459);
+var helpers_1 = __nccwpck_require__(9712);
+var defaultMessageCreator = (_a = {},
+    _a[enums_1.PolicyKey.CannotContainCharacters] = function (property, params) {
+        var forbiddenChars = (0, helpers_1.getProp)(params, 'forbiddenChars', '');
+        return "".concat(property, " must not contain following characters: \"").concat(forbiddenChars, "\"");
+    },
+    _a[enums_1.PolicyKey.CannotContainDuplicates] = function (property, params) {
+        var duplicateValue = (0, helpers_1.getProp)(params, 'duplicateValue', '');
+        return "".concat(property, "  must not contain duplicates: \"").concat(duplicateValue, "\"");
+    },
+    _a[enums_1.PolicyKey.CannotContainOthers] = function (property, params) {
+        var disallowedFields = (0, helpers_1.getProp)(params, 'disallowedFields', '');
+        return "".concat(property, " must not contain: \"").concat(disallowedFields, "\"");
+    },
+    _a[enums_1.PolicyKey.LeastCapitalLetters] = function (property, params) {
+        var numCaps = (0, helpers_1.getProp)(params, 'numCaps', 0);
+        return "".concat(property, " must contain at least ").concat(numCaps, " capital ").concat((0, strings_1.plural)(numCaps, 'letter'));
+    },
+    _a[enums_1.PolicyKey.LeastNumbers] = function (property, params) {
+        var numNums = (0, helpers_1.getProp)(params, 'numNums', 0);
+        return "".concat(property, " must contain at least ").concat(numNums, " numeric ").concat((0, strings_1.plural)(numNums, 'value'));
+    },
+    _a[enums_1.PolicyKey.MatchRegexp] = function (property) { return "".concat(property, " has failed the \"MATCH_REGEXP\" policy"); },
+    _a[enums_1.PolicyKey.MaximumLength] = function (property, params) {
+        var maxLength = (0, helpers_1.getProp)(params, 'maxLength', 0);
+        return "".concat(property, " must be at most ").concat(maxLength, " ").concat((0, strings_1.plural)(maxLength, 'character'));
+    },
+    _a[enums_1.PolicyKey.MaximumNumber] = function (property) {
+        return "".concat(property, " has failed the \"MAXIMUM_NUMBER_VALUE\" policy");
+    },
+    _a[enums_1.PolicyKey.MinimumLength] = function (property, params) {
+        var minLength = (0, helpers_1.getProp)(params, 'minLength', 0);
+        return "".concat(property, " must be at least ").concat(minLength, " ").concat((0, strings_1.plural)(minLength, 'character'));
+    },
+    _a[enums_1.PolicyKey.MinimumNumber] = function (property) {
+        return "".concat(property, " has failed the \"MINIMUM_NUMBER_VALUE\" policy");
+    },
+    _a[enums_1.PolicyKey.Required] = function (property) { return "".concat(property, " is required"); },
+    _a[enums_1.PolicyKey.Unique] = function (property) { return "".concat(property, " must be unique"); },
+    _a[enums_1.PolicyKey.UnknownPolicy] = function (property, params) {
+        var policyRequirement = (0, helpers_1.getProp)(params, 'policyRequirement', 'Unknown');
+        return "".concat(property, ": Unknown policy requirement \"").concat(policyRequirement, "\"");
+    },
+    _a[enums_1.PolicyKey.ValidArrayItems] = function (property) {
+        return "".concat(property, " has failed the \"VALID_ARRAY_ITEMS\" policy");
+    },
+    _a[enums_1.PolicyKey.ValidDate] = function (property) { return "".concat(property, " has an invalid date"); },
+    _a[enums_1.PolicyKey.ValidEmailAddress] = function (property) { return "".concat(property, " has an invalid email address"); },
+    _a[enums_1.PolicyKey.ValidNameFormat] = function (property) { return "".concat(property, " has an invalid name format"); },
+    _a[enums_1.PolicyKey.ValidNumber] = function (property) { return "".concat(property, " has an invalid number"); },
+    _a[enums_1.PolicyKey.ValidPhoneFormat] = function (property) { return "".concat(property, " has an invalid phone number"); },
+    _a[enums_1.PolicyKey.ValidQueryFilter] = function (property) {
+        return "".concat(property, " has failed the \"VALID_QUERY_FILTER\" policy");
+    },
+    _a[enums_1.PolicyKey.ValidType] = function (property) { return "".concat(property, " has failed the \"VALID_TYPE\" policy"); },
+    _a);
+exports["default"] = defaultMessageCreator;
+//# sourceMappingURL=message-creator.js.map
+
+/***/ }),
+
+/***/ 4789:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * index.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var enums_1 = __nccwpck_require__(3265);
+var script_parser_1 = __nccwpck_require__(2883);
+/**
+ * Utility for handling recovery code nodes.
+ *
+ * Example:
+ *
+ * ```js
+ * // Determine if step is Display Recovery Codes step
+ * const isDisplayRecoveryCodesStep = FRRecoveryCodes.isDisplayStep(step);
+ * if (isDisplayRecoveryCodesStep) {
+ *   const recoveryCodes = FRRecoveryCodes.getCodes(step);
+ *   // Do the UI needful
+ * }
+ * ```
+ */
+var FRRecoveryCodes = /** @class */ (function () {
+    function FRRecoveryCodes() {
+    }
+    /**
+     * Retrieves the recovery codes by parsing the JavaScript message text in callback.
+     *
+     * @param step The step to evaluate
+     * @return Recovery Code values in array
+     */
+    FRRecoveryCodes.getCodes = function (step) {
+        var _a;
+        var text = (_a = this.getDisplayCallback(step)) === null || _a === void 0 ? void 0 : _a.getOutputByName('message', '');
+        return (0, script_parser_1.parseDisplayRecoveryCodesText)(text || '');
+    };
+    /**
+     * Determines if the given step is a Display Recovery Codes step.
+     *
+     * @param step The step to evaluate
+     * @return Is this step a Display Recovery Codes step
+     */
+    FRRecoveryCodes.isDisplayStep = function (step) {
+        return !!this.getDisplayCallback(step);
+    };
+    /**
+     * Gets the recovery codes step.
+     *
+     * @param step The step to evaluate
+     * @return gets the Display Recovery Codes' callback
+     */
+    FRRecoveryCodes.getDisplayCallback = function (step) {
+        return step
+            .getCallbacksOfType(enums_1.CallbackType.TextOutputCallback)
+            .find(function (x) {
+            var cb = x.getOutputByName('message', undefined);
+            return cb && (cb.includes('Recovery Codes') || cb.includes('recovery codes'));
+        });
+    };
+    return FRRecoveryCodes;
+}());
+exports["default"] = FRRecoveryCodes;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 2883:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * script-parser.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.parseDisplayRecoveryCodesText = void 0;
+function parseDisplayRecoveryCodesText(text) {
+    /**
+     * e.g. ` ...
+     *    "<div class=\"text-center\">\n" +
+     *    "iZmEtxvQ00\n" +
+     *    "</div>\n" +
+     * ... `
+     */
+    var recoveryCodesMatches = text.match(/\s[\w\W]"([\w]*)\\/g);
+    var recoveryCodes = Array.isArray(recoveryCodesMatches) &&
+        recoveryCodesMatches.map(function (substr) {
+            // e.g. `"iZmEtxvQ00\`
+            var arr = substr.match(/"([\w]*)\\/);
+            return Array.isArray(arr) ? arr[1] : '';
+        });
+    return recoveryCodes || [];
+}
+exports.parseDisplayRecoveryCodesText = parseDisplayRecoveryCodesText;
+//# sourceMappingURL=script-parser.js.map
+
+/***/ }),
+
+/***/ 8012:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * index.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var oauth2_client_1 = __nccwpck_require__(2429);
+var session_manager_1 = __nccwpck_require__(6340);
+var token_manager_1 = __nccwpck_require__(8588);
+var user_manager_1 = __nccwpck_require__(2735);
+/**
+ * High-level API for logging a user in/out and getting profile information.
+ */
+var FRUser = /** @class */ (function () {
+    function FRUser() {
+    }
+    /**
+     * Logs the user in with the specified step handler, acquires OAuth tokens, and retrieves
+     * user profile.  **Currently not implemented.**
+     *
+     * @typeparam T The type of user object expected
+     * @param handler The function to invoke when handling authentication steps
+     * @param options Configuration overrides
+     */
+    FRUser.login = function (handler, options) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                console.info(handler, options); // Avoid lint errors
+                throw new Error('FRUser.login() not implemented');
+            });
+        });
+    };
+    /**
+     * Logs the user in with the specified UI, acquires OAuth tokens, and retrieves user profile.
+     *
+     * @typeparam T The type of user object expected
+     * @param ui The UI instance to use to acquire a session
+     * @param options Configuration overrides
+     */
+    FRUser.loginWithUI = function (ui, options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var currentUser, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 4, , 5]);
+                        return [4 /*yield*/, ui.getSession(options)];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, token_manager_1.default.getTokens({ forceRenew: true })];
+                    case 2:
+                        _a.sent();
+                        return [4 /*yield*/, user_manager_1.default.getCurrentUser()];
+                    case 3:
+                        currentUser = _a.sent();
+                        return [2 /*return*/, currentUser];
+                    case 4:
+                        error_1 = _a.sent();
+                        throw new Error('Login failed');
+                    case 5: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    /**
+     * Ends the user's session and revokes OAuth tokens.
+     *
+     * @param options Configuration overrides
+     */
+    FRUser.logout = function (options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var error_2, error_3, error_4;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        // Both invalidates the session on the server AND removes browser cookie
+                        return [4 /*yield*/, session_manager_1.default.logout(options)];
+                    case 1:
+                        // Both invalidates the session on the server AND removes browser cookie
+                        _a.sent();
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_2 = _a.sent();
+                        console.warn('Session logout was not successful');
+                        return [3 /*break*/, 3];
+                    case 3:
+                        _a.trys.push([3, 5, , 6]);
+                        // Invalidates session on the server tied to the ID Token
+                        // Needed for Express environment as session logout is unavailable
+                        return [4 /*yield*/, oauth2_client_1.default.endSession(options)];
+                    case 4:
+                        // Invalidates session on the server tied to the ID Token
+                        // Needed for Express environment as session logout is unavailable
+                        _a.sent();
+                        return [3 /*break*/, 6];
+                    case 5:
+                        error_3 = _a.sent();
+                        console.warn('OAuth endSession was not successful');
+                        return [3 /*break*/, 6];
+                    case 6:
+                        _a.trys.push([6, 8, , 9]);
+                        return [4 /*yield*/, oauth2_client_1.default.revokeToken(options)];
+                    case 7:
+                        _a.sent();
+                        return [3 /*break*/, 9];
+                    case 8:
+                        error_4 = _a.sent();
+                        console.warn('OAuth revokeToken was not successful');
+                        return [3 /*break*/, 9];
+                    case 9: return [4 /*yield*/, token_manager_1.default.deleteTokens()];
+                    case 10:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    return FRUser;
+}());
+exports["default"] = FRUser;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 4921:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * enums.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WebAuthnStepType = exports.WebAuthnOutcomeType = exports.WebAuthnOutcome = void 0;
+var WebAuthnOutcome;
+(function (WebAuthnOutcome) {
+    WebAuthnOutcome["Error"] = "ERROR";
+    WebAuthnOutcome["Unsupported"] = "unsupported";
+})(WebAuthnOutcome || (WebAuthnOutcome = {}));
+exports.WebAuthnOutcome = WebAuthnOutcome;
+var WebAuthnOutcomeType;
+(function (WebAuthnOutcomeType) {
+    WebAuthnOutcomeType["AbortError"] = "AbortError";
+    WebAuthnOutcomeType["DataError"] = "DataError";
+    WebAuthnOutcomeType["ConstraintError"] = "ConstraintError";
+    WebAuthnOutcomeType["EncodingError"] = "EncodingError";
+    WebAuthnOutcomeType["InvalidError"] = "InvalidError";
+    WebAuthnOutcomeType["NetworkError"] = "NetworkError";
+    WebAuthnOutcomeType["NotAllowedError"] = "NotAllowedError";
+    WebAuthnOutcomeType["NotSupportedError"] = "NotSupportedError";
+    WebAuthnOutcomeType["SecurityError"] = "SecurityError";
+    WebAuthnOutcomeType["TimeoutError"] = "TimeoutError";
+    WebAuthnOutcomeType["UnknownError"] = "UnknownError";
+})(WebAuthnOutcomeType || (WebAuthnOutcomeType = {}));
+exports.WebAuthnOutcomeType = WebAuthnOutcomeType;
+var WebAuthnStepType;
+(function (WebAuthnStepType) {
+    WebAuthnStepType[WebAuthnStepType["None"] = 0] = "None";
+    WebAuthnStepType[WebAuthnStepType["Authentication"] = 1] = "Authentication";
+    WebAuthnStepType[WebAuthnStepType["Registration"] = 2] = "Registration";
+})(WebAuthnStepType || (WebAuthnStepType = {}));
+exports.WebAuthnStepType = WebAuthnStepType;
+//# sourceMappingURL=enums.js.map
+
+/***/ }),
+
+/***/ 2339:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * helpers.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.parseRelyingPartyId = exports.parsePubKeyArray = exports.parseAllowCredentialsArray = exports.parseNumberArray = exports.parseCredentials = exports.getIndexOne = exports.arrayBufferToString = exports.ensureArray = void 0;
+/**
+ * @module
+ * @ignore
+ * These are private utility functions for HttpClient
+ */
+var enums_1 = __nccwpck_require__(4921);
+function ensureArray(arr) {
+    return arr || [];
+}
+exports.ensureArray = ensureArray;
+function arrayBufferToString(arrayBuffer) {
+    // https://goo.gl/yabPex - To future-proof, we'll pass along whatever the browser
+    // gives us and let AM disregard randomly-injected properties
+    var uint8Array = new Uint8Array(arrayBuffer);
+    var txtDecoder = new TextDecoder();
+    var json = txtDecoder.decode(uint8Array);
+    return json;
+}
+exports.arrayBufferToString = arrayBufferToString;
+function getIndexOne(arr) {
+    return arr ? arr[1] : '';
+}
+exports.getIndexOne = getIndexOne;
+// TODO: Remove this once AM is providing fully-serialized JSON
+function parseCredentials(value) {
+    try {
+        var creds = value
+            .split('}')
+            .filter(function (x) { return !!x && x !== ']'; })
+            .map(function (x) {
+            // eslint-disable-next-line @typescript-eslint/no-use-before-define
+            var idArray = parseNumberArray(x);
+            return {
+                id: new Int8Array(idArray).buffer,
+                type: 'public-key',
+            };
+        });
+        return creds;
+    }
+    catch (error) {
+        var e = new Error('Transforming credential object to string failed');
+        e.name = enums_1.WebAuthnOutcomeType.EncodingError;
+        throw e;
+    }
+}
+exports.parseCredentials = parseCredentials;
+function parseNumberArray(value) {
+    var matches = /new Int8Array\((.+)\)/.exec(value);
+    if (matches === null || matches.length < 2) {
+        return [];
+    }
+    return JSON.parse(matches[1]);
+}
+exports.parseNumberArray = parseNumberArray;
+function parsePubKeyArray(value) {
+    if (Array.isArray(value)) {
+        return value;
+    }
+    if (typeof value !== 'string') {
+        return undefined;
+    }
+    if (value && value[0] === '[') {
+        return JSON.parse(value);
+    }
+    value = value.replace(/(\w+):/g, '"$1":');
+    return JSON.parse("[".concat(value, "]"));
+}
+exports.parsePubKeyArray = parsePubKeyArray;
+function parseAllowCredentialsArray(value) {
+    if (!value) {
+        return undefined;
+    }
+    if (Array.isArray(value)) {
+        return value;
+    }
+    if (typeof value !== 'string') {
+        return undefined;
+    }
+    if (value && value[0] === '[') {
+        return JSON.parse(value);
+    }
+    value = value.replace(/(\w+):/g, '"$1":');
+    return JSON.parse("[".concat(value, "]"));
+}
+exports.parseAllowCredentialsArray = parseAllowCredentialsArray;
+/**
+ * AM is currently serializing RP as one of the following formats, depending on
+ * whether RP ID has been configured:
+ *   "relyingPartyId":""
+ *   "relyingPartyId":"rpId: \"foo\","
+ * This regex handles both formats, but should be removed once AM is fixed.
+ */
+function parseRelyingPartyId(relyingPartyId) {
+    if (relyingPartyId.includes('rpId')) {
+        return relyingPartyId.replace(/rpId: "(.+)",/, '$1');
+    }
+    else {
+        return relyingPartyId.replace(/id: "(.+)",/, '$1');
+    }
+}
+exports.parseRelyingPartyId = parseRelyingPartyId;
+//# sourceMappingURL=helpers.js.map
+
+/***/ }),
+
+/***/ 1175:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * index.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WebAuthnStepType = exports.WebAuthnOutcome = void 0;
+var enums_1 = __nccwpck_require__(3265);
+var enums_2 = __nccwpck_require__(4921);
+Object.defineProperty(exports, "WebAuthnOutcome", ({ enumerable: true, get: function () { return enums_2.WebAuthnOutcome; } }));
+Object.defineProperty(exports, "WebAuthnStepType", ({ enumerable: true, get: function () { return enums_2.WebAuthnStepType; } }));
+var helpers_1 = __nccwpck_require__(2339);
+var script_parser_1 = __nccwpck_require__(719);
+/**
+ * Utility for integrating a web browser's WebAuthn API.
+ *
+ * Example:
+ *
+ * ```js
+ * // Determine if a step is a WebAuthn step
+ * const stepType = FRWebAuthn.getWebAuthnStepType(step);
+ * if (stepType === WebAuthnStepType.Registration) {
+ *   // Register a new device
+ *   await FRWebAuthn.register(step);
+ * } else if (stepType === WebAuthnStepType.Authentication) {
+ *   // Authenticate with a registered device
+ *   await FRWebAuthn.authenticate(step);
+ * }
+ * ```
+ */
+var FRWebAuthn = /** @class */ (function () {
+    function FRWebAuthn() {
+    }
+    /**
+     * Determines if the given step is a WebAuthn step.
+     *
+     * @param step The step to evaluate
+     * @return A WebAuthnStepType value
+     */
+    FRWebAuthn.getWebAuthnStepType = function (step) {
+        var outcomeCallback = this.getOutcomeCallback(step);
+        var metadataCallback = this.getMetadataCallback(step);
+        var textOutputCallback = this.getTextOutputCallback(step);
+        if (outcomeCallback && metadataCallback) {
+            var metadata = metadataCallback.getOutputValue('data');
+            if (metadata === null || metadata === void 0 ? void 0 : metadata.pubKeyCredParams) {
+                return enums_2.WebAuthnStepType.Registration;
+            }
+            return enums_2.WebAuthnStepType.Authentication;
+        }
+        else if (outcomeCallback && textOutputCallback) {
+            var message = textOutputCallback.getMessage();
+            if (message.includes('pubKeyCredParams')) {
+                return enums_2.WebAuthnStepType.Registration;
+            }
+            return enums_2.WebAuthnStepType.Authentication;
+        }
+        else {
+            return enums_2.WebAuthnStepType.None;
+        }
+    };
+    /**
+     * Populates the step with the necessary authentication outcome.
+     *
+     * @param step The step that contains WebAuthn authentication data
+     * @return The populated step
+     */
+    FRWebAuthn.authenticate = function (step) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, hiddenCallback, metadataCallback, textOutputCallback, outcome, publicKey, meta, credential, error_1, e;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = this.getCallbacks(step), hiddenCallback = _a.hiddenCallback, metadataCallback = _a.metadataCallback, textOutputCallback = _a.textOutputCallback;
+                        if (!(hiddenCallback && (metadataCallback || textOutputCallback))) return [3 /*break*/, 5];
+                        outcome = void 0;
+                        _b.label = 1;
+                    case 1:
+                        _b.trys.push([1, 3, , 4]);
+                        publicKey = void 0;
+                        if (metadataCallback) {
+                            meta = metadataCallback.getOutputValue('data');
+                            publicKey = this.createAuthenticationPublicKey(meta);
+                        }
+                        else if (textOutputCallback) {
+                            publicKey = (0, script_parser_1.parseWebAuthnAuthenticateText)(textOutputCallback.getMessage());
+                        }
+                        return [4 /*yield*/, this.getAuthenticationCredential(publicKey)];
+                    case 2:
+                        credential = _b.sent();
+                        outcome = this.getAuthenticationOutcome(credential);
+                        return [3 /*break*/, 4];
+                    case 3:
+                        error_1 = _b.sent();
+                        if (!(error_1 instanceof Error))
+                            throw error_1;
+                        // NotSupportedError is a special case
+                        if (error_1.name === enums_2.WebAuthnOutcomeType.NotSupportedError) {
+                            hiddenCallback.setInputValue(enums_2.WebAuthnOutcome.Unsupported);
+                            throw error_1;
+                        }
+                        hiddenCallback.setInputValue("".concat(enums_2.WebAuthnOutcome.Error, "::").concat(error_1.name, ":").concat(error_1.message));
+                        throw error_1;
+                    case 4:
+                        hiddenCallback.setInputValue(outcome);
+                        return [2 /*return*/, step];
+                    case 5:
+                        e = new Error('Incorrect callbacks for WebAuthn authentication');
+                        e.name = enums_2.WebAuthnOutcomeType.DataError;
+                        hiddenCallback === null || hiddenCallback === void 0 ? void 0 : hiddenCallback.setInputValue("".concat(enums_2.WebAuthnOutcome.Error, "::").concat(e.name, ":").concat(e.message));
+                        throw e;
+                }
+            });
+        });
+    };
+    /**
+     * Populates the step with the necessary registration outcome.
+     *
+     * @param step The step that contains WebAuthn registration data
+     * @return The populated step
+     */
+    FRWebAuthn.register = function (step) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, hiddenCallback, metadataCallback, textOutputCallback, outcome, publicKey, meta, credential, error_2, e;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = this.getCallbacks(step), hiddenCallback = _a.hiddenCallback, metadataCallback = _a.metadataCallback, textOutputCallback = _a.textOutputCallback;
+                        if (!(hiddenCallback && (metadataCallback || textOutputCallback))) return [3 /*break*/, 5];
+                        outcome = void 0;
+                        _b.label = 1;
+                    case 1:
+                        _b.trys.push([1, 3, , 4]);
+                        publicKey = void 0;
+                        if (metadataCallback) {
+                            meta = metadataCallback.getOutputValue('data');
+                            publicKey = this.createRegistrationPublicKey(meta);
+                        }
+                        else if (textOutputCallback) {
+                            publicKey = (0, script_parser_1.parseWebAuthnRegisterText)(textOutputCallback.getMessage());
+                        }
+                        return [4 /*yield*/, this.getRegistrationCredential(publicKey)];
+                    case 2:
+                        credential = _b.sent();
+                        outcome = this.getRegistrationOutcome(credential);
+                        return [3 /*break*/, 4];
+                    case 3:
+                        error_2 = _b.sent();
+                        if (!(error_2 instanceof Error))
+                            throw error_2;
+                        // NotSupportedError is a special case
+                        if (error_2.name === enums_2.WebAuthnOutcomeType.NotSupportedError) {
+                            hiddenCallback.setInputValue(enums_2.WebAuthnOutcome.Unsupported);
+                            throw error_2;
+                        }
+                        hiddenCallback.setInputValue("".concat(enums_2.WebAuthnOutcome.Error, "::").concat(error_2.name, ":").concat(error_2.message));
+                        throw error_2;
+                    case 4:
+                        hiddenCallback.setInputValue(outcome);
+                        return [2 /*return*/, step];
+                    case 5:
+                        e = new Error('Incorrect callbacks for WebAuthn registration');
+                        e.name = enums_2.WebAuthnOutcomeType.DataError;
+                        hiddenCallback === null || hiddenCallback === void 0 ? void 0 : hiddenCallback.setInputValue("".concat(enums_2.WebAuthnOutcome.Error, "::").concat(e.name, ":").concat(e.message));
+                        throw e;
+                }
+            });
+        });
+    };
+    /**
+     * Returns an object containing the two WebAuthn callbacks.
+     *
+     * @param step The step that contains WebAuthn callbacks
+     * @return The WebAuthn callbacks
+     */
+    FRWebAuthn.getCallbacks = function (step) {
+        var hiddenCallback = this.getOutcomeCallback(step);
+        var metadataCallback = this.getMetadataCallback(step);
+        var textOutputCallback = this.getTextOutputCallback(step);
+        var returnObj = {
+            hiddenCallback: hiddenCallback,
+        };
+        if (metadataCallback) {
+            returnObj.metadataCallback = metadataCallback;
+        }
+        else if (textOutputCallback) {
+            returnObj.textOutputCallback = textOutputCallback;
+        }
+        return returnObj;
+    };
+    /**
+     * Returns the WebAuthn metadata callback containing data to pass to the browser
+     * Web Authentication API.
+     *
+     * @param step The step that contains WebAuthn callbacks
+     * @return The metadata callback
+     */
+    FRWebAuthn.getMetadataCallback = function (step) {
+        return step.getCallbacksOfType(enums_1.CallbackType.MetadataCallback).find(function (x) {
+            var cb = x.getOutputByName('data', undefined);
+            // eslint-disable-next-line no-prototype-builtins
+            return cb && cb.hasOwnProperty('relyingPartyId');
+        });
+    };
+    /**
+     * Returns the WebAuthn hidden value callback where the outcome should be populated.
+     *
+     * @param step The step that contains WebAuthn callbacks
+     * @return The hidden value callback
+     */
+    FRWebAuthn.getOutcomeCallback = function (step) {
+        return step
+            .getCallbacksOfType(enums_1.CallbackType.HiddenValueCallback)
+            .find(function (x) { return x.getOutputByName('id', '') === 'webAuthnOutcome'; });
+    };
+    /**
+     * Returns the WebAuthn metadata callback containing data to pass to the browser
+     * Web Authentication API.
+     *
+     * @param step The step that contains WebAuthn callbacks
+     * @return The metadata callback
+     */
+    FRWebAuthn.getTextOutputCallback = function (step) {
+        return step
+            .getCallbacksOfType(enums_1.CallbackType.TextOutputCallback)
+            .find(function (x) {
+            var cb = x.getOutputByName('message', undefined);
+            return cb && cb.includes('webAuthnOutcome');
+        });
+    };
+    /**
+     * Retrieves the credential from the browser Web Authentication API.
+     *
+     * @param options The public key options associated with the request
+     * @return The credential
+     */
+    FRWebAuthn.getAuthenticationCredential = function (options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var e, credential;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        // Feature check before we attempt registering a device
+                        if (!window.PublicKeyCredential) {
+                            e = new Error('PublicKeyCredential not supported by this browser');
+                            e.name = enums_2.WebAuthnOutcomeType.NotSupportedError;
+                            throw e;
+                        }
+                        return [4 /*yield*/, navigator.credentials.get({ publicKey: options })];
+                    case 1:
+                        credential = _a.sent();
+                        return [2 /*return*/, credential];
+                }
+            });
+        });
+    };
+    /**
+     * Converts an authentication credential into the outcome expected by OpenAM.
+     *
+     * @param credential The credential to convert
+     * @return The outcome string
+     */
+    FRWebAuthn.getAuthenticationOutcome = function (credential) {
+        if (credential === null) {
+            var e = new Error('No credential generated from authentication');
+            e.name = enums_2.WebAuthnOutcomeType.UnknownError;
+            throw e;
+        }
+        try {
+            var clientDataJSON = (0, helpers_1.arrayBufferToString)(credential.response.clientDataJSON);
+            var assertionResponse = credential.response;
+            var authenticatorData = new Int8Array(assertionResponse.authenticatorData).toString();
+            var signature = new Int8Array(assertionResponse.signature).toString();
+            // Current native typing for PublicKeyCredential does not include `userHandle`
+            // eslint-disable-next-line
+            // @ts-ignore
+            var userHandle = (0, helpers_1.arrayBufferToString)(credential.response.userHandle);
+            var stringOutput = "".concat(clientDataJSON, "::").concat(authenticatorData, "::").concat(signature, "::").concat(credential.id);
+            // Check if Username is stored on device
+            if (userHandle) {
+                stringOutput = "".concat(stringOutput, "::").concat(userHandle);
+            }
+            return stringOutput;
+        }
+        catch (error) {
+            var e = new Error('Transforming credential object to string failed');
+            e.name = enums_2.WebAuthnOutcomeType.EncodingError;
+            throw e;
+        }
+    };
+    /**
+     * Retrieves the credential from the browser Web Authentication API.
+     *
+     * @param options The public key options associated with the request
+     * @return The credential
+     */
+    FRWebAuthn.getRegistrationCredential = function (options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var e, credential;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        // Feature check before we attempt registering a device
+                        if (!window.PublicKeyCredential) {
+                            e = new Error('PublicKeyCredential not supported by this browser');
+                            e.name = enums_2.WebAuthnOutcomeType.NotSupportedError;
+                            throw e;
+                        }
+                        return [4 /*yield*/, navigator.credentials.create({ publicKey: options })];
+                    case 1:
+                        credential = _a.sent();
+                        return [2 /*return*/, credential];
+                }
+            });
+        });
+    };
+    /**
+     * Converts a registration credential into the outcome expected by OpenAM.
+     *
+     * @param credential The credential to convert
+     * @return The outcome string
+     */
+    FRWebAuthn.getRegistrationOutcome = function (credential) {
+        if (credential === null) {
+            var e = new Error('No credential generated from registration');
+            e.name = enums_2.WebAuthnOutcomeType.UnknownError;
+            throw e;
+        }
+        try {
+            var clientDataJSON = (0, helpers_1.arrayBufferToString)(credential.response.clientDataJSON);
+            var attestationResponse = credential.response;
+            var attestationObject = new Int8Array(attestationResponse.attestationObject).toString();
+            return "".concat(clientDataJSON, "::").concat(attestationObject, "::").concat(credential.id);
+        }
+        catch (error) {
+            var e = new Error('Transforming credential object to string failed');
+            e.name = enums_2.WebAuthnOutcomeType.EncodingError;
+            throw e;
+        }
+    };
+    /**
+     * Converts authentication tree metadata into options required by the browser
+     * Web Authentication API.
+     *
+     * @param metadata The metadata provided in the authentication tree MetadataCallback
+     * @return The Web Authentication API request options
+     */
+    FRWebAuthn.createAuthenticationPublicKey = function (metadata) {
+        var acceptableCredentials = metadata.acceptableCredentials, allowCredentials = metadata.allowCredentials, challenge = metadata.challenge, relyingPartyId = metadata.relyingPartyId, timeout = metadata.timeout, userVerification = metadata.userVerification;
+        var rpId = (0, helpers_1.parseRelyingPartyId)(relyingPartyId);
+        var allowCredentialsValue = (0, helpers_1.parseCredentials)(allowCredentials || acceptableCredentials || '');
+        return __assign(__assign(__assign({ challenge: Uint8Array.from(atob(challenge), function (c) { return c.charCodeAt(0); }).buffer, timeout: timeout }, (allowCredentialsValue && { allowCredentials: allowCredentialsValue })), (userVerification && { userVerification: userVerification })), (rpId && { rpId: rpId }));
+    };
+    /**
+     * Converts authentication tree metadata into options required by the browser
+     * Web Authentication API.
+     *
+     * @param metadata The metadata provided in the authentication tree MetadataCallback
+     * @return The Web Authentication API request options
+     */
+    FRWebAuthn.createRegistrationPublicKey = function (metadata) {
+        var pubKeyCredParamsString = metadata.pubKeyCredParams;
+        var pubKeyCredParams = (0, helpers_1.parsePubKeyArray)(pubKeyCredParamsString);
+        if (!pubKeyCredParams) {
+            var e = new Error('Missing pubKeyCredParams property from registration options');
+            e.name = enums_2.WebAuthnOutcomeType.DataError;
+            throw e;
+        }
+        var excludeCredentials = (0, helpers_1.parseCredentials)(metadata.excludeCredentials);
+        var attestationPreference = metadata.attestationPreference, authenticatorSelection = metadata.authenticatorSelection, challenge = metadata.challenge, relyingPartyId = metadata.relyingPartyId, relyingPartyName = metadata.relyingPartyName, timeout = metadata.timeout, userId = metadata.userId, userName = metadata.userName, displayName = metadata.displayName;
+        var rpId = (0, helpers_1.parseRelyingPartyId)(relyingPartyId);
+        var rp = __assign({ name: relyingPartyName }, (rpId && { id: rpId }));
+        return __assign(__assign({ attestation: attestationPreference, authenticatorSelection: JSON.parse(authenticatorSelection), challenge: Uint8Array.from(atob(challenge), function (c) { return c.charCodeAt(0); }).buffer }, (excludeCredentials.length && { excludeCredentials: excludeCredentials })), { pubKeyCredParams: pubKeyCredParams, rp: rp, timeout: timeout, user: {
+                displayName: displayName || userName,
+                id: Int8Array.from(userId.split('').map(function (c) { return c.charCodeAt(0); })),
+                name: userName,
+            } });
+    };
+    return FRWebAuthn;
+}());
+exports["default"] = FRWebAuthn;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 719:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/* eslint-disable no-useless-escape */
+/*
+ * @forgerock/javascript-sdk
+ *
+ * script-parser.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.parseWebAuthnRegisterText = exports.parseWebAuthnAuthenticateText = void 0;
+var enums_1 = __nccwpck_require__(4921);
+var helpers_1 = __nccwpck_require__(2339);
+function parseWebAuthnRegisterText(text) {
+    var txtEncoder = new TextEncoder();
+    // TODO: Incrementally move to `*` instead of `{0,}`
+    // e.g. `attestation: "none"`
+    var attestation = (0, helpers_1.getIndexOne)(text.match(/attestation"{0,}:\s{0,}"(\w+)"/));
+    // e.g. `timeout: 60000`
+    var timeout = Number((0, helpers_1.getIndexOne)(text.match(/timeout"{0,}:\s{0,}(\d+)/)));
+    // e.g. from 7.0: `"userVerification":"preferred"`
+    // e.g. from 6.5: `userVerification: "preferred"`
+    var userVerification = (0, helpers_1.getIndexOne)(text.match(/userVerification"{0,}:\s{0,}"(\w+)"/));
+    // e.g. `"requireResidentKey":true`
+    var requireResidentKey = (0, helpers_1.getIndexOne)(text.match(/requireResidentKey"{0,}:\s{0,}(\w+)/));
+    // e.g. `"authenticatorAttachment":"cross-platform"`
+    var authenticatorAttachment = (0, helpers_1.getIndexOne)(text.match(/authenticatorAttachment"{0,}:\s{0,}"([\w-]+)/));
+    // e.g. `rp: {\n id: \"https://user.example.com:3002\",\n name: \"ForgeRock\"\n }`
+    var rp = (0, helpers_1.getIndexOne)(text.match(/rp"{0,}:\s{0,}{([^}]+)}/)).trim();
+    // e.g. `id: \"example.com\"
+    var rpId = (0, helpers_1.getIndexOne)(rp.match(/id"{0,}:\s{0,}"([^"]*)"/));
+    // e.g. `name: \"ForgeRock\"`
+    var rpName = (0, helpers_1.getIndexOne)(rp.match(/name"{0,}:\s{0,}"([^"]*)"/));
+    // e.g. `user: {\n id: Uint8Array.from(\"NTdhN...RiNjI5\",
+    // function (c) { return c.charCodeAt(0) }),\n
+    // name: \"57a5b4e4-...-a4f2e5d4b629\",\n
+    // displayName: \"57a5b4e4-...-a4f2e5d4b629\"\n }`
+    var user = (0, helpers_1.getIndexOne)(text.match(/user"{0,}:\s{0,}{([^]{0,})},/)).trim();
+    // e.g `id: Uint8Array.from(\"NTdhN...RiNjI5\",`
+    var userId = (0, helpers_1.getIndexOne)(user.match(/id"{0,}:\s{0,}Uint8Array.from\("([^"]+)"/));
+    // e.g. `name: \"57a5b4e4-...-a4f2e5d4b629\",`
+    var userName = (0, helpers_1.getIndexOne)(user.match(/name"{0,}:\s{0,}"([\d\w._-]+)"/));
+    // e.g. `displayName: \"57a5b4e4-...-a4f2e5d4b629\"`
+    var userDisplayName = (0, helpers_1.getIndexOne)(user.match(/displayName"{0,}:\s{0,}"([\d\w\s.@_-]+)"/));
+    // e.g. `pubKeyCredParams: [
+    // { \"type\": \"public-key\", \"alg\": -257 }, { \"type\": \"public-key\", \"alg\": -7 }
+    // ]`
+    var pubKeyCredParamsString = (0, helpers_1.getIndexOne)(
+    // Capture the `pubKeyCredParams` without also matching `excludeCredentials` as well.
+    // `excludeCredentials` values are very similar to this property, so we need to make sure
+    // our last value doesn't end with "buffer", so we are only capturing objects that
+    // end in a digit and possibly a space.
+    text.match(/pubKeyCredParams"*:\s*\[([^]+\d\s*})\s*]/)).trim();
+    // e.g. `{ \"type\": \"public-key\", \"alg\": -257 }, { \"type\": \"public-key\", \"alg\": -7 }`
+    var pubKeyCredParams = (0, helpers_1.parsePubKeyArray)(pubKeyCredParamsString);
+    if (!pubKeyCredParams) {
+        var e = new Error('Missing pubKeyCredParams property from registration options');
+        e.name = enums_1.WebAuthnOutcomeType.DataError;
+        throw e;
+    }
+    // e.g. `excludeCredentials: [{
+    // \"type\": \"public-key\", \"id\": new Int8Array([-18, 69, -99, 82, 38, -66]).buffer },
+    // { \"type\": \"public-key\", \"id\": new Int8Array([64, 17, -15, 56, -32, 91]).buffer }],\n`
+    var excludeCredentialsString = (0, helpers_1.getIndexOne)(text.match(/excludeCredentials"{0,}:\s{0,}\[([^]+)\s{0,}]/)).trim();
+    // e.g. `{ \"type\": \"public-key\", \"id\": new Int8Array([-18, 69, -99, 82, 38, -66]).buffer },
+    // { \"type\": \"public-key\", \"id\": new Int8Array([64, 17, -15, 56, -32, 91]).buffer }`
+    var excludeCredentials = (0, helpers_1.parseCredentials)(excludeCredentialsString);
+    // e.g. `challenge: new Int8Array([87, -95, 18, ... -3,  49, 12, 81]).buffer,`
+    var challengeArr = (0, helpers_1.ensureArray)(text.match(/challenge"{0,}:\s{0,}new\s{0,}(Uint|Int)8Array\(([^\)]+)/));
+    // e.g. `[87, -95, 18, ... -3,  49, 12, 81]`
+    var challengeJSON = JSON.parse(challengeArr[2]);
+    // e.g. [87, -95, 18, ... -3,  49, 12, 81]
+    var challenge = new Int8Array(challengeJSON).buffer;
+    return __assign(__assign({ attestation: attestation, authenticatorSelection: __assign(__assign({ userVerification: userVerification }, (authenticatorAttachment && { authenticatorAttachment: authenticatorAttachment })), (requireResidentKey === 'true' && { requireResidentKey: !!requireResidentKey })), challenge: challenge }, (excludeCredentials.length && { excludeCredentials: excludeCredentials })), { pubKeyCredParams: pubKeyCredParams, rp: __assign({ name: rpName }, (rpId && { id: rpId })), timeout: timeout, user: {
+            displayName: userDisplayName,
+            id: txtEncoder.encode(userId),
+            name: userName,
+        } });
+}
+exports.parseWebAuthnRegisterText = parseWebAuthnRegisterText;
+function parseWebAuthnAuthenticateText(text) {
+    var allowCredentials;
+    var allowCredentialsText;
+    if (text.includes('acceptableCredentials')) {
+        // e.g. `var acceptableCredentials = [
+        //  { "type": "public-key", "id": new Int8Array([1, 97, 2, 123, ... -17]).buffer }
+        // ];`
+        allowCredentialsText = (0, helpers_1.getIndexOne)(text.match(/acceptableCredentials"*\s*=\s*\[([^]+)\s*]/)).trim();
+    }
+    else {
+        // e.g. `allowCredentials: [
+        // { \"type\": \"public-key\",
+        // \"id\": new Int8Array([-107, 93, 68, -67, ... -19, 7, 4]).buffer }
+        // ]`
+        allowCredentialsText = (0, helpers_1.getIndexOne)(text.match(/allowCredentials"{0,}:\s{0,}\[([^]+)\s{0,}]/)).trim();
+    }
+    // e.g. `"userVerification":"preferred"`
+    var userVerification = (0, helpers_1.getIndexOne)(text.match(/userVerification"{0,}:\s{0,}"(\w+)"/));
+    if (allowCredentialsText) {
+        // Splitting objects in array in case the user has multiple keys
+        var allowCredentialArr = allowCredentialsText.split('},') || [allowCredentialsText];
+        // Iterating over array of substrings
+        allowCredentials = allowCredentialArr.map(function (str) {
+            // e.g. `{ \"type\": \"public-key\",
+            var type = (0, helpers_1.getIndexOne)(str.match(/type"{0,}:\s{0,}"([\w-]+)"/));
+            // e.g. \"id\": new Int8Array([-107, 93, 68, -67, ... -19, 7, 4]).buffer
+            var idArr = (0, helpers_1.ensureArray)(str.match(/id"{0,}:\s{0,}new\s{0,}(Uint|Int)8Array\(([^\)]+)/));
+            // e.g. `[-107, 93, 68, -67, ... -19, 7, 4]`
+            var idJSON = JSON.parse(idArr[2]);
+            // e.g. [-107, 93, 68, -67, ... -19, 7, 4]
+            var id = new Int8Array(idJSON).buffer;
+            return {
+                type: type,
+                id: id,
+            };
+        });
+    }
+    // e.g. `timeout: 60000`
+    var timeout = Number((0, helpers_1.getIndexOne)(text.match(/timeout"{0,}:\s{0,}(\d+)/)));
+    // e.g. `challenge: new Int8Array([87, -95, 18, ... -3,  49, 12, 81]).buffer,`
+    var challengeArr = (0, helpers_1.ensureArray)(text.match(/challenge"{0,}:\s{0,}new\s{0,}(Uint|Int)8Array\(([^\)]+)/));
+    // e.g. `[87, -95, 18, ... -3,  49, 12, 81]`
+    var challengeJSON = JSON.parse(challengeArr[2]);
+    // e.g. [87, -95, 18, ... -3,  49, 12, 81]
+    var challenge = new Int8Array(challengeJSON).buffer;
+    // e.g. `rpId: \"example.com\"`
+    var rpId = (0, helpers_1.getIndexOne)(text.match(/rpId"{0,}:\s{0,}\\{0,}"([^"\\]*)/));
+    return __assign(__assign(__assign({ challenge: challenge, timeout: timeout }, (allowCredentials && { allowCredentials: allowCredentials })), (userVerification && { userVerification: userVerification })), (rpId && { rpId: rpId }));
+}
+exports.parseWebAuthnAuthenticateText = parseWebAuthnAuthenticateText;
+//# sourceMappingURL=script-parser.js.map
+
+/***/ }),
+
+/***/ 6399:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * helpers.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.normalizeRESTJSON = exports.normalizeIGJSON = exports.newTokenRequired = exports.isAuthzStep = exports.hasAuthzAdvice = exports.examineForRESTAuthz = exports.examineForIGAuthz = exports.buildAuthzOptions = exports.addAuthzInfoToURL = exports.addAuthzInfoToHeaders = void 0;
+var url_1 = __nccwpck_require__(9627);
+function addAuthzInfoToHeaders(init, advices, tokens) {
+    var headers = new Headers(init.headers);
+    if (advices.AuthenticateToServiceConditionAdvice) {
+        headers.set('x-tree', advices.AuthenticateToServiceConditionAdvice[0]);
+    }
+    else if (advices.TransactionConditionAdvice) {
+        headers.set('x-txid', advices.TransactionConditionAdvice[0]);
+    }
+    if (tokens && tokens.idToken) {
+        headers.set('x-idtoken', tokens.idToken);
+    }
+    return headers;
+}
+exports.addAuthzInfoToHeaders = addAuthzInfoToHeaders;
+function addAuthzInfoToURL(url, advices, tokens) {
+    var updatedURL = new URL(url);
+    // Only modify URL for Transactional Authorization
+    if (advices.TransactionConditionAdvice) {
+        var txId = advices.TransactionConditionAdvice[0];
+        // Add Txn ID to *original* request options as URL param
+        updatedURL.searchParams.append('_txid', txId);
+    }
+    // If tokens are used, send idToken (OIDC)
+    if (tokens && tokens.idToken) {
+        updatedURL.searchParams.append('_idtoken', tokens.idToken);
+    }
+    // FYI: in certain circumstances, the URL may be returned unchanged
+    return updatedURL.toString();
+}
+exports.addAuthzInfoToURL = addAuthzInfoToURL;
+function buildAuthzOptions(authzObj, baseURL, timeout, realmPath, customPaths) {
+    var treeAuthAdvices = authzObj.advices && authzObj.advices.AuthenticateToServiceConditionAdvice;
+    var txnAuthAdvices = authzObj.advices && authzObj.advices.TransactionConditionAdvice;
+    var attributeValue = '';
+    var attributeName = '';
+    if (treeAuthAdvices) {
+        attributeValue = treeAuthAdvices.reduce(function (prev, curr) {
+            var prevWithSpace = prev ? " ".concat(prev) : prev;
+            prev = "".concat(curr).concat(prevWithSpace);
+            return prev;
+        }, '');
+        attributeName = 'AuthenticateToServiceConditionAdvice';
+    }
+    else if (txnAuthAdvices) {
+        attributeValue = txnAuthAdvices.reduce(function (prev, curr) {
+            var prevWithSpace = prev ? " ".concat(prev) : prev;
+            prev = "".concat(curr).concat(prevWithSpace);
+            return prev;
+        }, '');
+        attributeName = 'TransactionConditionAdvice';
+    }
+    var openTags = "<Advices><AttributeValuePair>";
+    var nameTag = "<Attribute name=\"".concat(attributeName, "\"/>");
+    var valueTag = "<Value>".concat(attributeValue, "</Value>");
+    var endTags = "</AttributeValuePair></Advices>";
+    var fullXML = "".concat(openTags).concat(nameTag).concat(valueTag).concat(endTags);
+    var path = (0, url_1.getEndpointPath)('authenticate', realmPath, customPaths);
+    var queryParams = {
+        authIndexType: 'composite_advice',
+        authIndexValue: fullXML,
+    };
+    var options = {
+        init: {
+            method: 'POST',
+            credentials: 'include',
+            headers: new Headers({
+                'Accept-API-Version': 'resource=2.0, protocol=1.0',
+            }),
+        },
+        timeout: timeout,
+        url: (0, url_1.resolve)(baseURL, "".concat(path, "?").concat((0, url_1.stringify)(queryParams))),
+    };
+    return options;
+}
+exports.buildAuthzOptions = buildAuthzOptions;
+function examineForIGAuthz(res) {
+    var type = res.headers.get('Content-Type') || '';
+    return type.includes('html') && res.url.includes('composite_advice');
+}
+exports.examineForIGAuthz = examineForIGAuthz;
+function examineForRESTAuthz(res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var clone, json;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    clone = res.clone();
+                    return [4 /*yield*/, clone.json()];
+                case 1:
+                    json = _a.sent();
+                    return [2 /*return*/, !!json.advices];
+            }
+        });
+    });
+}
+exports.examineForRESTAuthz = examineForRESTAuthz;
+function getXMLValueFromURL(urlString) {
+    var url = new URL(urlString);
+    var value = url.searchParams.get('authIndexValue') || '';
+    var parser = new DOMParser();
+    var decodedValue = decodeURIComponent(value);
+    var doc = parser.parseFromString(decodedValue, 'application/xml');
+    var el = doc.querySelector('Value');
+    return el ? el.innerHTML : '';
+}
+function hasAuthzAdvice(json) {
+    if (json.advices && json.advices.AuthenticateToServiceConditionAdvice) {
+        return (Array.isArray(json.advices.AuthenticateToServiceConditionAdvice) &&
+            json.advices.AuthenticateToServiceConditionAdvice.length > 0);
+    }
+    else if (json.advices && json.advices.TransactionConditionAdvice) {
+        return (Array.isArray(json.advices.TransactionConditionAdvice) &&
+            json.advices.TransactionConditionAdvice.length > 0);
+    }
+    else {
+        return false;
+    }
+}
+exports.hasAuthzAdvice = hasAuthzAdvice;
+function isAuthzStep(res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var clone, json;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    clone = res.clone();
+                    return [4 /*yield*/, clone.json()];
+                case 1:
+                    json = _a.sent();
+                    return [2 /*return*/, !!json.callbacks];
+            }
+        });
+    });
+}
+exports.isAuthzStep = isAuthzStep;
+function newTokenRequired(res, requiresNewToken) {
+    if (typeof requiresNewToken === 'function') {
+        return requiresNewToken(res);
+    }
+    return res.status === 401;
+}
+exports.newTokenRequired = newTokenRequired;
+function normalizeIGJSON(res) {
+    var advices = {};
+    if (res.url.includes('AuthenticateToServiceConditionAdvice')) {
+        advices.AuthenticateToServiceConditionAdvice = [getXMLValueFromURL(res.url)];
+    }
+    else {
+        advices.TransactionConditionAdvice = [getXMLValueFromURL(res.url)];
+    }
+    return {
+        resource: '',
+        actions: {},
+        attributes: {},
+        advices: advices,
+        ttl: 0,
+    };
+}
+exports.normalizeIGJSON = normalizeIGJSON;
+function normalizeRESTJSON(res) {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, res.json()];
+                case 1: return [2 /*return*/, _a.sent()];
+            }
+        });
+    });
+}
+exports.normalizeRESTJSON = normalizeRESTJSON;
+//# sourceMappingURL=helpers.js.map
+
+/***/ }),
+
+/***/ 7664:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * index.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var config_1 = __nccwpck_require__(4445);
+var enums_1 = __nccwpck_require__(7031);
+var event_1 = __nccwpck_require__(2262);
+var fr_auth_1 = __nccwpck_require__(5210);
+var enums_2 = __nccwpck_require__(3320);
+var fr_step_1 = __nccwpck_require__(6082);
+var token_manager_1 = __nccwpck_require__(8588);
+var token_storage_1 = __nccwpck_require__(7656);
+var timeout_1 = __nccwpck_require__(7564);
+var helpers_1 = __nccwpck_require__(6399);
+var middleware_1 = __nccwpck_require__(2423);
+/**
+ * HTTP client that includes bearer token injection and refresh.
+ * This module also supports authorization for policy protected endpoints.
+ *
+ * Example:
+ *
+ * ```js
+ * return forgerock.HttpClient.request({
+ *   url: `https://example.com/protected/resource`,
+ *   init: {
+ *     method: 'GET',
+ *     credentials: 'include',
+ *   },
+ *   authorization: {
+ *     handleStep: async (step) => {
+ *       step.getCallbackOfType('PasswordCallback').setPassword(pw);
+ *       return Promise.resolve(step);
+ *     },
+ *   },
+ * });
+ * ```
+ */
+var HttpClient = /** @class */ (function (_super) {
+    __extends(HttpClient, _super);
+    function HttpClient() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    /**
+     * Makes a request using the specified options.
+     *
+     * @param options The options to use when making the request
+     */
+    HttpClient.request = function (options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var res, authorizationJSON, hasIG, _a, middleware, realmPath, serverConfig, authzOptions, url, type, tree, runMiddleware, _b, authUrl, authInit, initialStep, tokens, err_1;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0: return [4 /*yield*/, this._request(options, false)];
+                    case 1:
+                        res = _c.sent();
+                        hasIG = false;
+                        if (!(0, helpers_1.newTokenRequired)(res, options.requiresNewToken)) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this._request(options, true)];
+                    case 2:
+                        res = _c.sent();
+                        _c.label = 3;
+                    case 3:
+                        if (!(options.authorization && options.authorization.handleStep)) return [3 /*break*/, 16];
+                        if (!(res.redirected && (0, helpers_1.examineForIGAuthz)(res))) return [3 /*break*/, 4];
+                        hasIG = true;
+                        authorizationJSON = (0, helpers_1.normalizeIGJSON)(res);
+                        return [3 /*break*/, 7];
+                    case 4: return [4 /*yield*/, (0, helpers_1.examineForRESTAuthz)(res)];
+                    case 5:
+                        if (!_c.sent()) return [3 /*break*/, 7];
+                        return [4 /*yield*/, (0, helpers_1.normalizeRESTJSON)(res)];
+                    case 6:
+                        authorizationJSON = _c.sent();
+                        _c.label = 7;
+                    case 7:
+                        if (!(authorizationJSON && authorizationJSON.advices)) return [3 /*break*/, 16];
+                        _a = config_1.default.get(options.authorization.config), middleware = _a.middleware, realmPath = _a.realmPath, serverConfig = _a.serverConfig;
+                        authzOptions = (0, helpers_1.buildAuthzOptions)(authorizationJSON, serverConfig.baseUrl, options.timeout, realmPath, serverConfig.paths);
+                        url = new URL(authzOptions.url);
+                        type = url.searchParams.get('authIndexType');
+                        tree = url.searchParams.get('authIndexValue');
+                        runMiddleware = (0, middleware_1.default)({
+                            url: new URL(authzOptions.url),
+                            init: authzOptions.init,
+                        }, {
+                            type: enums_1.ActionTypes.StartAuthenticate,
+                            payload: { type: type, tree: tree },
+                        });
+                        _b = runMiddleware(middleware), authUrl = _b.url, authInit = _b.init;
+                        authzOptions.url = authUrl.toString();
+                        authzOptions.init = authInit;
+                        return [4 /*yield*/, this._request(authzOptions, false)];
+                    case 8:
+                        initialStep = _c.sent();
+                        return [4 /*yield*/, (0, helpers_1.isAuthzStep)(initialStep)];
+                    case 9:
+                        if (!(_c.sent())) {
+                            throw new Error('Error: Initial response from auth server not a "step".');
+                        }
+                        if (!(0, helpers_1.hasAuthzAdvice)(authorizationJSON)) {
+                            throw new Error("Error: Transactional or Service Advice is empty.");
+                        }
+                        // Walk through auth tree
+                        return [4 /*yield*/, this.stepIterator(initialStep, options.authorization.handleStep, type, tree)];
+                    case 10:
+                        // Walk through auth tree
+                        _c.sent();
+                        tokens = void 0;
+                        _c.label = 11;
+                    case 11:
+                        _c.trys.push([11, 13, , 14]);
+                        return [4 /*yield*/, token_storage_1.default.get()];
+                    case 12:
+                        tokens = _c.sent();
+                        return [3 /*break*/, 14];
+                    case 13:
+                        err_1 = _c.sent();
+                        return [3 /*break*/, 14];
+                    case 14:
+                        if (hasIG) {
+                            // Update URL with IDs and tokens for IG
+                            options.url = (0, helpers_1.addAuthzInfoToURL)(options.url, authorizationJSON.advices, tokens);
+                        }
+                        else {
+                            // Update headers with IDs and tokens for REST API
+                            options.init.headers = (0, helpers_1.addAuthzInfoToHeaders)(options.init, authorizationJSON.advices, tokens);
+                        }
+                        return [4 /*yield*/, this._request(options, false)];
+                    case 15:
+                        // Retry original resource request
+                        res = _c.sent();
+                        _c.label = 16;
+                    case 16: return [2 /*return*/, res];
+                }
+            });
+        });
+    };
+    HttpClient.setAuthHeaders = function (headers, forceRenew) {
+        return __awaiter(this, void 0, void 0, function () {
+            var tokens, err_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, token_storage_1.default.get()];
+                    case 1:
+                        tokens = _a.sent();
+                        return [3 /*break*/, 3];
+                    case 2:
+                        err_2 = _a.sent();
+                        return [3 /*break*/, 3];
+                    case 3:
+                        if (!(tokens && tokens.accessToken)) return [3 /*break*/, 5];
+                        return [4 /*yield*/, token_manager_1.default.getTokens({ forceRenew: forceRenew })];
+                    case 4:
+                        // Access tokens are an OAuth artifact
+                        tokens = _a.sent();
+                        // TODO: Temp fix; refactor this in next txn auth story
+                        if (tokens && tokens.accessToken) {
+                            headers.set('Authorization', "Bearer ".concat(tokens.accessToken));
+                        }
+                        _a.label = 5;
+                    case 5: return [2 /*return*/, headers];
+                }
+            });
+        });
+    };
+    HttpClient.stepIterator = function (res, handleStep, type, tree) {
+        return __awaiter(this, void 0, void 0, function () {
+            var jsonRes, initialStep;
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, res.json()];
+                    case 1:
+                        jsonRes = _a.sent();
+                        initialStep = new fr_step_1.default(jsonRes);
+                        // eslint-disable-next-line no-async-promise-executor
+                        return [2 /*return*/, new Promise(function (resolve, reject) { return __awaiter(_this, void 0, void 0, function () {
+                                function handleNext(step) {
+                                    return __awaiter(this, void 0, void 0, function () {
+                                        var input, output;
+                                        return __generator(this, function (_a) {
+                                            switch (_a.label) {
+                                                case 0: return [4 /*yield*/, handleStep(step)];
+                                                case 1:
+                                                    input = _a.sent();
+                                                    return [4 /*yield*/, fr_auth_1.default.next(input, { type: type, tree: tree })];
+                                                case 2:
+                                                    output = _a.sent();
+                                                    if (output.type === enums_2.StepType.LoginSuccess) {
+                                                        resolve();
+                                                    }
+                                                    else if (output.type === enums_2.StepType.LoginFailure) {
+                                                        reject('Authentication tree failure.');
+                                                    }
+                                                    else {
+                                                        handleNext(output);
+                                                    }
+                                                    return [2 /*return*/];
+                                            }
+                                        });
+                                    });
+                                }
+                                return __generator(this, function (_a) {
+                                    handleNext(initialStep);
+                                    return [2 /*return*/];
+                                });
+                            }); })];
+                }
+            });
+        });
+    };
+    HttpClient._request = function (options, forceRenew) {
+        return __awaiter(this, void 0, void 0, function () {
+            var url, init, timeout, headers;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        url = options.url, init = options.init, timeout = options.timeout;
+                        headers = new Headers(init.headers || {});
+                        if (!!options.bypassAuthentication) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.setAuthHeaders(headers, forceRenew)];
+                    case 1:
+                        headers = _a.sent();
+                        _a.label = 2;
+                    case 2:
+                        init.headers = headers;
+                        return [2 /*return*/, (0, timeout_1.withTimeout)(fetch(url, init), timeout)];
+                }
+            });
+        });
+    };
+    return HttpClient;
+}(event_1.default));
+exports["default"] = HttpClient;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 4432:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * index.ts
+ *
+ * Copyright (c) 2020-2021 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WebAuthnStepType = exports.WebAuthnOutcome = exports.ValidatedCreateUsernameCallback = exports.ValidatedCreatePasswordCallback = exports.UserManager = exports.TokenStorage = exports.TokenManager = exports.TextOutputCallback = exports.TermsAndConditionsCallback = exports.SuspendedTextOutputCallback = exports.StepType = exports.SessionManager = exports.SelectIdPCallback = exports.ResponseType = exports.RedirectCallback = exports.ReCaptchaCallback = exports.PollingWaitCallback = exports.PolicyKey = exports.PKCE = exports.PasswordCallback = exports.OAuth2Client = exports.NameCallback = exports.MetadataCallback = exports.LocalStorage = exports.KbaCreateCallback = exports.HttpClient = exports.HiddenValueCallback = exports.FRWebAuthn = exports.FRUser = exports.FRStep = exports.FRRecoveryCodes = exports.FRPolicy = exports.FRLoginSuccess = exports.FRLoginFailure = exports.FRDevice = exports.FRCallback = exports.FRAuth = exports.ErrorCode = exports.Dispatcher = exports.DeviceProfileCallback = exports.Deferred = exports.ConfirmationCallback = exports.Config = exports.ChoiceCallback = exports.CallbackType = exports.Auth = exports.AttributeInputCallback = exports.defaultMessageCreator = void 0;
+var auth_1 = __nccwpck_require__(8284);
+exports.Auth = auth_1.default;
+var enums_1 = __nccwpck_require__(3265);
+Object.defineProperty(exports, "CallbackType", ({ enumerable: true, get: function () { return enums_1.CallbackType; } }));
+Object.defineProperty(exports, "ErrorCode", ({ enumerable: true, get: function () { return enums_1.ErrorCode; } }));
+var config_1 = __nccwpck_require__(4445);
+exports.Config = config_1.default;
+var event_1 = __nccwpck_require__(2262);
+exports.Dispatcher = event_1.default;
+var fr_auth_1 = __nccwpck_require__(5210);
+exports.FRAuth = fr_auth_1.default;
+var callbacks_1 = __nccwpck_require__(7939);
+exports.FRCallback = callbacks_1.default;
+var attribute_input_callback_1 = __nccwpck_require__(6466);
+exports.AttributeInputCallback = attribute_input_callback_1.default;
+var choice_callback_1 = __nccwpck_require__(3680);
+exports.ChoiceCallback = choice_callback_1.default;
+var confirmation_callback_1 = __nccwpck_require__(8671);
+exports.ConfirmationCallback = confirmation_callback_1.default;
+var device_profile_callback_1 = __nccwpck_require__(1674);
+exports.DeviceProfileCallback = device_profile_callback_1.default;
+var hidden_value_callback_1 = __nccwpck_require__(9607);
+exports.HiddenValueCallback = hidden_value_callback_1.default;
+var kba_create_callback_1 = __nccwpck_require__(3422);
+exports.KbaCreateCallback = kba_create_callback_1.default;
+var metadata_callback_1 = __nccwpck_require__(630);
+exports.MetadataCallback = metadata_callback_1.default;
+var name_callback_1 = __nccwpck_require__(4825);
+exports.NameCallback = name_callback_1.default;
+var password_callback_1 = __nccwpck_require__(1759);
+exports.PasswordCallback = password_callback_1.default;
+var polling_wait_callback_1 = __nccwpck_require__(2902);
+exports.PollingWaitCallback = polling_wait_callback_1.default;
+var recaptcha_callback_1 = __nccwpck_require__(8547);
+exports.ReCaptchaCallback = recaptcha_callback_1.default;
+var redirect_callback_1 = __nccwpck_require__(3505);
+exports.RedirectCallback = redirect_callback_1.default;
+var select_idp_callback_1 = __nccwpck_require__(5044);
+exports.SelectIdPCallback = select_idp_callback_1.default;
+var suspended_text_output_callback_1 = __nccwpck_require__(6826);
+exports.SuspendedTextOutputCallback = suspended_text_output_callback_1.default;
+var terms_and_conditions_callback_1 = __nccwpck_require__(6683);
+exports.TermsAndConditionsCallback = terms_and_conditions_callback_1.default;
+var text_output_callback_1 = __nccwpck_require__(7435);
+exports.TextOutputCallback = text_output_callback_1.default;
+// eslint-disable-next-line max-len
+var validated_create_password_callback_1 = __nccwpck_require__(3221);
+exports.ValidatedCreatePasswordCallback = validated_create_password_callback_1.default;
+// eslint-disable-next-line max-len
+var validated_create_username_callback_1 = __nccwpck_require__(3254);
+exports.ValidatedCreateUsernameCallback = validated_create_username_callback_1.default;
+var enums_2 = __nccwpck_require__(3320);
+Object.defineProperty(exports, "StepType", ({ enumerable: true, get: function () { return enums_2.StepType; } }));
+var fr_login_failure_1 = __nccwpck_require__(2004);
+exports.FRLoginFailure = fr_login_failure_1.default;
+var fr_login_success_1 = __nccwpck_require__(6423);
+exports.FRLoginSuccess = fr_login_success_1.default;
+var fr_step_1 = __nccwpck_require__(6082);
+exports.FRStep = fr_step_1.default;
+var fr_device_1 = __nccwpck_require__(5579);
+exports.FRDevice = fr_device_1.default;
+var fr_policy_1 = __nccwpck_require__(1425);
+exports.FRPolicy = fr_policy_1.default;
+Object.defineProperty(exports, "PolicyKey", ({ enumerable: true, get: function () { return fr_policy_1.PolicyKey; } }));
+var message_creator_1 = __nccwpck_require__(683);
+exports.defaultMessageCreator = message_creator_1.default;
+var fr_recovery_codes_1 = __nccwpck_require__(4789);
+exports.FRRecoveryCodes = fr_recovery_codes_1.default;
+var fr_user_1 = __nccwpck_require__(8012);
+exports.FRUser = fr_user_1.default;
+var fr_webauthn_1 = __nccwpck_require__(1175);
+exports.FRWebAuthn = fr_webauthn_1.default;
+Object.defineProperty(exports, "WebAuthnOutcome", ({ enumerable: true, get: function () { return fr_webauthn_1.WebAuthnOutcome; } }));
+Object.defineProperty(exports, "WebAuthnStepType", ({ enumerable: true, get: function () { return fr_webauthn_1.WebAuthnStepType; } }));
+var http_client_1 = __nccwpck_require__(7664);
+exports.HttpClient = http_client_1.default;
+var oauth2_client_1 = __nccwpck_require__(2429);
+exports.OAuth2Client = oauth2_client_1.default;
+Object.defineProperty(exports, "ResponseType", ({ enumerable: true, get: function () { return oauth2_client_1.ResponseType; } }));
+var session_manager_1 = __nccwpck_require__(6340);
+exports.SessionManager = session_manager_1.default;
+var token_manager_1 = __nccwpck_require__(8588);
+exports.TokenManager = token_manager_1.default;
+var token_storage_1 = __nccwpck_require__(7656);
+exports.TokenStorage = token_storage_1.default;
+var user_manager_1 = __nccwpck_require__(2735);
+exports.UserManager = user_manager_1.default;
+var deferred_1 = __nccwpck_require__(1733);
+exports.Deferred = deferred_1.default;
+var pkce_1 = __nccwpck_require__(8059);
+exports.PKCE = pkce_1.default;
+var storage_1 = __nccwpck_require__(7504);
+exports.LocalStorage = storage_1.default;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 2239:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * enums.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ResponseType = void 0;
+/**
+ * Specifies the type of OAuth flow to invoke.
+ */
+var ResponseType;
+(function (ResponseType) {
+    ResponseType["Code"] = "code";
+    ResponseType["Token"] = "token";
+})(ResponseType || (ResponseType = {}));
+exports.ResponseType = ResponseType;
+//# sourceMappingURL=enums.js.map
+
+/***/ }),
+
+/***/ 2429:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * index.ts
+ *
+ * Copyright (c) 2020-2021 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ResponseType = exports.allowedErrors = void 0;
+var enums_1 = __nccwpck_require__(7031);
+var index_1 = __nccwpck_require__(4445);
+var token_storage_1 = __nccwpck_require__(7656);
+var http_1 = __nccwpck_require__(7013);
+var pkce_1 = __nccwpck_require__(8059);
+var timeout_1 = __nccwpck_require__(7564);
+var url_1 = __nccwpck_require__(9627);
+var enums_2 = __nccwpck_require__(2239);
+Object.defineProperty(exports, "ResponseType", ({ enumerable: true, get: function () { return enums_2.ResponseType; } }));
+var middleware_1 = __nccwpck_require__(2423);
+var allowedErrors = {
+    // AM error for consent requirement
+    AuthenticationConsentRequired: 'Authentication or consent required',
+    // Manual iframe error
+    AuthorizationTimeout: 'Authorization timed out',
+    // Chromium browser error
+    FailedToFetch: 'Failed to fetch',
+    // Mozilla browser error
+    NetworkError: 'NetworkError when attempting to fetch resource.',
+    // Webkit browser error
+    CORSError: 'Cross-origin redirection',
+};
+exports.allowedErrors = allowedErrors;
+/**
+ * OAuth 2.0 client.
+ */
+var OAuth2Client = /** @class */ (function () {
+    function OAuth2Client() {
+    }
+    OAuth2Client.createAuthorizeUrl = function (options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, clientId, middleware, redirectUri, scope, requestParams, challenge, runMiddleware, url;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = index_1.default.get(options), clientId = _a.clientId, middleware = _a.middleware, redirectUri = _a.redirectUri, scope = _a.scope;
+                        requestParams = __assign(__assign({}, options.query), { client_id: clientId, redirect_uri: redirectUri, response_type: options.responseType, scope: scope, state: options.state });
+                        if (!options.verifier) return [3 /*break*/, 2];
+                        return [4 /*yield*/, pkce_1.default.createChallenge(options.verifier)];
+                    case 1:
+                        challenge = _b.sent();
+                        requestParams.code_challenge = challenge;
+                        requestParams.code_challenge_method = 'S256';
+                        _b.label = 2;
+                    case 2:
+                        runMiddleware = (0, middleware_1.default)({
+                            url: new URL(this.getUrl('authorize', requestParams, options)),
+                            init: {},
+                        }, { type: enums_1.ActionTypes.Authorize });
+                        url = runMiddleware(middleware).url;
+                        return [2 /*return*/, url.toString()];
+                }
+            });
+        });
+    };
+    /**
+     * Calls the authorize URL with an iframe. If successful,
+     * it returns the callback URL with authentication code,
+     * optionally using PKCE.
+     * Method renamed in v3.
+     * Original Name: getAuthorizeUrl
+     * New Name: getAuthCodeByIframe
+     */
+    OAuth2Client.getAuthCodeByIframe = function (options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var url, serverConfig;
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.createAuthorizeUrl(options)];
+                    case 1:
+                        url = _a.sent();
+                        serverConfig = index_1.default.get(options).serverConfig;
+                        return [2 /*return*/, new Promise(function (resolve, reject) {
+                                var iframe = document.createElement('iframe');
+                                // Define these here to avoid linter warnings
+                                var noop = function () {
+                                    return;
+                                };
+                                var onLoad = noop;
+                                var cleanUp = noop;
+                                var timeout = 0;
+                                cleanUp = function () {
+                                    window.clearTimeout(timeout);
+                                    iframe.removeEventListener('load', onLoad);
+                                    iframe.remove();
+                                };
+                                onLoad = function () {
+                                    if (iframe.contentWindow) {
+                                        var newHref = iframe.contentWindow.location.href;
+                                        if (_this.containsAuthCode(newHref)) {
+                                            cleanUp();
+                                            resolve(newHref);
+                                        }
+                                        else if (_this.containsAuthError(newHref)) {
+                                            cleanUp();
+                                            resolve(newHref);
+                                        }
+                                    }
+                                };
+                                timeout = window.setTimeout(function () {
+                                    cleanUp();
+                                    reject(new Error(allowedErrors.AuthorizationTimeout));
+                                }, serverConfig.timeout);
+                                iframe.style.display = 'none';
+                                iframe.addEventListener('load', onLoad);
+                                document.body.appendChild(iframe);
+                                iframe.src = url;
+                            })];
+                }
+            });
+        });
+    };
+    /**
+     * Exchanges an authorization code for OAuth tokens.
+     */
+    OAuth2Client.getOAuth2Tokens = function (options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, clientId, redirectUri, requestParams, body, init, response, responseBody, message, responseObject, tokenExpiry;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = index_1.default.get(options), clientId = _a.clientId, redirectUri = _a.redirectUri;
+                        requestParams = {
+                            client_id: clientId,
+                            code: options.authorizationCode,
+                            grant_type: 'authorization_code',
+                            redirect_uri: redirectUri,
+                        };
+                        if (options.verifier) {
+                            requestParams.code_verifier = options.verifier;
+                        }
+                        body = (0, url_1.stringify)(requestParams);
+                        init = {
+                            body: body,
+                            headers: new Headers({
+                                'content-length': body.length.toString(),
+                                'content-type': 'application/x-www-form-urlencoded',
+                            }),
+                            method: 'POST',
+                        };
+                        return [4 /*yield*/, this.request('accessToken', undefined, false, init, options)];
+                    case 1:
+                        response = _b.sent();
+                        return [4 /*yield*/, this.getBody(response)];
+                    case 2:
+                        responseBody = _b.sent();
+                        if (response.status !== 200) {
+                            message = typeof responseBody === 'string'
+                                ? "Expected 200, received ".concat(response.status)
+                                : this.parseError(responseBody);
+                            throw new Error(message);
+                        }
+                        responseObject = responseBody;
+                        if (!responseObject.access_token) {
+                            throw new Error('Access token not found in response');
+                        }
+                        tokenExpiry = undefined;
+                        if (responseObject.expires_in) {
+                            tokenExpiry = Date.now() + responseObject.expires_in * 1000;
+                        }
+                        return [2 /*return*/, {
+                                accessToken: responseObject.access_token,
+                                idToken: responseObject.id_token,
+                                refreshToken: responseObject.refresh_token,
+                                tokenExpiry: tokenExpiry,
+                            }];
+                }
+            });
+        });
+    };
+    /**
+     * Gets OIDC user information.
+     */
+    OAuth2Client.getUserInfo = function (options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var response, json;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.request('userInfo', undefined, true, undefined, options)];
+                    case 1:
+                        response = _a.sent();
+                        if (response.status !== 200) {
+                            throw new Error("Failed to get user info; received ".concat(response.status));
+                        }
+                        return [4 /*yield*/, response.json()];
+                    case 2:
+                        json = _a.sent();
+                        return [2 /*return*/, json];
+                }
+            });
+        });
+    };
+    /**
+     * Invokes the OIDC end session endpoint.
+     */
+    OAuth2Client.endSession = function (options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var idToken, query, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, token_storage_1.default.get()];
+                    case 1:
+                        idToken = (_a.sent()).idToken;
+                        query = {};
+                        if (idToken) {
+                            query.id_token_hint = idToken;
+                        }
+                        return [4 /*yield*/, this.request('endSession', query, true, undefined, options)];
+                    case 2:
+                        response = _a.sent();
+                        if (!(0, http_1.isOkOr4xx)(response)) {
+                            throw new Error("Failed to end session; received ".concat(response.status));
+                        }
+                        return [2 /*return*/, response];
+                }
+            });
+        });
+    };
+    /**
+     * Immediately revokes the stored access token.
+     */
+    OAuth2Client.revokeToken = function (options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var clientId, accessToken, init, response;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        clientId = index_1.default.get(options).clientId;
+                        return [4 /*yield*/, token_storage_1.default.get()];
+                    case 1:
+                        accessToken = (_a.sent()).accessToken;
+                        init = {
+                            body: (0, url_1.stringify)({ client_id: clientId, token: accessToken }),
+                            credentials: 'include',
+                            headers: new Headers({ 'content-type': 'application/x-www-form-urlencoded' }),
+                            method: 'POST',
+                        };
+                        return [4 /*yield*/, this.request('revoke', undefined, false, init, options)];
+                    case 2:
+                        response = _a.sent();
+                        if (!(0, http_1.isOkOr4xx)(response)) {
+                            throw new Error("Failed to revoke token; received ".concat(response.status));
+                        }
+                        return [2 /*return*/, response];
+                }
+            });
+        });
+    };
+    OAuth2Client.request = function (endpoint, query, includeToken, init, options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, middleware, serverConfig, url, getActionType, accessToken, runMiddleware, req;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = index_1.default.get(options), middleware = _a.middleware, serverConfig = _a.serverConfig;
+                        url = this.getUrl(endpoint, query, options);
+                        getActionType = function (endpoint) {
+                            switch (endpoint) {
+                                case 'accessToken':
+                                    return enums_1.ActionTypes.ExchangeToken;
+                                case 'endSession':
+                                    return enums_1.ActionTypes.EndSession;
+                                case 'revoke':
+                                    return enums_1.ActionTypes.RevokeToken;
+                                default:
+                                    return enums_1.ActionTypes.UserInfo;
+                            }
+                        };
+                        init = init || {};
+                        if (!includeToken) return [3 /*break*/, 2];
+                        return [4 /*yield*/, token_storage_1.default.get()];
+                    case 1:
+                        accessToken = (_b.sent()).accessToken;
+                        init.credentials = 'include';
+                        init.headers = (init.headers || new Headers());
+                        init.headers.set('authorization', "Bearer ".concat(accessToken));
+                        _b.label = 2;
+                    case 2:
+                        runMiddleware = (0, middleware_1.default)({ url: new URL(url), init: init }, { type: getActionType(endpoint) });
+                        req = runMiddleware(middleware);
+                        return [4 /*yield*/, (0, timeout_1.withTimeout)(fetch(req.url.toString(), req.init), serverConfig.timeout)];
+                    case 3: return [2 /*return*/, _b.sent()];
+                }
+            });
+        });
+    };
+    OAuth2Client.containsAuthCode = function (url) {
+        return !!url && /code=([^&]+)/.test(url);
+    };
+    OAuth2Client.containsAuthError = function (url) {
+        return !!url && /error=([^&]+)/.test(url);
+    };
+    OAuth2Client.getBody = function (response) {
+        return __awaiter(this, void 0, void 0, function () {
+            var contentType;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        contentType = response.headers.get('content-type');
+                        if (!(contentType && contentType.indexOf('application/json') > -1)) return [3 /*break*/, 2];
+                        return [4 /*yield*/, response.json()];
+                    case 1: return [2 /*return*/, _a.sent()];
+                    case 2: return [4 /*yield*/, response.text()];
+                    case 3: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    OAuth2Client.parseError = function (json) {
+        if (json) {
+            if (json.error && json.error_description) {
+                return "".concat(json.error, ": ").concat(json.error_description);
+            }
+            if (json.code && json.message) {
+                return "".concat(json.code, ": ").concat(json.message);
+            }
+        }
+        return undefined;
+    };
+    OAuth2Client.getUrl = function (endpoint, query, options) {
+        var _a = index_1.default.get(options), realmPath = _a.realmPath, serverConfig = _a.serverConfig;
+        var path = (0, url_1.getEndpointPath)(endpoint, realmPath, serverConfig.paths);
+        var url = (0, url_1.resolve)(serverConfig.baseUrl, path);
+        if (query) {
+            url += "?".concat((0, url_1.stringify)(query));
+        }
+        return url;
+    };
+    return OAuth2Client;
+}());
+exports["default"] = OAuth2Client;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 6340:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * index.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var index_1 = __nccwpck_require__(4445);
+var constants_1 = __nccwpck_require__(3305);
+var http_1 = __nccwpck_require__(7013);
+var timeout_1 = __nccwpck_require__(7564);
+var enums_1 = __nccwpck_require__(7031);
+var middleware_1 = __nccwpck_require__(2423);
+var url_1 = __nccwpck_require__(9627);
+/**
+ * Provides access to the session management API.
+ */
+var SessionManager = /** @class */ (function () {
+    function SessionManager() {
+    }
+    /**
+     * Ends the current session.
+     */
+    SessionManager.logout = function (options) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, middleware, realmPath, serverConfig, init, path, url, runMiddleware, req, response;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = index_1.default.get(options), middleware = _a.middleware, realmPath = _a.realmPath, serverConfig = _a.serverConfig;
+                        init = {
+                            credentials: 'include',
+                            headers: new Headers({
+                                'accept-api-version': 'protocol=1.0,resource=2.0',
+                                'x-requested-with': constants_1.REQUESTED_WITH,
+                            }),
+                            method: 'POST',
+                        };
+                        path = "".concat((0, url_1.getEndpointPath)('sessions', realmPath, serverConfig.paths), "?_action=logout");
+                        url = (0, url_1.resolve)(serverConfig.baseUrl, path);
+                        runMiddleware = (0, middleware_1.default)({ url: new URL(url), init: init }, { type: enums_1.ActionTypes.Logout });
+                        req = runMiddleware(middleware);
+                        return [4 /*yield*/, (0, timeout_1.withTimeout)(fetch(req.url.toString(), req.init), serverConfig.timeout)];
+                    case 1:
+                        response = _b.sent();
+                        if (!(0, http_1.isOkOr4xx)(response)) {
+                            throw new Error("Failed to log out; received ".concat(response.status));
+                        }
+                        return [2 /*return*/, response];
+                }
+            });
+        });
+    };
+    return SessionManager;
+}());
+exports["default"] = SessionManager;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 3305:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * constants.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.REQUESTED_WITH = void 0;
+/**
+ * @module
+ * @ignore
+ * These are private constants
+ */
+var REQUESTED_WITH = 'forgerock-sdk';
+exports.REQUESTED_WITH = REQUESTED_WITH;
+//# sourceMappingURL=constants.js.map
+
+/***/ }),
+
+/***/ 173:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * helpers.ts
+ *
+ * Copyright (c) 2022 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.tokensWillExpireWithinThreshold = void 0;
+/**
+ * @module
+ * @ignore
+ * These are private utility functions for Token Manager
+ */
+function tokensWillExpireWithinThreshold(oauthThreshold, tokenExpiry) {
+    if (oauthThreshold && tokenExpiry) {
+        return tokenExpiry - oauthThreshold < Date.now();
+    }
+    return false;
+}
+exports.tokensWillExpireWithinThreshold = tokensWillExpireWithinThreshold;
+//# sourceMappingURL=helpers.js.map
+
+/***/ }),
+
+/***/ 8588:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * index.ts
+ *
+ * Copyright (c) 2020-2021 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var config_1 = __nccwpck_require__(4445);
+var middleware_1 = __nccwpck_require__(2423);
+var oauth2_client_1 = __nccwpck_require__(2429);
+var token_storage_1 = __nccwpck_require__(7656);
+var pkce_1 = __nccwpck_require__(8059);
+var timeout_1 = __nccwpck_require__(7564);
+var url_1 = __nccwpck_require__(9627);
+var enums_1 = __nccwpck_require__(7031);
+var helpers_1 = __nccwpck_require__(173);
+var TokenManager = /** @class */ (function () {
+    function TokenManager() {
+    }
+    /**
+     * Token Manager class that provides high-level abstraction for Authorization Code flow,
+     * PKCE value generation, token exchange and token storage.
+     *
+     * Supports both embedded authentication as well as external authentication via redirects
+     *
+     Example 1:
+  
+     ```js
+     const tokens = forgerock.TokenManager.getTokens({
+       forceRenew: true, // If you want to get new tokens, despite existing ones
+       login: 'embedded', // If user authentication is handled in-app
+       support: 'legacy', // Set globally or locally; `"legacy"` or `undefined` will use iframe
+       serverConfig: {
+         timeout: 5000, // If using "legacy", use a short timeout to catch error
+       },
+     });
+     ```
+  
+     Example 2:
+  
+     ```js
+     const tokens = forgerock.TokenManager.getTokens({
+       forceRenew: false, // Will immediately return stored tokens, if they exist
+       login: 'redirect', // If user authentication is handled in external Web app
+       support: 'modern', // Set globally or locally; `"modern"` will use native fetch
+     });
+     ```
+  
+     Example 3:
+  
+     ```js
+     const tokens = forgerock.TokenManager.getTokens({
+       query: {
+         code: 'lFJQYdoQG1u7nUm8 ... ', // Authorization code from redirect URL
+         state: 'MTY2NDkxNTQ2Nde3D ... ', // State from redirect URL
+       },
+     });
+     ```
+     */
+    TokenManager.getTokens = function (options) {
+        var _a, _b, _c;
+        return __awaiter(this, void 0, void 0, function () {
+            var tokens, _d, clientId, middleware, serverConfig, support, oauthThreshold, error_1, error_2, storedString, storedValues, verifier, state, authorizeUrlOptions, authorizeUrl, parsedUrl, _e, runMiddleware, init, response, parsedQuery, err_1;
+            return __generator(this, function (_f) {
+                switch (_f.label) {
+                    case 0:
+                        tokens = null;
+                        _d = config_1.default.get(options), clientId = _d.clientId, middleware = _d.middleware, serverConfig = _d.serverConfig, support = _d.support, oauthThreshold = _d.oauthThreshold;
+                        _f.label = 1;
+                    case 1:
+                        _f.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, token_storage_1.default.get()];
+                    case 2:
+                        tokens = _f.sent();
+                        return [3 /*break*/, 4];
+                    case 3:
+                        error_1 = _f.sent();
+                        console.info('No stored tokens available', error_1);
+                        return [3 /*break*/, 4];
+                    case 4:
+                        /**
+                         * If tokens are stored, no option for `forceRenew` or `query` object with `code`, and do not expire within the configured threshold,
+                         * immediately return the stored tokens
+                         */
+                        if (tokens &&
+                            !(options === null || options === void 0 ? void 0 : options.forceRenew) &&
+                            !((_a = options === null || options === void 0 ? void 0 : options.query) === null || _a === void 0 ? void 0 : _a.code) &&
+                            !(0, helpers_1.tokensWillExpireWithinThreshold)(oauthThreshold, tokens.tokenExpiry)) {
+                            return [2 /*return*/, tokens];
+                        }
+                        if (!tokens) return [3 /*break*/, 9];
+                        _f.label = 5;
+                    case 5:
+                        _f.trys.push([5, 8, , 9]);
+                        return [4 /*yield*/, oauth2_client_1.default.revokeToken(options)];
+                    case 6:
+                        _f.sent();
+                        return [4 /*yield*/, TokenManager.deleteTokens()];
+                    case 7:
+                        _f.sent();
+                        return [3 /*break*/, 9];
+                    case 8:
+                        error_2 = _f.sent();
+                        console.warn('Existing tokens could not be revoked or deleted', error_2);
+                        return [3 /*break*/, 9];
+                    case 9:
+                        if (!(((_b = options === null || options === void 0 ? void 0 : options.query) === null || _b === void 0 ? void 0 : _b.code) && ((_c = options === null || options === void 0 ? void 0 : options.query) === null || _c === void 0 ? void 0 : _c.state))) return [3 /*break*/, 11];
+                        storedString = window.sessionStorage.getItem(clientId);
+                        window.sessionStorage.removeItem(clientId);
+                        storedValues = JSON.parse(storedString);
+                        return [4 /*yield*/, this.tokenExchange(options, storedValues)];
+                    case 10: return [2 /*return*/, _f.sent()];
+                    case 11:
+                        verifier = pkce_1.default.createVerifier();
+                        state = pkce_1.default.createState();
+                        authorizeUrlOptions = __assign(__assign({}, options), { responseType: oauth2_client_1.ResponseType.Code, state: state, verifier: verifier });
+                        return [4 /*yield*/, oauth2_client_1.default.createAuthorizeUrl(authorizeUrlOptions)];
+                    case 12:
+                        authorizeUrl = _f.sent();
+                        _f.label = 13;
+                    case 13:
+                        _f.trys.push([13, 18, , 19]);
+                        parsedUrl = void 0;
+                        if (!(support === 'legacy' || support === undefined)) return [3 /*break*/, 15];
+                        _e = URL.bind;
+                        return [4 /*yield*/, oauth2_client_1.default.getAuthCodeByIframe(authorizeUrlOptions)];
+                    case 14:
+                        // To support legacy browsers, iframe works best with short timeout
+                        parsedUrl = new (_e.apply(URL, [void 0, _f.sent()]))();
+                        return [3 /*break*/, 17];
+                    case 15:
+                        runMiddleware = (0, middleware_1.default)({
+                            url: new URL(authorizeUrl),
+                            init: {
+                                credentials: 'include',
+                                mode: 'cors',
+                            },
+                        }, {
+                            type: enums_1.ActionTypes.Authorize,
+                        });
+                        init = runMiddleware(middleware).init;
+                        return [4 /*yield*/, (0, timeout_1.withTimeout)(fetch(authorizeUrl, init), serverConfig.timeout)];
+                    case 16:
+                        response = _f.sent();
+                        parsedUrl = new URL(response.url);
+                        _f.label = 17;
+                    case 17:
+                        // Throw if we have an error param or have no authorization code
+                        if (parsedUrl.searchParams.get('error')) {
+                            throw Error("".concat(parsedUrl.searchParams.get('error_description')));
+                        }
+                        else if (!parsedUrl.searchParams.get('code')) {
+                            throw Error(oauth2_client_1.allowedErrors.AuthenticationConsentRequired);
+                        }
+                        parsedQuery = (0, url_1.parseQuery)(parsedUrl.toString());
+                        if (!options) {
+                            options = {};
+                        }
+                        options.query = parsedQuery;
+                        return [3 /*break*/, 19];
+                    case 18:
+                        err_1 = _f.sent();
+                        // If authorize request fails, handle according to `login` type
+                        if (!(err_1 instanceof Error) || (options === null || options === void 0 ? void 0 : options.login) !== 'redirect') {
+                            // Throw for any error if login is NOT of type "redirect"
+                            throw err_1;
+                        }
+                        // Check if error is not one of our allowed errors
+                        if (oauth2_client_1.allowedErrors.AuthenticationConsentRequired !== err_1.message &&
+                            oauth2_client_1.allowedErrors.AuthorizationTimeout !== err_1.message &&
+                            oauth2_client_1.allowedErrors.FailedToFetch !== err_1.message &&
+                            oauth2_client_1.allowedErrors.NetworkError !== err_1.message &&
+                            // Safari has a very long error message, so we check for a substring
+                            !err_1.message.includes(oauth2_client_1.allowedErrors.CORSError)) {
+                            // Throw if the error is NOT an explicitly allowed error along with redirect of true
+                            // as that is a normal response and just requires a redirect
+                            throw err_1;
+                        }
+                        // Since `login` is configured for "redirect", store authorize values and redirect
+                        window.sessionStorage.setItem(clientId, JSON.stringify(authorizeUrlOptions));
+                        return [2 /*return*/, window.location.assign(authorizeUrl)];
+                    case 19: return [4 /*yield*/, this.tokenExchange(options, { state: state, verifier: verifier })];
+                    case 20: 
+                    /**
+                     * Exchange authorization code for tokens
+                     */
+                    return [2 /*return*/, _f.sent()];
+                }
+            });
+        });
+    };
+    TokenManager.deleteTokens = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, token_storage_1.default.remove()];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    TokenManager.tokenExchange = function (options, stored) {
+        var _a, _b, _c, _d;
+        return __awaiter(this, void 0, void 0, function () {
+            var authorizationCode, verifier, getTokensOptions, tokens, error_3;
+            return __generator(this, function (_e) {
+                switch (_e.label) {
+                    case 0:
+                        /**
+                         * Ensure incoming state and stored state are equal and authorization code exists
+                         */
+                        if (((_a = options.query) === null || _a === void 0 ? void 0 : _a.state) !== stored.state) {
+                            throw new Error('State mismatch');
+                        }
+                        if (!((_b = options.query) === null || _b === void 0 ? void 0 : _b.code) || Array.isArray((_c = options.query) === null || _c === void 0 ? void 0 : _c.code)) {
+                            throw new Error('Failed to acquire authorization code');
+                        }
+                        authorizationCode = (_d = options.query) === null || _d === void 0 ? void 0 : _d.code;
+                        verifier = stored.verifier;
+                        getTokensOptions = __assign(__assign({}, options), { authorizationCode: authorizationCode, verifier: verifier });
+                        return [4 /*yield*/, oauth2_client_1.default.getOAuth2Tokens(getTokensOptions)];
+                    case 1:
+                        tokens = _e.sent();
+                        if (!tokens || !tokens.accessToken) {
+                            throw new Error('Unable to exchange authorization for tokens');
+                        }
+                        _e.label = 2;
+                    case 2:
+                        _e.trys.push([2, 4, , 5]);
+                        return [4 /*yield*/, token_storage_1.default.set(tokens)];
+                    case 3:
+                        _e.sent();
+                        return [3 /*break*/, 5];
+                    case 4:
+                        error_3 = _e.sent();
+                        console.error('Failed to store tokens', error_3);
+                        return [3 /*break*/, 5];
+                    case 5: return [2 /*return*/, tokens];
+                }
+            });
+        });
+    };
+    return TokenManager;
+}());
+exports["default"] = TokenManager;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 3756:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * constants.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.TOKEN_KEY = exports.DB_NAME = void 0;
+/**
+ * @module
+ * @ignore
+ * These are private constants for TokenStorage
+ */
+var DB_NAME = 'forgerock-sdk';
+exports.DB_NAME = DB_NAME;
+/** @hidden */
+var TOKEN_KEY = 'tokens';
+exports.TOKEN_KEY = TOKEN_KEY;
+//# sourceMappingURL=constants.js.map
+
+/***/ }),
+
+/***/ 7656:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * index.ts
+ *
+ * Copyright (c) 2020-2021 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var index_1 = __nccwpck_require__(4445);
+var indexed_db_1 = __nccwpck_require__(5538);
+var local_storage_1 = __nccwpck_require__(3623);
+var session_storage_1 = __nccwpck_require__(1141);
+/**
+ * Provides access to the token storage API.
+ * The type of storage (localStorage, sessionStorage, etc) can be configured
+ * through `tokenStore` object on the SDK configuration.
+ */
+var TokenStorage = /** @class */ (function () {
+    function TokenStorage() {
+    }
+    /**
+     * Gets stored tokens.
+     */
+    TokenStorage.get = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, clientId, tokenStore;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = this.getClientConfig(), clientId = _a.clientId, tokenStore = _a.tokenStore;
+                        if (!(tokenStore === 'sessionStorage')) return [3 /*break*/, 2];
+                        return [4 /*yield*/, session_storage_1.default.get(clientId)];
+                    case 1: return [2 /*return*/, _b.sent()];
+                    case 2:
+                        if (!(tokenStore === 'localStorage')) return [3 /*break*/, 4];
+                        return [4 /*yield*/, local_storage_1.default.get(clientId)];
+                    case 3: return [2 /*return*/, _b.sent()];
+                    case 4:
+                        if (!(tokenStore === 'indexedDB')) return [3 /*break*/, 6];
+                        return [4 /*yield*/, indexed_db_1.default.get(clientId)];
+                    case 5: return [2 /*return*/, _b.sent()];
+                    case 6:
+                        if (!(tokenStore && tokenStore.get)) return [3 /*break*/, 8];
+                        return [4 /*yield*/, tokenStore.get(clientId)];
+                    case 7: 
+                    // User supplied token store
+                    return [2 /*return*/, _b.sent()];
+                    case 8: return [4 /*yield*/, local_storage_1.default.get(clientId)];
+                    case 9: 
+                    // if tokenStore is undefined, default to localStorage
+                    return [2 /*return*/, _b.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Saves tokens.
+     */
+    TokenStorage.set = function (tokens) {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, clientId, tokenStore;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = this.getClientConfig(), clientId = _a.clientId, tokenStore = _a.tokenStore;
+                        if (!(tokenStore === 'sessionStorage')) return [3 /*break*/, 2];
+                        return [4 /*yield*/, session_storage_1.default.set(clientId, tokens)];
+                    case 1: return [2 /*return*/, _b.sent()];
+                    case 2:
+                        if (!(tokenStore === 'localStorage')) return [3 /*break*/, 4];
+                        return [4 /*yield*/, local_storage_1.default.set(clientId, tokens)];
+                    case 3: return [2 /*return*/, _b.sent()];
+                    case 4:
+                        if (!(tokenStore === 'indexedDB')) return [3 /*break*/, 6];
+                        return [4 /*yield*/, indexed_db_1.default.set(clientId, tokens)];
+                    case 5: return [2 /*return*/, _b.sent()];
+                    case 6:
+                        if (!(tokenStore && tokenStore.set)) return [3 /*break*/, 8];
+                        return [4 /*yield*/, tokenStore.set(clientId, tokens)];
+                    case 7: 
+                    // User supplied token store
+                    return [2 /*return*/, _b.sent()];
+                    case 8: return [4 /*yield*/, local_storage_1.default.set(clientId, tokens)];
+                    case 9: 
+                    // if tokenStore is undefined, default to localStorage
+                    return [2 /*return*/, _b.sent()];
+                }
+            });
+        });
+    };
+    /**
+     * Removes stored tokens.
+     */
+    TokenStorage.remove = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, clientId, tokenStore;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        _a = this.getClientConfig(), clientId = _a.clientId, tokenStore = _a.tokenStore;
+                        if (!(tokenStore === 'sessionStorage')) return [3 /*break*/, 2];
+                        return [4 /*yield*/, session_storage_1.default.remove(clientId)];
+                    case 1: return [2 /*return*/, _b.sent()];
+                    case 2:
+                        if (!(tokenStore === 'localStorage')) return [3 /*break*/, 4];
+                        return [4 /*yield*/, local_storage_1.default.remove(clientId)];
+                    case 3: return [2 /*return*/, _b.sent()];
+                    case 4:
+                        if (!(tokenStore === 'indexedDB')) return [3 /*break*/, 6];
+                        return [4 /*yield*/, indexed_db_1.default.remove(clientId)];
+                    case 5: return [2 /*return*/, _b.sent()];
+                    case 6:
+                        if (!(tokenStore && tokenStore.remove)) return [3 /*break*/, 8];
+                        return [4 /*yield*/, tokenStore.remove(clientId)];
+                    case 7: 
+                    // User supplied token store
+                    return [2 /*return*/, _b.sent()];
+                    case 8: return [4 /*yield*/, local_storage_1.default.remove(clientId)];
+                    case 9: 
+                    // if tokenStore is undefined, default to localStorage
+                    return [2 /*return*/, _b.sent()];
+                }
+            });
+        });
+    };
+    TokenStorage.getClientConfig = function () {
+        var _a = index_1.default.get(), clientId = _a.clientId, tokenStore = _a.tokenStore;
+        if (!clientId) {
+            throw new Error('clientId is required to manage token storage');
+        }
+        return { clientId: clientId, tokenStore: tokenStore };
+    };
+    return TokenStorage;
+}());
+exports["default"] = TokenStorage;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 5538:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * indexed-db.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var constants_1 = __nccwpck_require__(3756);
+/**
+ * Provides wrapper for tokens with IndexedDB.
+ */
+var IndexedDBWrapper = /** @class */ (function () {
+    function IndexedDBWrapper() {
+    }
+    /**
+     * Retrieve tokens.
+     */
+    IndexedDBWrapper.get = function (clientId) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        var onError = function () { return reject(); };
+                        var openReq = window.indexedDB.open(constants_1.DB_NAME);
+                        openReq.onsuccess = function () {
+                            if (!openReq.result.objectStoreNames.contains(clientId)) {
+                                openReq.result.close();
+                                return reject('Client ID not found');
+                            }
+                            var getReq = openReq.result
+                                .transaction(clientId, 'readonly')
+                                .objectStore(clientId)
+                                .get(constants_1.TOKEN_KEY);
+                            getReq.onsuccess = function (event) {
+                                if (!event || !event.target) {
+                                    throw new Error('Missing storage event target');
+                                }
+                                openReq.result.close();
+                                resolve(event.target.result);
+                            };
+                            getReq.onerror = onError;
+                        };
+                        openReq.onupgradeneeded = function () {
+                            openReq.result.close();
+                            reject('IndexedDB upgrade needed');
+                        };
+                        openReq.onerror = onError;
+                    })];
+            });
+        });
+    };
+    /**
+     * Saves tokens.
+     */
+    IndexedDBWrapper.set = function (clientId, tokens) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        var openReq = window.indexedDB.open(constants_1.DB_NAME);
+                        var onSetSuccess = function () {
+                            openReq.result.close();
+                            resolve();
+                        };
+                        var onError = function () { return reject(); };
+                        var onUpgradeNeeded = function () {
+                            openReq.result.createObjectStore(clientId);
+                        };
+                        var onOpenSuccess = function () {
+                            if (!openReq.result.objectStoreNames.contains(clientId)) {
+                                var version = openReq.result.version + 1;
+                                openReq.result.close();
+                                openReq = window.indexedDB.open(constants_1.DB_NAME, version);
+                                openReq.onupgradeneeded = onUpgradeNeeded;
+                                openReq.onsuccess = onOpenSuccess;
+                                openReq.onerror = onError;
+                                return;
+                            }
+                            var txnReq = openReq.result.transaction(clientId, 'readwrite');
+                            txnReq.onerror = onError;
+                            var objectStore = txnReq.objectStore(clientId);
+                            var putReq = objectStore.put(tokens, constants_1.TOKEN_KEY);
+                            putReq.onsuccess = onSetSuccess;
+                            putReq.onerror = onError;
+                        };
+                        openReq.onupgradeneeded = onUpgradeNeeded;
+                        openReq.onsuccess = onOpenSuccess;
+                        openReq.onerror = onError;
+                    })];
+            });
+        });
+    };
+    /**
+     * Removes stored tokens.
+     */
+    IndexedDBWrapper.remove = function (clientId) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, new Promise(function (resolve, reject) {
+                        var onError = function () { return reject(); };
+                        var openReq = window.indexedDB.open(constants_1.DB_NAME);
+                        openReq.onsuccess = function () {
+                            if (!openReq.result.objectStoreNames.contains(clientId)) {
+                                return resolve();
+                            }
+                            var removeReq = openReq.result
+                                .transaction(clientId, 'readwrite')
+                                .objectStore(clientId)
+                                .delete(constants_1.TOKEN_KEY);
+                            removeReq.onsuccess = function () {
+                                resolve();
+                            };
+                            removeReq.onerror = onError;
+                        };
+                        openReq.onerror = onError;
+                    })];
+            });
+        });
+    };
+    return IndexedDBWrapper;
+}());
+exports["default"] = IndexedDBWrapper;
+//# sourceMappingURL=indexed-db.js.map
+
+/***/ }),
+
+/***/ 3623:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * local-storage.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var constants_1 = __nccwpck_require__(3756);
+/**
+ * Provides wrapper for tokens with localStorage.
+ */
+var LocalStorageWrapper = /** @class */ (function () {
+    function LocalStorageWrapper() {
+    }
+    /**
+     * Retrieve tokens.
+     */
+    LocalStorageWrapper.get = function (clientId) {
+        return __awaiter(this, void 0, void 0, function () {
+            var tokenString;
+            return __generator(this, function (_a) {
+                tokenString = localStorage.getItem("".concat(constants_1.DB_NAME, "-").concat(clientId));
+                try {
+                    return [2 /*return*/, Promise.resolve(JSON.parse(tokenString || ''))];
+                }
+                catch (err) {
+                    console.warn('Could not parse token from localStorage. This could be due to accessing a removed token');
+                    // Original behavior had an untyped return of undefined for no token
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    return [2 /*return*/, undefined];
+                }
+                return [2 /*return*/];
+            });
+        });
+    };
+    /**
+     * Saves tokens.
+     */
+    LocalStorageWrapper.set = function (clientId, tokens) {
+        return __awaiter(this, void 0, void 0, function () {
+            var tokenString;
+            return __generator(this, function (_a) {
+                tokenString = JSON.stringify(tokens);
+                localStorage.setItem("".concat(constants_1.DB_NAME, "-").concat(clientId), tokenString);
+                return [2 /*return*/];
+            });
+        });
+    };
+    /**
+     * Removes stored tokens.
+     */
+    LocalStorageWrapper.remove = function (clientId) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                localStorage.removeItem("".concat(constants_1.DB_NAME, "-").concat(clientId));
+                return [2 /*return*/];
+            });
+        });
+    };
+    return LocalStorageWrapper;
+}());
+exports["default"] = LocalStorageWrapper;
+//# sourceMappingURL=local-storage.js.map
+
+/***/ }),
+
+/***/ 1141:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * session-storage.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var constants_1 = __nccwpck_require__(3756);
+/**
+ * Provides wrapper for tokens with sessionStorage.
+ */
+var SessionStorageWrapper = /** @class */ (function () {
+    function SessionStorageWrapper() {
+    }
+    /**
+     * Retrieve tokens.
+     */
+    SessionStorageWrapper.get = function (clientId) {
+        return __awaiter(this, void 0, void 0, function () {
+            var tokenString;
+            return __generator(this, function (_a) {
+                tokenString = sessionStorage.getItem("".concat(constants_1.DB_NAME, "-").concat(clientId));
+                try {
+                    return [2 /*return*/, Promise.resolve(JSON.parse(tokenString || ''))];
+                }
+                catch (err) {
+                    console.warn('Could not parse token from sessionStorage. This could be due to accessing a removed token');
+                    // Original behavior had an untyped return of undefined for no token
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    return [2 /*return*/, undefined];
+                }
+                return [2 /*return*/];
+            });
+        });
+    };
+    /**
+     * Saves tokens.
+     */
+    SessionStorageWrapper.set = function (clientId, tokens) {
+        return __awaiter(this, void 0, void 0, function () {
+            var tokenString;
+            return __generator(this, function (_a) {
+                tokenString = JSON.stringify(tokens);
+                sessionStorage.setItem("".concat(constants_1.DB_NAME, "-").concat(clientId), tokenString);
+                return [2 /*return*/];
+            });
+        });
+    };
+    /**
+     * Removes stored tokens.
+     */
+    SessionStorageWrapper.remove = function (clientId) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                sessionStorage.removeItem("".concat(constants_1.DB_NAME, "-").concat(clientId));
+                return [2 /*return*/];
+            });
+        });
+    };
+    return SessionStorageWrapper;
+}());
+exports["default"] = SessionStorageWrapper;
+//# sourceMappingURL=session-storage.js.map
+
+/***/ }),
+
+/***/ 2735:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * index.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var oauth2_client_1 = __nccwpck_require__(2429);
+/**
+ * Provides access to the current user's profile.
+ */
+var UserManager = /** @class */ (function () {
+    function UserManager() {
+    }
+    /**
+     * Gets the current user's profile.
+     */
+    UserManager.getCurrentUser = function (options) {
+        return oauth2_client_1.default.getUserInfo(options);
+    };
+    return UserManager;
+}());
+exports["default"] = UserManager;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ 1733:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * deferred.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+/**
+ * Implementation of the Deferred API to simplify handling of Promises.
+ */
+var Deferred = /** @class */ (function () {
+    function Deferred() {
+        var _this = this;
+        this.promise = new Promise(function (resolve, reject) {
+            _this.reject = reject;
+            _this.resolve = resolve;
+        });
+    }
+    return Deferred;
+}());
+exports["default"] = Deferred;
+//# sourceMappingURL=deferred.js.map
+
+/***/ }),
+
+/***/ 7013:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * http.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.isOkOr4xx = void 0;
+/**
+ * @module
+ * @ignore
+ * These are private utility functions
+ */
+function isOkOr4xx(response) {
+    return response.ok || Math.floor(response.status / 100) === 4;
+}
+exports.isOkOr4xx = isOkOr4xx;
+//# sourceMappingURL=http.js.map
+
+/***/ }),
+
+/***/ 2423:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * middleware.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+/**
+ * @function middlewareWrapper - A "Node" and "Redux" style middleware that is called just before
+ * the request is made from the SDK. This allows you access to the request for modification.
+ * @param request - A request object container of the URL and the Request Init object
+ * @param action - The action object that is passed into the middleware communicating intent
+ * @param action.type - A "Redux" style type that contains the serialized action
+ * @param action.payload - The payload of the action that can contain metadata
+ * @returns {function} - Function that takes middleware parameter & runs middleware against request
+ */
+function middlewareWrapper(request, 
+// eslint-disable-next-line
+_a) {
+    var type = _a.type, payload = _a.payload;
+    // no mutation and no reassignment
+    var actionCopy = Object.freeze({ type: type, payload: payload });
+    return function (middleware) {
+        if (!Array.isArray(middleware)) {
+            return request;
+        }
+        // Copy middleware so the `shift` below doesn't mutate source
+        var mwareCopy = middleware.map(function (fn) { return fn; });
+        function iterator() {
+            var nextMiddlewareToBeCalled = mwareCopy.shift();
+            nextMiddlewareToBeCalled && nextMiddlewareToBeCalled(request, actionCopy, iterator);
+            return request;
+        }
+        return iterator();
+    };
+}
+exports["default"] = middlewareWrapper;
+//# sourceMappingURL=middleware.js.map
+
+/***/ }),
+
+/***/ 8059:
+/***/ (function(__unused_webpack_module, exports) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * pkce.ts
+ *
+ * Copyright (c) 2020-2021 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+/**
+ * Helper class for generating verifier, challenge and state strings used for
+ * Proof Key for Code Exchange (PKCE).
+ */
+var PKCE = /** @class */ (function () {
+    function PKCE() {
+    }
+    /**
+     * Creates a random state.
+     */
+    PKCE.createState = function () {
+        return this.createRandomString(16);
+    };
+    /**
+     * Creates a random verifier.
+     */
+    PKCE.createVerifier = function () {
+        return this.createRandomString(32);
+    };
+    /**
+     * Creates a SHA-256 hash of the verifier.
+     *
+     * @param verifier The verifier to hash
+     */
+    PKCE.createChallenge = function (verifier) {
+        return __awaiter(this, void 0, void 0, function () {
+            var sha256, challenge;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.sha256(verifier)];
+                    case 1:
+                        sha256 = _a.sent();
+                        challenge = this.base64UrlEncode(sha256);
+                        return [2 /*return*/, challenge];
+                }
+            });
+        });
+    };
+    /**
+     * Creates a base64 encoded, URL-friendly version of the specified array.
+     *
+     * @param array The array of numbers to encode
+     */
+    PKCE.base64UrlEncode = function (array) {
+        var numbers = Array.prototype.slice.call(array);
+        var ascii = window.btoa(String.fromCharCode.apply(null, numbers));
+        var urlEncoded = ascii.replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+        return urlEncoded;
+    };
+    /**
+     * Creates a SHA-256 hash of the specified string.
+     *
+     * @param value The string to hash
+     */
+    PKCE.sha256 = function (value) {
+        return __awaiter(this, void 0, void 0, function () {
+            var uint8Array, hashBuffer, hashArray;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        uint8Array = new TextEncoder().encode(value);
+                        return [4 /*yield*/, window.crypto.subtle.digest('SHA-256', uint8Array)];
+                    case 1:
+                        hashBuffer = _a.sent();
+                        hashArray = new Uint8Array(hashBuffer);
+                        return [2 /*return*/, hashArray];
+                }
+            });
+        });
+    };
+    /**
+     * Creates a random string.
+     *
+     * @param size The number for entropy (default: 32)
+     */
+    PKCE.createRandomString = function (num) {
+        if (num === void 0) { num = 32; }
+        var random = new Uint8Array(num);
+        window.crypto.getRandomValues(random);
+        return btoa(random.join('')).replace(/[^a-zA-Z0-9]+/, '');
+    };
+    return PKCE;
+}());
+exports["default"] = PKCE;
+//# sourceMappingURL=pkce.js.map
+
+/***/ }),
+
+/***/ 6679:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * realm.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getRealmUrlPath = void 0;
+/** @hidden */
+function getRealmUrlPath(realmPath) {
+    // Split the path and scrub segments
+    var names = (realmPath || '')
+        .split('/')
+        .map(function (x) { return x.trim(); })
+        .filter(function (x) { return x !== ''; });
+    // Ensure 'root' is the first realm
+    if (names[0] !== 'root') {
+        names.unshift('root');
+    }
+    // Concatenate into a URL path
+    var urlPath = names.map(function (x) { return "realms/".concat(x); }).join('/');
+    return urlPath;
+}
+exports.getRealmUrlPath = getRealmUrlPath;
+//# sourceMappingURL=realm.js.map
+
+/***/ }),
+
+/***/ 7504:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * storage.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+/** @hidden */
+var LocalStorage = /** @class */ (function () {
+    function LocalStorage(persist) {
+        if (persist === void 0) { persist = false; }
+        this.storage = persist ? window.localStorage : window.sessionStorage;
+    }
+    LocalStorage.prototype.get = function (key) {
+        var value = this.storage.getItem(key);
+        if (!value) {
+            return undefined;
+        }
+        return JSON.parse(value);
+    };
+    LocalStorage.prototype.set = function (key, value) {
+        this.storage.setItem(key, JSON.stringify(value));
+    };
+    LocalStorage.prototype.remove = function (key) {
+        this.storage.removeItem(key);
+    };
+    return LocalStorage;
+}());
+exports["default"] = LocalStorage;
+//# sourceMappingURL=storage.js.map
+
+/***/ }),
+
+/***/ 7915:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * strings.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.plural = void 0;
+/**
+ * @module
+ * @ignore
+ * These are private utility functions
+ */
+function plural(n, singularText, pluralText) {
+    if (n === 1) {
+        return singularText;
+    }
+    return pluralText !== undefined ? pluralText : singularText + 's';
+}
+exports.plural = plural;
+//# sourceMappingURL=strings.js.map
+
+/***/ }),
+
+/***/ 7564:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * timeout.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.withTimeout = void 0;
+var config_1 = __nccwpck_require__(4445);
+/**
+ * @module
+ * @ignore
+ * These are private utility functions
+ */
+function withTimeout(promise, timeout) {
+    if (timeout === void 0) { timeout = config_1.DEFAULT_TIMEOUT; }
+    var effectiveTimeout = timeout || config_1.DEFAULT_TIMEOUT;
+    var timeoutP = new Promise(function (_, reject) {
+        return window.setTimeout(function () { return reject(new Error('Timeout')); }, effectiveTimeout);
+    });
+    return Promise.race([promise, timeoutP]);
+}
+exports.withTimeout = withTimeout;
+//# sourceMappingURL=timeout.js.map
+
+/***/ }),
+
+/***/ 9627:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+/*
+ * @forgerock/javascript-sdk
+ *
+ * url.ts
+ *
+ * Copyright (c) 2020 ForgeRock. All rights reserved.
+ * This software may be modified and distributed under the terms
+ * of the MIT license. See the LICENSE file for details.
+ */
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.stringify = exports.resolve = exports.parseQuery = exports.getEndpointPath = exports.getBaseUrl = void 0;
+var realm_1 = __nccwpck_require__(6679);
+/**
+ * Returns the base URL including protocol, hostname and any non-standard port.
+ * The returned URL does not include a trailing slash.
+ */
+function getBaseUrl(url) {
+    var isNonStandardPort = (url.protocol === 'http:' && ['', '80'].indexOf(url.port) === -1) ||
+        (url.protocol === 'https:' && ['', '443'].indexOf(url.port) === -1);
+    var port = isNonStandardPort ? ":".concat(url.port) : '';
+    var baseUrl = "".concat(url.protocol, "//").concat(url.hostname).concat(port);
+    return baseUrl;
+}
+exports.getBaseUrl = getBaseUrl;
+function getEndpointPath(endpoint, realmPath, customPaths) {
+    var realmUrlPath = (0, realm_1.getRealmUrlPath)(realmPath);
+    var defaultPaths = {
+        authenticate: "json/".concat(realmUrlPath, "/authenticate"),
+        authorize: "oauth2/".concat(realmUrlPath, "/authorize"),
+        accessToken: "oauth2/".concat(realmUrlPath, "/access_token"),
+        endSession: "oauth2/".concat(realmUrlPath, "/connect/endSession"),
+        userInfo: "oauth2/".concat(realmUrlPath, "/userinfo"),
+        revoke: "oauth2/".concat(realmUrlPath, "/token/revoke"),
+        sessions: "json/".concat(realmUrlPath, "/sessions/"),
+    };
+    if (customPaths && customPaths[endpoint]) {
+        // TypeScript is not correctly reading the condition above
+        // It's thinking that customPaths[endpoint] may result in undefined
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        return customPaths[endpoint];
+    }
+    else {
+        return defaultPaths[endpoint];
+    }
+}
+exports.getEndpointPath = getEndpointPath;
+function resolve(baseUrl, path) {
+    var url = new URL(baseUrl);
+    if (path.startsWith('/')) {
+        return "".concat(getBaseUrl(url)).concat(path);
+    }
+    var basePath = url.pathname.split('/');
+    var destPath = path.split('/').filter(function (x) { return !!x; });
+    var newPath = __spreadArray(__spreadArray([], basePath.slice(0, -1), true), destPath, true).join('/');
+    return "".concat(getBaseUrl(url)).concat(newPath);
+}
+exports.resolve = resolve;
+function parseQuery(fullUrl) {
+    var url = new URL(fullUrl);
+    var query = {};
+    url.searchParams.forEach(function (v, k) { return (query[k] = v); });
+    return query;
+}
+exports.parseQuery = parseQuery;
+function stringify(data) {
+    var pairs = [];
+    for (var k in data) {
+        if (data[k]) {
+            pairs.push(k + '=' + encodeURIComponent(data[k]));
+        }
+    }
+    return pairs.join('&');
+}
+exports.stringify = stringify;
+//# sourceMappingURL=url.js.map
+
+/***/ }),
+
 /***/ 4812:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
@@ -5120,6 +12046,850 @@ CombinedStream.prototype._emitError = function(err) {
 
 /***/ }),
 
+/***/ 8222:
+/***/ ((module, exports, __nccwpck_require__) => {
+
+/* eslint-env browser */
+
+/**
+ * This is the web browser implementation of `debug()`.
+ */
+
+exports.formatArgs = formatArgs;
+exports.save = save;
+exports.load = load;
+exports.useColors = useColors;
+exports.storage = localstorage();
+exports.destroy = (() => {
+	let warned = false;
+
+	return () => {
+		if (!warned) {
+			warned = true;
+			console.warn('Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.');
+		}
+	};
+})();
+
+/**
+ * Colors.
+ */
+
+exports.colors = [
+	'#0000CC',
+	'#0000FF',
+	'#0033CC',
+	'#0033FF',
+	'#0066CC',
+	'#0066FF',
+	'#0099CC',
+	'#0099FF',
+	'#00CC00',
+	'#00CC33',
+	'#00CC66',
+	'#00CC99',
+	'#00CCCC',
+	'#00CCFF',
+	'#3300CC',
+	'#3300FF',
+	'#3333CC',
+	'#3333FF',
+	'#3366CC',
+	'#3366FF',
+	'#3399CC',
+	'#3399FF',
+	'#33CC00',
+	'#33CC33',
+	'#33CC66',
+	'#33CC99',
+	'#33CCCC',
+	'#33CCFF',
+	'#6600CC',
+	'#6600FF',
+	'#6633CC',
+	'#6633FF',
+	'#66CC00',
+	'#66CC33',
+	'#9900CC',
+	'#9900FF',
+	'#9933CC',
+	'#9933FF',
+	'#99CC00',
+	'#99CC33',
+	'#CC0000',
+	'#CC0033',
+	'#CC0066',
+	'#CC0099',
+	'#CC00CC',
+	'#CC00FF',
+	'#CC3300',
+	'#CC3333',
+	'#CC3366',
+	'#CC3399',
+	'#CC33CC',
+	'#CC33FF',
+	'#CC6600',
+	'#CC6633',
+	'#CC9900',
+	'#CC9933',
+	'#CCCC00',
+	'#CCCC33',
+	'#FF0000',
+	'#FF0033',
+	'#FF0066',
+	'#FF0099',
+	'#FF00CC',
+	'#FF00FF',
+	'#FF3300',
+	'#FF3333',
+	'#FF3366',
+	'#FF3399',
+	'#FF33CC',
+	'#FF33FF',
+	'#FF6600',
+	'#FF6633',
+	'#FF9900',
+	'#FF9933',
+	'#FFCC00',
+	'#FFCC33'
+];
+
+/**
+ * Currently only WebKit-based Web Inspectors, Firefox >= v31,
+ * and the Firebug extension (any Firefox version) are known
+ * to support "%c" CSS customizations.
+ *
+ * TODO: add a `localStorage` variable to explicitly enable/disable colors
+ */
+
+// eslint-disable-next-line complexity
+function useColors() {
+	// NB: In an Electron preload script, document will be defined but not fully
+	// initialized. Since we know we're in Chrome, we'll just detect this case
+	// explicitly
+	if (typeof window !== 'undefined' && window.process && (window.process.type === 'renderer' || window.process.__nwjs)) {
+		return true;
+	}
+
+	// Internet Explorer and Edge do not support colors.
+	if (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/(edge|trident)\/(\d+)/)) {
+		return false;
+	}
+
+	// Is webkit? http://stackoverflow.com/a/16459606/376773
+	// document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
+	return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
+		// Is firebug? http://stackoverflow.com/a/398120/376773
+		(typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
+		// Is firefox >= v31?
+		// https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
+		// Double check webkit in userAgent just in case we are in a worker
+		(typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
+}
+
+/**
+ * Colorize log arguments if enabled.
+ *
+ * @api public
+ */
+
+function formatArgs(args) {
+	args[0] = (this.useColors ? '%c' : '') +
+		this.namespace +
+		(this.useColors ? ' %c' : ' ') +
+		args[0] +
+		(this.useColors ? '%c ' : ' ') +
+		'+' + module.exports.humanize(this.diff);
+
+	if (!this.useColors) {
+		return;
+	}
+
+	const c = 'color: ' + this.color;
+	args.splice(1, 0, c, 'color: inherit');
+
+	// The final "%c" is somewhat tricky, because there could be other
+	// arguments passed either before or after the %c, so we need to
+	// figure out the correct index to insert the CSS into
+	let index = 0;
+	let lastC = 0;
+	args[0].replace(/%[a-zA-Z%]/g, match => {
+		if (match === '%%') {
+			return;
+		}
+		index++;
+		if (match === '%c') {
+			// We only are interested in the *last* %c
+			// (the user may have provided their own)
+			lastC = index;
+		}
+	});
+
+	args.splice(lastC, 0, c);
+}
+
+/**
+ * Invokes `console.debug()` when available.
+ * No-op when `console.debug` is not a "function".
+ * If `console.debug` is not available, falls back
+ * to `console.log`.
+ *
+ * @api public
+ */
+exports.log = console.debug || console.log || (() => {});
+
+/**
+ * Save `namespaces`.
+ *
+ * @param {String} namespaces
+ * @api private
+ */
+function save(namespaces) {
+	try {
+		if (namespaces) {
+			exports.storage.setItem('debug', namespaces);
+		} else {
+			exports.storage.removeItem('debug');
+		}
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
+}
+
+/**
+ * Load `namespaces`.
+ *
+ * @return {String} returns the previously persisted debug modes
+ * @api private
+ */
+function load() {
+	let r;
+	try {
+		r = exports.storage.getItem('debug');
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
+
+	// If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+	if (!r && typeof process !== 'undefined' && 'env' in process) {
+		r = process.env.DEBUG;
+	}
+
+	return r;
+}
+
+/**
+ * Localstorage attempts to return the localstorage.
+ *
+ * This is necessary because safari throws
+ * when a user disables cookies/localstorage
+ * and you attempt to access it.
+ *
+ * @return {LocalStorage}
+ * @api private
+ */
+
+function localstorage() {
+	try {
+		// TVMLKit (Apple TV JS Runtime) does not have a window object, just localStorage in the global context
+		// The Browser also has localStorage in the global context.
+		return localStorage;
+	} catch (error) {
+		// Swallow
+		// XXX (@Qix-) should we be logging these?
+	}
+}
+
+module.exports = __nccwpck_require__(6243)(exports);
+
+const {formatters} = module.exports;
+
+/**
+ * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+ */
+
+formatters.j = function (v) {
+	try {
+		return JSON.stringify(v);
+	} catch (error) {
+		return '[UnexpectedJSONParseError]: ' + error.message;
+	}
+};
+
+
+/***/ }),
+
+/***/ 6243:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+
+/**
+ * This is the common logic for both the Node.js and web browser
+ * implementations of `debug()`.
+ */
+
+function setup(env) {
+	createDebug.debug = createDebug;
+	createDebug.default = createDebug;
+	createDebug.coerce = coerce;
+	createDebug.disable = disable;
+	createDebug.enable = enable;
+	createDebug.enabled = enabled;
+	createDebug.humanize = __nccwpck_require__(900);
+	createDebug.destroy = destroy;
+
+	Object.keys(env).forEach(key => {
+		createDebug[key] = env[key];
+	});
+
+	/**
+	* The currently active debug mode names, and names to skip.
+	*/
+
+	createDebug.names = [];
+	createDebug.skips = [];
+
+	/**
+	* Map of special "%n" handling functions, for the debug "format" argument.
+	*
+	* Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
+	*/
+	createDebug.formatters = {};
+
+	/**
+	* Selects a color for a debug namespace
+	* @param {String} namespace The namespace string for the debug instance to be colored
+	* @return {Number|String} An ANSI color code for the given namespace
+	* @api private
+	*/
+	function selectColor(namespace) {
+		let hash = 0;
+
+		for (let i = 0; i < namespace.length; i++) {
+			hash = ((hash << 5) - hash) + namespace.charCodeAt(i);
+			hash |= 0; // Convert to 32bit integer
+		}
+
+		return createDebug.colors[Math.abs(hash) % createDebug.colors.length];
+	}
+	createDebug.selectColor = selectColor;
+
+	/**
+	* Create a debugger with the given `namespace`.
+	*
+	* @param {String} namespace
+	* @return {Function}
+	* @api public
+	*/
+	function createDebug(namespace) {
+		let prevTime;
+		let enableOverride = null;
+		let namespacesCache;
+		let enabledCache;
+
+		function debug(...args) {
+			// Disabled?
+			if (!debug.enabled) {
+				return;
+			}
+
+			const self = debug;
+
+			// Set `diff` timestamp
+			const curr = Number(new Date());
+			const ms = curr - (prevTime || curr);
+			self.diff = ms;
+			self.prev = prevTime;
+			self.curr = curr;
+			prevTime = curr;
+
+			args[0] = createDebug.coerce(args[0]);
+
+			if (typeof args[0] !== 'string') {
+				// Anything else let's inspect with %O
+				args.unshift('%O');
+			}
+
+			// Apply any `formatters` transformations
+			let index = 0;
+			args[0] = args[0].replace(/%([a-zA-Z%])/g, (match, format) => {
+				// If we encounter an escaped % then don't increase the array index
+				if (match === '%%') {
+					return '%';
+				}
+				index++;
+				const formatter = createDebug.formatters[format];
+				if (typeof formatter === 'function') {
+					const val = args[index];
+					match = formatter.call(self, val);
+
+					// Now we need to remove `args[index]` since it's inlined in the `format`
+					args.splice(index, 1);
+					index--;
+				}
+				return match;
+			});
+
+			// Apply env-specific formatting (colors, etc.)
+			createDebug.formatArgs.call(self, args);
+
+			const logFn = self.log || createDebug.log;
+			logFn.apply(self, args);
+		}
+
+		debug.namespace = namespace;
+		debug.useColors = createDebug.useColors();
+		debug.color = createDebug.selectColor(namespace);
+		debug.extend = extend;
+		debug.destroy = createDebug.destroy; // XXX Temporary. Will be removed in the next major release.
+
+		Object.defineProperty(debug, 'enabled', {
+			enumerable: true,
+			configurable: false,
+			get: () => {
+				if (enableOverride !== null) {
+					return enableOverride;
+				}
+				if (namespacesCache !== createDebug.namespaces) {
+					namespacesCache = createDebug.namespaces;
+					enabledCache = createDebug.enabled(namespace);
+				}
+
+				return enabledCache;
+			},
+			set: v => {
+				enableOverride = v;
+			}
+		});
+
+		// Env-specific initialization logic for debug instances
+		if (typeof createDebug.init === 'function') {
+			createDebug.init(debug);
+		}
+
+		return debug;
+	}
+
+	function extend(namespace, delimiter) {
+		const newDebug = createDebug(this.namespace + (typeof delimiter === 'undefined' ? ':' : delimiter) + namespace);
+		newDebug.log = this.log;
+		return newDebug;
+	}
+
+	/**
+	* Enables a debug mode by namespaces. This can include modes
+	* separated by a colon and wildcards.
+	*
+	* @param {String} namespaces
+	* @api public
+	*/
+	function enable(namespaces) {
+		createDebug.save(namespaces);
+		createDebug.namespaces = namespaces;
+
+		createDebug.names = [];
+		createDebug.skips = [];
+
+		let i;
+		const split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
+		const len = split.length;
+
+		for (i = 0; i < len; i++) {
+			if (!split[i]) {
+				// ignore empty strings
+				continue;
+			}
+
+			namespaces = split[i].replace(/\*/g, '.*?');
+
+			if (namespaces[0] === '-') {
+				createDebug.skips.push(new RegExp('^' + namespaces.slice(1) + '$'));
+			} else {
+				createDebug.names.push(new RegExp('^' + namespaces + '$'));
+			}
+		}
+	}
+
+	/**
+	* Disable debug output.
+	*
+	* @return {String} namespaces
+	* @api public
+	*/
+	function disable() {
+		const namespaces = [
+			...createDebug.names.map(toNamespace),
+			...createDebug.skips.map(toNamespace).map(namespace => '-' + namespace)
+		].join(',');
+		createDebug.enable('');
+		return namespaces;
+	}
+
+	/**
+	* Returns true if the given mode name is enabled, false otherwise.
+	*
+	* @param {String} name
+	* @return {Boolean}
+	* @api public
+	*/
+	function enabled(name) {
+		if (name[name.length - 1] === '*') {
+			return true;
+		}
+
+		let i;
+		let len;
+
+		for (i = 0, len = createDebug.skips.length; i < len; i++) {
+			if (createDebug.skips[i].test(name)) {
+				return false;
+			}
+		}
+
+		for (i = 0, len = createDebug.names.length; i < len; i++) {
+			if (createDebug.names[i].test(name)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	* Convert regexp to namespace
+	*
+	* @param {RegExp} regxep
+	* @return {String} namespace
+	* @api private
+	*/
+	function toNamespace(regexp) {
+		return regexp.toString()
+			.substring(2, regexp.toString().length - 2)
+			.replace(/\.\*\?$/, '*');
+	}
+
+	/**
+	* Coerce `val`.
+	*
+	* @param {Mixed} val
+	* @return {Mixed}
+	* @api private
+	*/
+	function coerce(val) {
+		if (val instanceof Error) {
+			return val.stack || val.message;
+		}
+		return val;
+	}
+
+	/**
+	* XXX DO NOT USE. This is a temporary stub function.
+	* XXX It WILL be removed in the next major release.
+	*/
+	function destroy() {
+		console.warn('Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.');
+	}
+
+	createDebug.enable(createDebug.load());
+
+	return createDebug;
+}
+
+module.exports = setup;
+
+
+/***/ }),
+
+/***/ 8237:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+/**
+ * Detect Electron renderer / nwjs process, which is node, but we should
+ * treat as a browser.
+ */
+
+if (typeof process === 'undefined' || process.type === 'renderer' || process.browser === true || process.__nwjs) {
+	module.exports = __nccwpck_require__(8222);
+} else {
+	module.exports = __nccwpck_require__(5332);
+}
+
+
+/***/ }),
+
+/***/ 5332:
+/***/ ((module, exports, __nccwpck_require__) => {
+
+/**
+ * Module dependencies.
+ */
+
+const tty = __nccwpck_require__(6224);
+const util = __nccwpck_require__(3837);
+
+/**
+ * This is the Node.js implementation of `debug()`.
+ */
+
+exports.init = init;
+exports.log = log;
+exports.formatArgs = formatArgs;
+exports.save = save;
+exports.load = load;
+exports.useColors = useColors;
+exports.destroy = util.deprecate(
+	() => {},
+	'Instance method `debug.destroy()` is deprecated and no longer does anything. It will be removed in the next major version of `debug`.'
+);
+
+/**
+ * Colors.
+ */
+
+exports.colors = [6, 2, 3, 4, 5, 1];
+
+try {
+	// Optional dependency (as in, doesn't need to be installed, NOT like optionalDependencies in package.json)
+	// eslint-disable-next-line import/no-extraneous-dependencies
+	const supportsColor = __nccwpck_require__(9318);
+
+	if (supportsColor && (supportsColor.stderr || supportsColor).level >= 2) {
+		exports.colors = [
+			20,
+			21,
+			26,
+			27,
+			32,
+			33,
+			38,
+			39,
+			40,
+			41,
+			42,
+			43,
+			44,
+			45,
+			56,
+			57,
+			62,
+			63,
+			68,
+			69,
+			74,
+			75,
+			76,
+			77,
+			78,
+			79,
+			80,
+			81,
+			92,
+			93,
+			98,
+			99,
+			112,
+			113,
+			128,
+			129,
+			134,
+			135,
+			148,
+			149,
+			160,
+			161,
+			162,
+			163,
+			164,
+			165,
+			166,
+			167,
+			168,
+			169,
+			170,
+			171,
+			172,
+			173,
+			178,
+			179,
+			184,
+			185,
+			196,
+			197,
+			198,
+			199,
+			200,
+			201,
+			202,
+			203,
+			204,
+			205,
+			206,
+			207,
+			208,
+			209,
+			214,
+			215,
+			220,
+			221
+		];
+	}
+} catch (error) {
+	// Swallow - we only care if `supports-color` is available; it doesn't have to be.
+}
+
+/**
+ * Build up the default `inspectOpts` object from the environment variables.
+ *
+ *   $ DEBUG_COLORS=no DEBUG_DEPTH=10 DEBUG_SHOW_HIDDEN=enabled node script.js
+ */
+
+exports.inspectOpts = Object.keys(process.env).filter(key => {
+	return /^debug_/i.test(key);
+}).reduce((obj, key) => {
+	// Camel-case
+	const prop = key
+		.substring(6)
+		.toLowerCase()
+		.replace(/_([a-z])/g, (_, k) => {
+			return k.toUpperCase();
+		});
+
+	// Coerce string value into JS value
+	let val = process.env[key];
+	if (/^(yes|on|true|enabled)$/i.test(val)) {
+		val = true;
+	} else if (/^(no|off|false|disabled)$/i.test(val)) {
+		val = false;
+	} else if (val === 'null') {
+		val = null;
+	} else {
+		val = Number(val);
+	}
+
+	obj[prop] = val;
+	return obj;
+}, {});
+
+/**
+ * Is stdout a TTY? Colored output is enabled when `true`.
+ */
+
+function useColors() {
+	return 'colors' in exports.inspectOpts ?
+		Boolean(exports.inspectOpts.colors) :
+		tty.isatty(process.stderr.fd);
+}
+
+/**
+ * Adds ANSI color escape codes if enabled.
+ *
+ * @api public
+ */
+
+function formatArgs(args) {
+	const {namespace: name, useColors} = this;
+
+	if (useColors) {
+		const c = this.color;
+		const colorCode = '\u001B[3' + (c < 8 ? c : '8;5;' + c);
+		const prefix = `  ${colorCode};1m${name} \u001B[0m`;
+
+		args[0] = prefix + args[0].split('\n').join('\n' + prefix);
+		args.push(colorCode + 'm+' + module.exports.humanize(this.diff) + '\u001B[0m');
+	} else {
+		args[0] = getDate() + name + ' ' + args[0];
+	}
+}
+
+function getDate() {
+	if (exports.inspectOpts.hideDate) {
+		return '';
+	}
+	return new Date().toISOString() + ' ';
+}
+
+/**
+ * Invokes `util.format()` with the specified arguments and writes to stderr.
+ */
+
+function log(...args) {
+	return process.stderr.write(util.format(...args) + '\n');
+}
+
+/**
+ * Save `namespaces`.
+ *
+ * @param {String} namespaces
+ * @api private
+ */
+function save(namespaces) {
+	if (namespaces) {
+		process.env.DEBUG = namespaces;
+	} else {
+		// If you set a process.env field to null or undefined, it gets cast to the
+		// string 'null' or 'undefined'. Just delete instead.
+		delete process.env.DEBUG;
+	}
+}
+
+/**
+ * Load `namespaces`.
+ *
+ * @return {String} returns the previously persisted debug modes
+ * @api private
+ */
+
+function load() {
+	return process.env.DEBUG;
+}
+
+/**
+ * Init logic for `debug` instances.
+ *
+ * Create a new `inspectOpts` object in case `useColors` is set
+ * differently for a particular `debug` instance.
+ */
+
+function init(debug) {
+	debug.inspectOpts = {};
+
+	const keys = Object.keys(exports.inspectOpts);
+	for (let i = 0; i < keys.length; i++) {
+		debug.inspectOpts[keys[i]] = exports.inspectOpts[keys[i]];
+	}
+}
+
+module.exports = __nccwpck_require__(6243)(exports);
+
+const {formatters} = module.exports;
+
+/**
+ * Map %o to `util.inspect()`, all on a single line.
+ */
+
+formatters.o = function (v) {
+	this.inspectOpts.colors = this.useColors;
+	return util.inspect(v, this.inspectOpts)
+		.split('\n')
+		.map(str => str.trim())
+		.join(' ');
+};
+
+/**
+ * Map %O to `util.inspect()`, allowing multiple lines if needed.
+ */
+
+formatters.O = function (v) {
+	this.inspectOpts.colors = this.useColors;
+	return util.inspect(v, this.inspectOpts);
+};
+
+
+/***/ }),
+
 /***/ 8611:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
@@ -5234,6 +13004,122 @@ DelayedStream.prototype._checkIfMaxDataSizeExceeded = function() {
 
 /***/ }),
 
+/***/ 2437:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+const fs = __nccwpck_require__(7147)
+const path = __nccwpck_require__(1017)
+const os = __nccwpck_require__(2037)
+
+const LINE = /(?:^|^)\s*(?:export\s+)?([\w.-]+)(?:\s*=\s*?|:\s+?)(\s*'(?:\\'|[^'])*'|\s*"(?:\\"|[^"])*"|\s*`(?:\\`|[^`])*`|[^#\r\n]+)?\s*(?:#.*)?(?:$|$)/mg
+
+// Parser src into an Object
+function parse (src) {
+  const obj = {}
+
+  // Convert buffer to string
+  let lines = src.toString()
+
+  // Convert line breaks to same format
+  lines = lines.replace(/\r\n?/mg, '\n')
+
+  let match
+  while ((match = LINE.exec(lines)) != null) {
+    const key = match[1]
+
+    // Default undefined or null to empty string
+    let value = (match[2] || '')
+
+    // Remove whitespace
+    value = value.trim()
+
+    // Check if double quoted
+    const maybeQuote = value[0]
+
+    // Remove surrounding quotes
+    value = value.replace(/^(['"`])([\s\S]*)\1$/mg, '$2')
+
+    // Expand newlines if double quoted
+    if (maybeQuote === '"') {
+      value = value.replace(/\\n/g, '\n')
+      value = value.replace(/\\r/g, '\r')
+    }
+
+    // Add to object
+    obj[key] = value
+  }
+
+  return obj
+}
+
+function _log (message) {
+  console.log(`[dotenv][DEBUG] ${message}`)
+}
+
+function _resolveHome (envPath) {
+  return envPath[0] === '~' ? path.join(os.homedir(), envPath.slice(1)) : envPath
+}
+
+// Populates process.env from .env file
+function config (options) {
+  let dotenvPath = path.resolve(process.cwd(), '.env')
+  let encoding = 'utf8'
+  const debug = Boolean(options && options.debug)
+  const override = Boolean(options && options.override)
+
+  if (options) {
+    if (options.path != null) {
+      dotenvPath = _resolveHome(options.path)
+    }
+    if (options.encoding != null) {
+      encoding = options.encoding
+    }
+  }
+
+  try {
+    // Specifying an encoding returns a string instead of a buffer
+    const parsed = DotenvModule.parse(fs.readFileSync(dotenvPath, { encoding }))
+
+    Object.keys(parsed).forEach(function (key) {
+      if (!Object.prototype.hasOwnProperty.call(process.env, key)) {
+        process.env[key] = parsed[key]
+      } else {
+        if (override === true) {
+          process.env[key] = parsed[key]
+        }
+
+        if (debug) {
+          if (override === true) {
+            _log(`"${key}" is already defined in \`process.env\` and WAS overwritten`)
+          } else {
+            _log(`"${key}" is already defined in \`process.env\` and was NOT overwritten`)
+          }
+        }
+      }
+    })
+
+    return { parsed }
+  } catch (e) {
+    if (debug) {
+      _log(`Failed to load ${dotenvPath} ${e.message}`)
+    }
+
+    return { error: e }
+  }
+}
+
+const DotenvModule = {
+  config,
+  parse
+}
+
+module.exports.config = DotenvModule.config
+module.exports.parse = DotenvModule.parse
+module.exports = DotenvModule
+
+
+/***/ }),
+
 /***/ 1133:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
@@ -5243,7 +13129,7 @@ module.exports = function () {
   if (!debug) {
     try {
       /* eslint global-require: off */
-      debug = __nccwpck_require__(9975)("follow-redirects");
+      debug = __nccwpck_require__(8237)("follow-redirects");
     }
     catch (error) { /* */ }
     if (typeof debug !== "function") {
@@ -6362,6 +14248,22 @@ module.exports = function(dst, src) {
 
 /***/ }),
 
+/***/ 1621:
+/***/ ((module) => {
+
+"use strict";
+
+
+module.exports = (flag, argv = process.argv) => {
+	const prefix = flag.startsWith('-') ? '' : (flag.length === 1 ? '-' : '--');
+	const position = argv.indexOf(prefix + flag);
+	const terminatorPosition = argv.indexOf('--');
+	return position !== -1 && (terminatorPosition === -1 || position < terminatorPosition);
+};
+
+
+/***/ }),
+
 /***/ 7426:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
@@ -6573,6 +14475,318 @@ function populateMaps (extensions, types) {
     }
   })
 }
+
+
+/***/ }),
+
+/***/ 900:
+/***/ ((module) => {
+
+/**
+ * Helpers.
+ */
+
+var s = 1000;
+var m = s * 60;
+var h = m * 60;
+var d = h * 24;
+var w = d * 7;
+var y = d * 365.25;
+
+/**
+ * Parse or format the given `val`.
+ *
+ * Options:
+ *
+ *  - `long` verbose formatting [false]
+ *
+ * @param {String|Number} val
+ * @param {Object} [options]
+ * @throws {Error} throw an error if val is not a non-empty string or a number
+ * @return {String|Number}
+ * @api public
+ */
+
+module.exports = function(val, options) {
+  options = options || {};
+  var type = typeof val;
+  if (type === 'string' && val.length > 0) {
+    return parse(val);
+  } else if (type === 'number' && isFinite(val)) {
+    return options.long ? fmtLong(val) : fmtShort(val);
+  }
+  throw new Error(
+    'val is not a non-empty string or a valid number. val=' +
+      JSON.stringify(val)
+  );
+};
+
+/**
+ * Parse the given `str` and return milliseconds.
+ *
+ * @param {String} str
+ * @return {Number}
+ * @api private
+ */
+
+function parse(str) {
+  str = String(str);
+  if (str.length > 100) {
+    return;
+  }
+  var match = /^(-?(?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|weeks?|w|years?|yrs?|y)?$/i.exec(
+    str
+  );
+  if (!match) {
+    return;
+  }
+  var n = parseFloat(match[1]);
+  var type = (match[2] || 'ms').toLowerCase();
+  switch (type) {
+    case 'years':
+    case 'year':
+    case 'yrs':
+    case 'yr':
+    case 'y':
+      return n * y;
+    case 'weeks':
+    case 'week':
+    case 'w':
+      return n * w;
+    case 'days':
+    case 'day':
+    case 'd':
+      return n * d;
+    case 'hours':
+    case 'hour':
+    case 'hrs':
+    case 'hr':
+    case 'h':
+      return n * h;
+    case 'minutes':
+    case 'minute':
+    case 'mins':
+    case 'min':
+    case 'm':
+      return n * m;
+    case 'seconds':
+    case 'second':
+    case 'secs':
+    case 'sec':
+    case 's':
+      return n * s;
+    case 'milliseconds':
+    case 'millisecond':
+    case 'msecs':
+    case 'msec':
+    case 'ms':
+      return n;
+    default:
+      return undefined;
+  }
+}
+
+/**
+ * Short format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtShort(ms) {
+  var msAbs = Math.abs(ms);
+  if (msAbs >= d) {
+    return Math.round(ms / d) + 'd';
+  }
+  if (msAbs >= h) {
+    return Math.round(ms / h) + 'h';
+  }
+  if (msAbs >= m) {
+    return Math.round(ms / m) + 'm';
+  }
+  if (msAbs >= s) {
+    return Math.round(ms / s) + 's';
+  }
+  return ms + 'ms';
+}
+
+/**
+ * Long format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtLong(ms) {
+  var msAbs = Math.abs(ms);
+  if (msAbs >= d) {
+    return plural(ms, msAbs, d, 'day');
+  }
+  if (msAbs >= h) {
+    return plural(ms, msAbs, h, 'hour');
+  }
+  if (msAbs >= m) {
+    return plural(ms, msAbs, m, 'minute');
+  }
+  if (msAbs >= s) {
+    return plural(ms, msAbs, s, 'second');
+  }
+  return ms + ' ms';
+}
+
+/**
+ * Pluralization helper.
+ */
+
+function plural(ms, msAbs, n, name) {
+  var isPlural = msAbs >= n * 1.5;
+  return Math.round(ms / n) + ' ' + name + (isPlural ? 's' : '');
+}
+
+
+/***/ }),
+
+/***/ 9318:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+"use strict";
+
+const os = __nccwpck_require__(2037);
+const tty = __nccwpck_require__(6224);
+const hasFlag = __nccwpck_require__(1621);
+
+const {env} = process;
+
+let forceColor;
+if (hasFlag('no-color') ||
+	hasFlag('no-colors') ||
+	hasFlag('color=false') ||
+	hasFlag('color=never')) {
+	forceColor = 0;
+} else if (hasFlag('color') ||
+	hasFlag('colors') ||
+	hasFlag('color=true') ||
+	hasFlag('color=always')) {
+	forceColor = 1;
+}
+
+if ('FORCE_COLOR' in env) {
+	if (env.FORCE_COLOR === 'true') {
+		forceColor = 1;
+	} else if (env.FORCE_COLOR === 'false') {
+		forceColor = 0;
+	} else {
+		forceColor = env.FORCE_COLOR.length === 0 ? 1 : Math.min(parseInt(env.FORCE_COLOR, 10), 3);
+	}
+}
+
+function translateLevel(level) {
+	if (level === 0) {
+		return false;
+	}
+
+	return {
+		level,
+		hasBasic: true,
+		has256: level >= 2,
+		has16m: level >= 3
+	};
+}
+
+function supportsColor(haveStream, streamIsTTY) {
+	if (forceColor === 0) {
+		return 0;
+	}
+
+	if (hasFlag('color=16m') ||
+		hasFlag('color=full') ||
+		hasFlag('color=truecolor')) {
+		return 3;
+	}
+
+	if (hasFlag('color=256')) {
+		return 2;
+	}
+
+	if (haveStream && !streamIsTTY && forceColor === undefined) {
+		return 0;
+	}
+
+	const min = forceColor || 0;
+
+	if (env.TERM === 'dumb') {
+		return min;
+	}
+
+	if (process.platform === 'win32') {
+		// Windows 10 build 10586 is the first Windows release that supports 256 colors.
+		// Windows 10 build 14931 is the first release that supports 16m/TrueColor.
+		const osRelease = os.release().split('.');
+		if (
+			Number(osRelease[0]) >= 10 &&
+			Number(osRelease[2]) >= 10586
+		) {
+			return Number(osRelease[2]) >= 14931 ? 3 : 2;
+		}
+
+		return 1;
+	}
+
+	if ('CI' in env) {
+		if (['TRAVIS', 'CIRCLECI', 'APPVEYOR', 'GITLAB_CI', 'GITHUB_ACTIONS', 'BUILDKITE'].some(sign => sign in env) || env.CI_NAME === 'codeship') {
+			return 1;
+		}
+
+		return min;
+	}
+
+	if ('TEAMCITY_VERSION' in env) {
+		return /^(9\.(0*[1-9]\d*)\.|\d{2,}\.)/.test(env.TEAMCITY_VERSION) ? 1 : 0;
+	}
+
+	if (env.COLORTERM === 'truecolor') {
+		return 3;
+	}
+
+	if ('TERM_PROGRAM' in env) {
+		const version = parseInt((env.TERM_PROGRAM_VERSION || '').split('.')[0], 10);
+
+		switch (env.TERM_PROGRAM) {
+			case 'iTerm.app':
+				return version >= 3 ? 3 : 2;
+			case 'Apple_Terminal':
+				return 2;
+			// No default
+		}
+	}
+
+	if (/-256(color)?$/i.test(env.TERM)) {
+		return 2;
+	}
+
+	if (/^screen|^xterm|^vt100|^vt220|^rxvt|color|ansi|cygwin|linux/i.test(env.TERM)) {
+		return 1;
+	}
+
+	if ('COLORTERM' in env) {
+		return 1;
+	}
+
+	return min;
+}
+
+function getSupportLevel(stream) {
+	const level = supportsColor(stream, stream && stream.isTTY);
+	return translateLevel(level);
+}
+
+module.exports = {
+	supportsColor: getSupportLevel,
+	stdout: translateLevel(supportsColor(true, tty.isatty(1))),
+	stderr: translateLevel(supportsColor(true, tty.isatty(2)))
+};
 
 
 /***/ }),
@@ -6864,24 +15078,31 @@ exports.debug = debug; // for test
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.authenticateCloud = void 0;
+const javascript_sdk_1 = __nccwpck_require__(4432);
 const axios_1 = __nccwpck_require__(6545);
-async function authenticateCloud({ realm, AM_URL, username, password, }) {
+async function authenticateCloud({ 
+// realm,
+AM_URL, username, password, }) {
     try {
-        const config = {
-            baseURL: AM_URL.slice(-2),
-            method: 'POST',
-            url: `/openam/json/realms/root/realms/${realm}/authenticate`,
-            data: {},
+        const request = axios_1.default.create({
+            baseURL: AM_URL,
             headers: {
-                'X-OpenAM-Username': username,
-                'X-OpenAM-Password': password,
+                "Content-Type": "application/json; charset=utf-8",
+                "Accept-API-Version": "resource=2.1, protocol=1.0",
+                "X-OpenAM-Username": username,
+                "X-OpenAM-Password": password,
             },
-        };
-        const response = await axios_1.default.request(config);
-        return response;
+        });
+        const { data: nextData } = await request.post("/json/authenticate");
+        const lastStep = new javascript_sdk_1.FRStep(nextData);
+        lastStep
+            .getCallbackOfType(javascript_sdk_1.CallbackType.HiddenValueCallback)
+            .setInputValue("Skip");
+        const { data: { tokenId: ssoToken }, } = await request.post("/json/authenticate", lastStep.payload);
+        return ssoToken;
     }
     catch (error) {
-        return Promise.reject(`We encountered an error authorizing your request`);
+        return Promise.reject(`We encountered an error authorizing your request: ${error}`);
     }
 }
 exports.authenticateCloud = authenticateCloud;
@@ -6895,16 +15116,76 @@ exports.authenticateCloud = authenticateCloud;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.GET_CONFIG = exports.REMOVE_CONFIG = exports.ADD_CONFIG = void 0;
-const ADD_CONFIG = { type: 'PUT', url: '/global-config/services/CorsService' };
+exports.PUT_OAUTH_CLIENT = exports.GET_OAUTH_CLIENT = exports.GET_CONFIG = exports.REMOVE_CONFIG = exports.ADD_CONFIG = void 0;
+const ADD_CONFIG = {
+    type: "POST",
+    url: (name = "ForgeRockSDK") => `/json/global-config/services/CorsService/configuration/${name}`,
+};
 exports.ADD_CONFIG = ADD_CONFIG;
 const GET_CONFIG = {
-    type: 'GET',
-    url: 'json/global-config/services/CorsService/?_action=nextdescendents',
+    type: "GET",
+    url: () => `/json/global-config/services/CorsService`,
 };
 exports.GET_CONFIG = GET_CONFIG;
-const REMOVE_CONFIG = { type: 'DELETE', url: '/global-config/services/CorsService' };
+const REMOVE_CONFIG = {
+    type: "DELETE",
+    url: () => "/global-config/services/CorsService",
+};
 exports.REMOVE_CONFIG = REMOVE_CONFIG;
+const GET_OAUTH_CLIENT = {
+    url: (realm, name) => `/json/realms/${realm}/realm-config/agents/OAuth2Client/${name}`,
+};
+exports.GET_OAUTH_CLIENT = GET_OAUTH_CLIENT;
+const PUT_OAUTH_CLIENT = {
+    url: (realm, name) => `/json/realms/${realm}/realm-config/agents/OAuth2Client/${name}`,
+};
+exports.PUT_OAUTH_CLIENT = PUT_OAUTH_CLIENT;
+
+
+/***/ }),
+
+/***/ 6039:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.updateRedirectUris = void 0;
+const axios_1 = __nccwpck_require__(6545);
+const constants_1 = __nccwpck_require__(317);
+async function updateRedirectUris({ AM_URL, cookieName, originsToAdd, realm, redirectUris, ssoToken, }) {
+    const request = axios_1.default.create({
+        baseURL: AM_URL,
+        headers: {
+            "Content-Type": "application/json",
+            "accept-api-version": "protocol=2.1, resource=1.0",
+            [cookieName]: ssoToken,
+        },
+    });
+    for (const { urls, name } of redirectUris) {
+        const amConfigUrl = constants_1.GET_OAUTH_CLIENT.url(realm, name);
+        try {
+            const { data: config } = await request.get(amConfigUrl);
+            const redirectionUris = originsToAdd.reduce((acc, curr) => acc.concat(
+            // sanitize urls for extra /'s'
+            urls.map((url) => `${curr}${url}`.replace(/([^:]\/)\/+/g, "$1"))), []);
+            const set = new Set(config.coreOAuth2ClientConfig.redirectionUris.value);
+            for (const val of redirectionUris) {
+                set.add(val);
+            }
+            const finalRedirectionUris = Array.from(set);
+            config.coreOAuth2ClientConfig.redirectionUris.value =
+                finalRedirectionUris;
+            delete config._id;
+            delete config._rev;
+            await request.put(constants_1.PUT_OAUTH_CLIENT.url(realm, name), config);
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+}
+exports.updateRedirectUris = updateRedirectUris;
 
 
 /***/ }),
@@ -6918,26 +15199,27 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.updateCorsConfig = void 0;
 const axios_1 = __nccwpck_require__(6545);
 const constants_1 = __nccwpck_require__(317);
-function handleOrigins(originsToAdd, origins, remove) {
-    if (remove) {
-        return origins.filter((origin) => !originsToAdd.includes(origin));
-    }
-    else {
-        return origins.concat(originsToAdd);
-    }
-}
-async function updateCorsConfig({ AM_URL, originsToAdd, ssoToken, remove = false, // default to not remove origins
- }) {
+async function updateCorsConfig({ AM_URL, originsToAdd, ssoToken, cookieName, remove = false, // default to not remove origins
+corsConfigName, }) {
     if (!AM_URL) {
-        return Promise.reject('You must provide an AM_URL');
+        return Promise.reject("You must provide an AM_URL");
     }
     if (!originsToAdd) {
-        return new Error('You must provide a list of origins to update the cors config with');
+        return Promise.reject("You must provide a list of origins to update the cors config with");
     }
     if (!ssoToken) {
-        return new Error('No SSO Token provided to update the cors config, exiting without a network call');
+        return Promise.reject("No SSO Token provided to update the cors config, exiting without a network call");
     }
     try {
+        const request = axios_1.default.create({
+            baseURL: AM_URL,
+            headers: {
+                [cookieName]: ssoToken,
+                "Content-Type": "application/json",
+                "accept-api-version": "protocol=2.0, resource=1.0",
+                Accept: "*/*",
+            },
+        });
         /*
          * On success, AM returns an HTTP 201 response code,
          * and a representation of the CORS settings, in JSON format.
@@ -6946,48 +15228,41 @@ async function updateCorsConfig({ AM_URL, originsToAdd, ssoToken, remove = false
          * the configuration with additional REST calls.
          * The new settings take effect immediately.
          */
-        const { data } = await (0, axios_1.default)({
-            baseURL: AM_URL,
-            url: constants_1.GET_CONFIG.url,
+        const { data: { _id, _rev, ...body }, } = await request(constants_1.ADD_CONFIG.url(), {
             method: constants_1.GET_CONFIG.type,
-            headers: { iPlanetDirectoryPro: ssoToken },
         });
-        const [{ acceptedOrigins: existingOrigins }] = data.data.results;
-        const origins = handleOrigins(originsToAdd, existingOrigins, remove);
-        const response = await (0, axios_1.default)({
-            baseURL: AM_URL,
-            url: constants_1.ADD_CONFIG.url,
-            method: constants_1.ADD_CONFIG.type,
-            headers: { iPlanetDirectoryPro: ssoToken },
-            data: {
-                //  https://backstage.forgerock.com/docs/am/7.1/security-guide/enable-cors-support.html#add-cors-config
-                enabled: true,
-                acceptedOrigins: origins, // probably need to concat the existing origins here also
+        const response = await request.put(constants_1.ADD_CONFIG.url(corsConfigName), {
+            ...body,
+            acceptedOrigins: remove
+                ? body.acceptedOrigins.filter((origin) => originsToAdd.includes(origin) // filter over the existing origins and if that value exists, remove.
+                )
+                : [...body.acceptedOrigins, ...originsToAdd],
+        }, {
+            headers: {
+                "Content-Type": "application/json",
+                "accept-api-version": "protocol=2.1, resource=1.0",
+                [cookieName]: ssoToken,
             },
         });
-        if (response.status === 201) {
-            return { id: response.data._id, acceptedOrigins: response.data.acceptedOrigins };
+        if (response.status === 201 || response.status === 200) {
+            // we return the origins that AM now has if successful if needed in subsequent steps
+            return {
+                id: response.data._id,
+                acceptedOrigins: response.data.acceptedOrigins,
+            };
         }
         if (response.status === 401) {
-            return new Error('You must provide an SSO token for authorization');
+            return Promise.reject("You must provide an SSO token for authorization");
         }
-        return new Error('Request did not return a 201 status code');
+        return Promise.reject("Request did not return a 201 status code");
     }
     catch (err) {
         if (err instanceof Error)
-            return new Error(err.message);
-        return new Error(String(err));
+            return Promise.reject(err.message);
+        return Promise.reject(String(err));
     }
 }
 exports.updateCorsConfig = updateCorsConfig;
-
-
-/***/ }),
-
-/***/ 9975:
-/***/ ((module) => {
-
-module.exports = eval("require")("debug");
 
 
 /***/ }),
@@ -7072,6 +15347,14 @@ module.exports = require("tls");
 
 /***/ }),
 
+/***/ 6224:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("tty");
+
+/***/ }),
+
 /***/ 7310:
 /***/ ((module) => {
 
@@ -7153,23 +15436,59 @@ exports.update = void 0;
 const core = __nccwpck_require__(2186);
 const update_cors_cloud_1 = __nccwpck_require__(429);
 const authenticate_cloud_1 = __nccwpck_require__(2684);
-// import { constructUrls } from './lib/construct-urls';
-const AM_URL = core.getInput('AM_URL');
-const username = core.getInput('USERNAME');
-const password = core.getInput('PASSWORD');
-const realm = core.getInput('REALM_PATH');
-const origins = core.getInput('origins'); // this is json as input
-const remove = Boolean(core.getInput('remove_origins'));
+const update_clients_1 = __nccwpck_require__(6039);
+const dotenv = __nccwpck_require__(2437);
+const { TEST_ENV } = process.env;
+if (TEST_ENV === "true") {
+    // only care about loading process.env in test becuase otherwise github handles
+    // adding the variables to process
+    dotenv.config();
+}
+const AM_URL = core.getInput("AM_URL");
+const username = core.getInput("USERNAME");
+const password = core.getInput("PASSWORD");
+const realm = core.getInput("REALM_PATH");
+const originsJSON = core.getInput("ORIGINS"); // this is json as input
+const remove = Boolean(core.getInput("REMOVE_ORIGINS"));
+const cookieName = core.getInput("COOKIE_NAME");
+const redirectionUrisJSON = core.getInput("REDIRECTION_URIS");
+const corsConfigName = core.getInput("CORS_CONFIG_NAME");
 async function update() {
     try {
         // We first need to authenticate to get an sso token
-        const { data: { tokenId: ssoToken }, } = await (0, authenticate_cloud_1.authenticateCloud)({ AM_URL, realm, username, password });
-        const originsToAdd = JSON.parse(origins)
-            .map((val) => val?.url ?? '')
-            .filter(Boolean);
-        // we need to build our origins as well from the endpoints we are making
-        const output = await (0, update_cors_cloud_1.updateCorsConfig)({ AM_URL, originsToAdd, ssoToken, remove });
-        core.setOutput('cors config', output);
+        const ssoToken = await (0, authenticate_cloud_1.authenticateCloud)({
+            AM_URL,
+            realm,
+            username,
+            password,
+        });
+        const originsToAdd = JSON.parse(originsJSON)
+            // in a world where you can somehow get an empty url from your input if not manually written
+            .map((val) => val?.url ?? "")
+            .filter(Boolean); // just remove all false values
+        const output = await (0, update_cors_cloud_1.updateCorsConfig)({
+            AM_URL,
+            originsToAdd,
+            ssoToken,
+            remove,
+            cookieName,
+            corsConfigName,
+            realm,
+        });
+        // not a required argument to the action
+        if (redirectionUrisJSON) {
+            // this is json input from the action
+            const redirectUris = JSON.parse(redirectionUrisJSON);
+            await (0, update_clients_1.updateRedirectUris)({
+                AM_URL,
+                originsToAdd,
+                cookieName,
+                realm,
+                redirectUris,
+                ssoToken,
+            });
+        }
+        core.setOutput("cors config", output);
     }
     catch (err) {
         return core.setFailed(err.message);
