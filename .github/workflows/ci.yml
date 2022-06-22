@@ -16,14 +16,14 @@ jobs:
   publish:
     needs: [test]
     runs-on: ubuntu-latest
-    if: ${{ github.ref === 'refs/head/main' }}
+    if: ${{ github.ref == 'refs/head/main' }}
     steps:
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: false
-      - uses: Actions-R-Us/actions-tagger
+      - uses: "Actions-R-Us/actions-tagger@latest"
         with:
           publish_latest_tag: true
           prefer_branch_releases: false
