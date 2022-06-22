@@ -1,0 +1,35 @@
+name: "@ryanbas21/update-am"
+description: "Update an AM Tenants Cors Configuration and Signin URLs"
+inputs:
+  AM_URL:
+    description: "url to your AM cloud tenant"
+    required: true
+  USERNAME:
+    description: "username for cloud tenant"
+    required: true
+  PASSWORD:
+    description: "password for cloud tenant"
+    required: true
+  REALM:
+    description: "realm on cloud tenant"
+    required: true
+  ORIGINS:
+    description: "origins to add"
+    required: true
+  COOKIE_NAME:
+    description: "cookie name to set on requests"
+    required: true
+  REMOVE:
+    description: "remove origins if needed"
+    default: "false"
+    required: false
+  REDIRECTION_URIS:
+    description: "JSON representation of a list of objects that have the shape { urls: string[], name: string}. A name represents the oauthClient Name that the associated url list are associated with."
+    required: false
+
+outputs:
+  accepted-origins:
+    description: "The accepted origins on the cloud tenant and the id returned from AM"
+runs:
+  using: "node16"
+  main: "dist/index.js"

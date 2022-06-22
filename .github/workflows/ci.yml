@@ -1,0 +1,29 @@
+name: "ci"
+
+on:
+  pull_request:
+  push:
+    branches: # array of glob patterns matching against refs/heads. Optional; defaults to all
+      - main # triggers on pushes that contain changes in main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: npm ci
+      - run: npm test
+  publish:
+    needs: [test]
+    runs-on: ubuntu-latest
+    if: ${{ github.ref === 'refs/head/main' }}
+    steps:
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: false
+      - uses: Actions-R-Us/actions-tagger
+        with:
+          publish_latest_tag: true
+          prefer_branch_releases: false
