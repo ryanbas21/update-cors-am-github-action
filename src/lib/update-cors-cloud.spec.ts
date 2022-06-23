@@ -7,32 +7,49 @@ const mock = new MockAdapter(axios as any);
 describe("libUpdateCorsCloud", () => {
   beforeEach(() => {
     mock.reset();
+    mock.onPut("/global-config/services/CorsService/alpha").reply(201, {
+      _id: "123",
+      acceptedOrigins: ["alreadyAcceptedOrigin.com", "prview-url"],
+    });
     mock
-      .onPut("/global-config/services/CorsService/alpha")
-      .reply(201, { _id: "123" });
-    mock
-      .onGet(
-        "/json/global-config/services/CorsService/?_action=nextdescendents"
+      .onPut(
+        "/json/global-config/services/CorsService/configuration/ForgeRockSDK"
       )
       .reply(200, {
-        data: {
-          results: [
-            {
-              maxAge: 0,
-              exposedHeaders: [],
-              acceptedHeaders: [],
-              allowedCredentials: [],
-              acceptedMethods: ["GET", "POST"],
-              acceptedOrigins: ["alreadyAcceptedOrigin.com"],
-              enabled: true,
-              _id: "123",
-              _type: {
-                _id: "otherid",
-                name: "name",
-                collection: "the collection",
-              },
-            },
-          ],
+        _id: "123",
+        _rev: "12332",
+        maxAge: 0,
+        exposedHeaders: [],
+        acceptedHeaders: [],
+        allowedCredentials: [],
+        acceptedMethods: ["GET", "POST"],
+        acceptedOrigins: ["alreadyAcceptedOrigin.com", "preview-url"],
+        enabled: true,
+        _type: {
+          _id: "otherid",
+          name: "name",
+          collection: "the collection",
+        },
+      });
+
+    mock
+      .onGet(
+        "/json/global-config/services/CorsService/configuration/ForgeRockSDK"
+      )
+      .reply(200, {
+        _id: "123",
+        _rev: "12332",
+        maxAge: 0,
+        exposedHeaders: [],
+        acceptedHeaders: [],
+        allowedCredentials: [],
+        acceptedMethods: ["GET", "POST"],
+        acceptedOrigins: ["alreadyAcceptedOrigin.com"],
+        enabled: true,
+        _type: {
+          _id: "otherid",
+          name: "name",
+          collection: "the collection",
         },
       });
   });
@@ -42,12 +59,18 @@ describe("libUpdateCorsCloud", () => {
       originsToAdd: ["preview-url"],
       ssoToken: "123abc",
       cookieName: "cookieName",
-      corsConfigName: "js-samples",
+      corsConfigName: "ForgeRockSDK",
       remove: false,
       realm: "alpha",
     };
-    const result = (await updateCorsConfig(data)) as { id: string }; // tests successful branch
-    expect(result).toEqual({ id: result.id });
+    const result = (await updateCorsConfig(data)) as {
+      acceptedOrigins: string[];
+      id: string;
+    }; // tests successful branch
+    expect(result).toEqual({
+      acceptedOrigins: ["alreadyAcceptedOrigin.com", "preview-url"],
+      id: "123",
+    });
   });
   it("should handle when there is no AM_URL", async () => {
     const data = {
