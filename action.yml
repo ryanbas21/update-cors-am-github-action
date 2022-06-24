@@ -10,7 +10,7 @@ inputs:
   PASSWORD:
     description: "password for cloud tenant"
     required: true
-  REALM:
+  REALM_PATH:
     description: "realm on cloud tenant"
     required: true
   ORIGINS:

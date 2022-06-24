@@ -66,7 +66,7 @@ export async function updateCorsConfig({
         ...body,
         acceptedOrigins: remove
           ? body.acceptedOrigins.filter(
-              (origin: string) => originsToAdd.includes(origin) // filter over the existing origins and if that value exists, remove.
+              (origin: string) => !originsToAdd.includes(origin) // filter over the existing origins and if that value exists, remove.
             )
           : [...body.acceptedOrigins, ...originsToAdd],
       },

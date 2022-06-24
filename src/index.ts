@@ -6,7 +6,6 @@ import { OAuthClientConfig, updateRedirectUris } from "./lib/update-clients";
 import * as dotenv from "dotenv";
 
 const { TEST_ENV } = process.env;
-
 if (TEST_ENV === "true") {
   // only care about loading process.env in test becuase otherwise github handles
   // adding the variables to process
@@ -18,7 +17,7 @@ const username = core.getInput("USERNAME");
 const password = core.getInput("PASSWORD");
 const realm = core.getInput("REALM_PATH");
 const originsJSON = core.getInput("ORIGINS"); // this is json as input
-const remove = Boolean(core.getInput("REMOVE_ORIGINS"));
+const remove = core.getBooleanInput("REMOVE_ORIGINS");
 const cookieName = core.getInput("COOKIE_NAME");
 const redirectionUrisJSON = core.getInput("REDIRECTION_URIS");
 const corsConfigName = core.getInput("CORS_CONFIG_NAME");
@@ -35,9 +34,8 @@ async function update(): Promise<void> {
 
     const originsToAdd = JSON.parse(originsJSON)
       // in a world where you can somehow get an empty url from your input if not manually written
-      .map((val: { url: string; private: boolean }) => val?.url ?? "")
+      .map((val: { url: string }) => val?.url ?? "")
       .filter(Boolean); // just remove all false values
-
     const output = await updateCorsConfig({
       AM_URL,
       originsToAdd,
@@ -47,7 +45,6 @@ async function update(): Promise<void> {
       corsConfigName,
       realm,
     });
-
     // not a required argument to the action
     if (redirectionUrisJSON) {
       // this is json input from the action

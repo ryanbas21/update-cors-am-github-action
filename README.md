@@ -11,13 +11,14 @@ In order to make the request we need an admin user who can log into the tenant a
 Please view the action [action.yml](./action.yml) file for the api and required paramters
 
 ```
-  - uses: @forgerock/update-am
+  - uses: ryanbas21/update-cors-am-github-action@beta
     with:
       AM_URL: ${{ secrets.AM_URL }}
-      username: ${{ secrets.AM_USERNAME }}
-      password: ${{ secrets.AM_PASSWORD }}
-      realm: ${{ secrets.AM_REALM }}
-      origins: steps.output.myUrls # output from a previous step
-      cookie_name: ${{ secrets.AM_COOKIE_NAME }} # cookie name from AM
-      remove: false # optional
+      USERNAME: ${{ secrets.AM_USERNAME }}
+      PASSWORD: ${{ secrets.AM_PASSWORD }}
+      REALM_PATH: ${{ secrets.AM_REALM }}
+      ORIGINS: steps.output.myUrls # output from a previous step
+      COOKIE_NAME: ${{ secrets.AM_COOKIE_NAME }} # cookie name from AM
+      REDIRECTION_URIS: ${{ secrets.REDIRECTION_URIS }} # JSON input
+      REMOVE: false # optional
 ```
