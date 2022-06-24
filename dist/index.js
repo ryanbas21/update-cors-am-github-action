@@ -15234,7 +15234,7 @@ corsConfigName, }) {
         const response = await request.put(constants_1.ADD_CONFIG.url(corsConfigName), {
             ...body,
             acceptedOrigins: remove
-                ? body.acceptedOrigins.filter((origin) => originsToAdd.includes(origin) // filter over the existing origins and if that value exists, remove.
+                ? body.acceptedOrigins.filter((origin) => !originsToAdd.includes(origin) // filter over the existing origins and if that value exists, remove.
                 )
                 : [...body.acceptedOrigins, ...originsToAdd],
         }, {
@@ -15449,7 +15449,7 @@ const username = core.getInput("USERNAME");
 const password = core.getInput("PASSWORD");
 const realm = core.getInput("REALM_PATH");
 const originsJSON = core.getInput("ORIGINS"); // this is json as input
-const remove = Boolean(core.getInput("REMOVE_ORIGINS"));
+const remove = core.getBooleanInput("REMOVE_ORIGINS");
 const cookieName = core.getInput("COOKIE_NAME");
 const redirectionUrisJSON = core.getInput("REDIRECTION_URIS");
 const corsConfigName = core.getInput("CORS_CONFIG_NAME");

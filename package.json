@@ -5,6 +5,7 @@
   "scripts": {
     "build": "ncc build src/index.ts -o dist",
     "precommit": "npm run build",
+    "start": "TEST_ENV=true node dist/index.js",
     "test": "TEST_ENV=true jest",
     "prepare": "husky install"
   },
