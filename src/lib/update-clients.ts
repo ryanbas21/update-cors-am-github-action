@@ -44,7 +44,6 @@ async function updateRedirectUris({
           ),
         []
       );
-
       const set = new Set(config.coreOAuth2ClientConfig.redirectionUris.value);
 
       for (const val of redirectionUris) {
