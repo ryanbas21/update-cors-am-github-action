@@ -26,6 +26,9 @@ inputs:
   REDIRECTION_URIS:
     description: "JSON representation of a list of objects that have the shape { urls: string[], name: string}. A name represents the oauthClient Name that the associated url list are associated with."
     required: false
+  CORS_CONFIG_NAME:
+    description: "Name of the cors config to update"
+    required: true
 
 outputs:
   accepted-origins:

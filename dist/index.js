@@ -15449,8 +15449,8 @@ const username = core.getInput("USERNAME");
 const password = core.getInput("PASSWORD");
 const realm = core.getInput("REALM_PATH");
 const originsJSON = core.getInput("ORIGINS"); // this is json as input
-const remove = core.getBooleanInput("REMOVE_ORIGINS");
 const cookieName = core.getInput("COOKIE_NAME");
+const remove = core.getBooleanInput("REMOVE");
 const redirectionUrisJSON = core.getInput("REDIRECTION_URIS");
 const corsConfigName = core.getInput("CORS_CONFIG_NAME");
 async function update() {
