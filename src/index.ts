@@ -49,7 +49,7 @@ async function update(): Promise<void> {
     if (redirectionUrisJSON) {
       // this is json input from the action
       const redirectUris: OAuthClientConfig[] = JSON.parse(redirectionUrisJSON);
-      await updateRedirectUris({
+      const value = await updateRedirectUris({
         AM_URL,
         originsToAdd,
         cookieName,
@@ -57,8 +57,9 @@ async function update(): Promise<void> {
         redirectUris,
         ssoToken,
       });
+      return core.setOutput("uris and config", { output, value });
     }
-    core.setOutput("cors config", output);
+    return core.setOutput("cors config", output);
   } catch (err) {
     return core.setFailed((err as Error).message);
   }
