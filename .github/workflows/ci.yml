@@ -22,9 +22,9 @@ jobs:
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "beta"
-          prerelease: true
+          automatic_release_tag: "latest"
+          prerelease: false
       - uses: "Actions-R-Us/actions-tagger@latest"
         with:
-          publish_latest_tag: false
+          publish_latest_tag: true
           prefer_branch_releases: false
