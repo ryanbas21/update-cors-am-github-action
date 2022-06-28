@@ -21,7 +21,6 @@ inputs:
     required: true
   REMOVE:
     description: "remove origins if needed"
-    default: "false"
     required: false
   REDIRECTION_URIS:
     description: "JSON representation of a list of objects that have the shape { urls: string[], name: string}. A name represents the oauthClient Name that the associated url list are associated with."

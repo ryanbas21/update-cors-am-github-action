@@ -58,9 +58,15 @@ async function updateRedirectUris({
       delete config._id;
       delete config._rev;
 
-      await request.put(PUT_OAUTH_CLIENT.url(realm, name), config);
+      const {
+        data: { _id, _rev, ...body },
+      } = await request.put(PUT_OAUTH_CLIENT.url(realm, name), config);
+
+      return body.coreOAuth2ClientConfig.redirectionUris.value;
     } catch (err) {
-      throw err;
+      throw new Error(
+        `failure to update clients, check the redirect uris input ${err}`
+      );
     }
   }
 }

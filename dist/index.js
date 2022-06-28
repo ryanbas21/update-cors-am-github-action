@@ -15178,10 +15178,11 @@ async function updateRedirectUris({ AM_URL, cookieName, originsToAdd, realm, red
                 finalRedirectionUris;
             delete config._id;
             delete config._rev;
-            await request.put(constants_1.PUT_OAUTH_CLIENT.url(realm, name), config);
+            const { data: { _id, _rev, ...body }, } = await request.put(constants_1.PUT_OAUTH_CLIENT.url(realm, name), config);
+            return body.coreOAuth2ClientConfig.redirectionUris.value;
         }
         catch (err) {
-            throw err;
+            throw new Error(`failure to update clients, check the redirect uris input ${err}`);
         }
     }
 }
@@ -15479,7 +15480,7 @@ async function update() {
         if (redirectionUrisJSON) {
             // this is json input from the action
             const redirectUris = JSON.parse(redirectionUrisJSON);
-            await (0, update_clients_1.updateRedirectUris)({
+            const value = await (0, update_clients_1.updateRedirectUris)({
                 AM_URL,
                 originsToAdd,
                 cookieName,
@@ -15487,8 +15488,9 @@ async function update() {
                 redirectUris,
                 ssoToken,
             });
+            return core.setOutput("uris and config", { output, value });
         }
-        core.setOutput("cors config", output);
+        return core.setOutput("cors config", output);
     }
     catch (err) {
         return core.setFailed(err.message);
