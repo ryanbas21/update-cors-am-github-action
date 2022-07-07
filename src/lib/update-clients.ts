@@ -20,7 +20,7 @@ async function updateRedirectUris({
   realm,
   redirectUris,
   ssoToken,
-}: ClientParams): Promise<void> {
+}: ClientParams): Promise<any[]> {
   const request = axios.create({
     baseURL: AM_URL,
     headers: {
@@ -29,13 +29,11 @@ async function updateRedirectUris({
       [cookieName]: ssoToken,
     },
   });
-
+  const output = [];
   for (const { urls, name } of redirectUris) {
     const amConfigUrl = GET_OAUTH_CLIENT.url(realm, name);
-
     try {
       const { data: config } = await request.get(amConfigUrl);
-
       const redirectionUris = originsToAdd.reduce(
         (acc: Array<string>, curr) =>
           acc.concat(
@@ -61,14 +59,14 @@ async function updateRedirectUris({
       const {
         data: { _id, _rev, ...body },
       } = await request.put(PUT_OAUTH_CLIENT.url(realm, name), config);
-
-      return body.coreOAuth2ClientConfig.redirectionUris.value;
+      output.push(body.coreOAuth2ClientConfig.redirectionUris.value);
     } catch (err) {
       throw new Error(
         `failure to update clients, check the redirect uris input ${err}`
       );
     }
   }
+  return output;
 }
 
 export { updateRedirectUris };
