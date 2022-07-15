@@ -56,6 +56,7 @@ async function update(): Promise<void> {
         realm,
         redirectUris,
         ssoToken,
+        remove,
       });
       return core.setOutput("uris and config", { output, value });
     }

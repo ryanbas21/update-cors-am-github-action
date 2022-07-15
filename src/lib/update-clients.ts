@@ -12,6 +12,7 @@ interface ClientParams {
   ssoToken: string;
   cookieName: string;
   realm: string;
+  remove?: boolean;
 }
 async function updateRedirectUris({
   AM_URL,
@@ -20,6 +21,7 @@ async function updateRedirectUris({
   realm,
   redirectUris,
   ssoToken,
+  remove = false,
 }: ClientParams): Promise<any[]> {
   const request = axios.create({
     baseURL: AM_URL,
@@ -42,6 +44,20 @@ async function updateRedirectUris({
           ),
         []
       );
+      if (remove) {
+        config.coreOAuth2ClientConfig.redirectionUris.value =
+          config.coreOAuth2ClientConfig.redirectionUris.value.filter(
+            (val: string) => !redirectionUris.includes(val)
+          );
+        delete config._id;
+        delete config._rev;
+
+        const {
+          data: { _id, _rev, ...body },
+        } = await request.put(PUT_OAUTH_CLIENT.url(realm, name), config);
+        output.push(body.coreOAuth2ClientConfig.redirectionUris.value);
+        continue;
+      }
       const set = new Set(config.coreOAuth2ClientConfig.redirectionUris.value);
 
       for (const val of redirectionUris) {
