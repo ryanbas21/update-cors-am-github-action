@@ -15153,7 +15153,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.updateRedirectUris = void 0;
 const axios_1 = __nccwpck_require__(6545);
 const constants_1 = __nccwpck_require__(317);
-async function updateRedirectUris({ AM_URL, cookieName, originsToAdd, realm, redirectUris, ssoToken, }) {
+async function updateRedirectUris({ AM_URL, cookieName, originsToAdd, realm, redirectUris, ssoToken, remove = false, }) {
     const request = axios_1.default.create({
         baseURL: AM_URL,
         headers: {
@@ -15170,6 +15170,15 @@ async function updateRedirectUris({ AM_URL, cookieName, originsToAdd, realm, red
             const redirectionUris = originsToAdd.reduce((acc, curr) => acc.concat(
             // sanitize urls for extra /'s'
             urls.map((url) => `${curr}${url}`.replace(/([^:]\/)\/+/g, "$1"))), []);
+            if (remove) {
+                config.coreOAuth2ClientConfig.redirectionUris.value =
+                    config.coreOAuth2ClientConfig.redirectionUris.value.filter((val) => !redirectionUris.includes(val));
+                delete config._id;
+                delete config._rev;
+                const { data: { _id, _rev, ...body }, } = await request.put(constants_1.PUT_OAUTH_CLIENT.url(realm, name), config);
+                output.push(body.coreOAuth2ClientConfig.redirectionUris.value);
+                continue;
+            }
             const set = new Set(config.coreOAuth2ClientConfig.redirectionUris.value);
             for (const val of redirectionUris) {
                 set.add(val);
@@ -15489,6 +15498,7 @@ async function update() {
                 realm,
                 redirectUris,
                 ssoToken,
+                remove,
             });
             return core.setOutput("uris and config", { output, value });
         }
