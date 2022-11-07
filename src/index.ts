@@ -22,7 +22,7 @@ const remove = core.getBooleanInput("REMOVE");
 const redirectionUrisJSON = core.getInput("REDIRECTION_URIS");
 const corsConfigName = core.getInput("CORS_CONFIG_NAME");
 
-async function update(): Promise<void> {
+async function update() {
   try {
     // We first need to authenticate to get an sso token
     const ssoToken = await authenticateCloud({
@@ -36,6 +36,7 @@ async function update(): Promise<void> {
       // in a world where you can somehow get an empty url from your input if not manually written
       .map((val: { url: string }) => val?.url ?? "")
       .filter(Boolean); // just remove all false values
+
     const output = await updateCorsConfig({
       AM_URL,
       originsToAdd,
@@ -62,6 +63,10 @@ async function update(): Promise<void> {
     }
     return core.setOutput("cors config", output);
   } catch (err) {
+    if (err instanceof Error) {
+      core.setOutput("error message", err.message);
+      core.setOutput("error stack", err.stack);
+    }
     return core.setFailed((err as Error).message);
   }
 }

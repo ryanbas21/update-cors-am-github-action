@@ -15102,7 +15102,7 @@ AM_URL, username, password, }) {
         return ssoToken;
     }
     catch (error) {
-        return Promise.reject(`We encountered an error authorizing your request: ${error}`);
+        return Promise.reject(new Error(`We encountered an error authorizing your request. Please check your credientials in your secrets. Here is the error: ${error}`));
     }
 }
 exports.authenticateCloud = authenticateCloud;
@@ -15505,6 +15505,10 @@ async function update() {
         return core.setOutput("cors config", output);
     }
     catch (err) {
+        if (err instanceof Error) {
+            core.setOutput("error message", err.message);
+            core.setOutput("error stack", err.stack);
+        }
         return core.setFailed(err.message);
     }
 }

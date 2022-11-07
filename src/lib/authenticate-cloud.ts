@@ -17,7 +17,7 @@ async function authenticateCloud({
   AM_URL,
   username,
   password,
-}: AuthenticateCloudParams): Promise<string> {
+}: AuthenticateCloudParams) {
   try {
     const request = axios.create({
       baseURL: AM_URL,
@@ -31,9 +31,11 @@ async function authenticateCloud({
     const { data: nextData } = await request.post("/json/authenticate");
 
     const lastStep = new FRStep(nextData);
+
     lastStep
       .getCallbackOfType(CallbackType.HiddenValueCallback)
       .setInputValue("Skip");
+
     const {
       data: { tokenId: ssoToken },
     } = await request.post<FRStep, AxiosResponse<SSOToken>>(
@@ -44,7 +46,9 @@ async function authenticateCloud({
     return ssoToken;
   } catch (error) {
     return Promise.reject(
-      `We encountered an error authorizing your request: ${error}`
+      new Error(
+        `We encountered an error authorizing your request. Please check your credientials in your secrets. Here is the error: ${error}`
+      )
     );
   }
 }
