@@ -1,3 +1,4 @@
+import * as core from "@actions/core";
 import axios from "axios";
 import { ADD_CONFIG, GET_CONFIG } from "./constants";
 import type { OAuthAppConfigAxios } from "./update-oauth-client";
@@ -24,14 +25,21 @@ export async function updateCorsConfig({
   corsConfigName,
 }: CorsConfigValues): Promise<AMIdAndConfig> {
   if (!AM_URL) {
+    core.info("You must provide an AM_URL");
     return Promise.reject("You must provide an AM_URL");
   }
   if (!originsToAdd) {
+    core.info(
+      "You must provide a list of origins to update the cors config with"
+    );
     return Promise.reject(
       "You must provide a list of origins to update the cors config with"
     );
   }
   if (!ssoToken) {
+    core.info(
+      "No SSO Token provided to update the cors config, exiting without a network call"
+    );
     return Promise.reject(
       "No SSO Token provided to update the cors config, exiting without a network call"
     );
@@ -87,11 +95,14 @@ export async function updateCorsConfig({
       };
     }
     if (response.status === 401) {
+      core.error("You must provide an SSO token for authorization");
       return Promise.reject("You must provide an SSO token for authorization");
     }
+    core.error("Request did not return a 201 status code");
     return Promise.reject("Request did not return a 201 status code");
   } catch (err: any) {
     if (err instanceof Error) return Promise.reject(err.message);
+    core.error(String(err.message));
     return Promise.reject(String(err));
   }
 }

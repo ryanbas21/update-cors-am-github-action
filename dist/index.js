@@ -15209,17 +15209,21 @@ exports.updateRedirectUris = updateRedirectUris;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.updateCorsConfig = void 0;
+const core = __nccwpck_require__(2186);
 const axios_1 = __nccwpck_require__(6545);
 const constants_1 = __nccwpck_require__(317);
 async function updateCorsConfig({ AM_URL, originsToAdd, ssoToken, cookieName, remove = false, // default to not remove origins
 corsConfigName, }) {
     if (!AM_URL) {
+        core.info("You must provide an AM_URL");
         return Promise.reject("You must provide an AM_URL");
     }
     if (!originsToAdd) {
+        core.info("You must provide a list of origins to update the cors config with");
         return Promise.reject("You must provide a list of origins to update the cors config with");
     }
     if (!ssoToken) {
+        core.info("No SSO Token provided to update the cors config, exiting without a network call");
         return Promise.reject("No SSO Token provided to update the cors config, exiting without a network call");
     }
     try {
@@ -15264,13 +15268,16 @@ corsConfigName, }) {
             };
         }
         if (response.status === 401) {
+            core.error("You must provide an SSO token for authorization");
             return Promise.reject("You must provide an SSO token for authorization");
         }
+        core.error("Request did not return a 201 status code");
         return Promise.reject("Request did not return a 201 status code");
     }
     catch (err) {
         if (err instanceof Error)
             return Promise.reject(err.message);
+        core.error(String(err.message));
         return Promise.reject(String(err));
     }
 }
