@@ -15244,7 +15244,7 @@ corsConfigName, }) {
          * the configuration with additional REST calls.
          * The new settings take effect immediately.
          */
-        const { data: { _id, _rev, ...body }, } = await request(constants_1.ADD_CONFIG.url(), {
+        const { data: { _id, _rev, ...body }, } = await request(constants_1.ADD_CONFIG.url(corsConfigName), {
             method: constants_1.GET_CONFIG.type,
         });
         const response = await request.put(constants_1.ADD_CONFIG.url(corsConfigName), {
