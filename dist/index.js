@@ -15474,10 +15474,12 @@ async function update() {
             username,
             password,
         });
+        core.info("Authenticated Correctly!");
         const originsToAdd = JSON.parse(originsJSON)
             // in a world where you can somehow get an empty url from your input if not manually written
             .map((val) => val?.url ?? "")
             .filter(Boolean); // just remove all false values
+        core.info("origins parsed correctly!");
         const output = await (0, update_cors_cloud_1.updateCorsConfig)({
             AM_URL,
             originsToAdd,
@@ -15500,14 +15502,15 @@ async function update() {
                 ssoToken,
                 remove,
             });
+            core.info("Uri values parsed and updated correctly");
             return core.setOutput("uris and config", { output, value });
         }
         return core.setOutput("cors config", output);
     }
     catch (err) {
         if (err instanceof Error) {
-            core.setOutput("error message", err.message);
-            core.setOutput("error stack", err.stack);
+            core.info("error message " + err.message);
+            core.info("error stack " + err.stack);
         }
         return core.setFailed(err.message);
     }
