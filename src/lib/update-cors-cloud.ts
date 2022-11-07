@@ -64,7 +64,7 @@ export async function updateCorsConfig({
      */
     const {
       data: { _id, _rev, ...body },
-    } = await request(ADD_CONFIG.url(), {
+    } = await request(ADD_CONFIG.url(corsConfigName), {
       method: GET_CONFIG.type,
     });
 
