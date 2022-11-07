@@ -95,14 +95,17 @@ export async function updateCorsConfig({
       };
     }
     if (response.status === 401) {
-      core.error("You must provide an SSO token for authorization");
+      core.info("You must provide an SSO token for authorization");
       return Promise.reject("You must provide an SSO token for authorization");
     }
-    core.error("Request did not return a 201 status code");
+    core.info("Request did not return a 201 status code");
     return Promise.reject("Request did not return a 201 status code");
   } catch (err: any) {
-    if (err instanceof Error) return Promise.reject(err.message);
-    core.error(String(err.message));
+    if (err instanceof Error) {
+      core.info(err.message);
+      return Promise.reject(err.message);
+    }
+    core.info(String(err));
     return Promise.reject(String(err));
   }
 }
